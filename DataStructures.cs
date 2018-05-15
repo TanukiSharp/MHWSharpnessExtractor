@@ -87,7 +87,7 @@ namespace MHWSharpnessExtractor
         }
     }
 
-    public struct WeaponInfo
+    public class Weapon
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
@@ -99,7 +99,7 @@ namespace MHWSharpnessExtractor
         public ElementInfo Element { get; }
         public int[] Slots { get; }
 
-        public WeaponInfo(
+        public Weapon(
             string name,
             WeaponType type,
             int attack,
@@ -134,7 +134,7 @@ namespace MHWSharpnessExtractor
             // Sharpness is not taken into account on purpose,
             // this is the value known to be different from the DB.
 
-            if (obj is WeaponInfo other)
+            if (obj is Weapon other)
             {
                 if (other.Slots.Length != Slots.Length)
                     return false;
@@ -161,12 +161,12 @@ namespace MHWSharpnessExtractor
             return $"{Attack}-{Element.GetHashCode()}".GetHashCode();
         }
 
-        public static bool operator ==(WeaponInfo left, WeaponInfo right)
+        public static bool operator ==(Weapon left, Weapon right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(WeaponInfo left, WeaponInfo right)
+        public static bool operator !=(Weapon left, Weapon right)
         {
             return !(left == right);
         }

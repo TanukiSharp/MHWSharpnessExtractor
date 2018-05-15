@@ -7,6 +7,6 @@ namespace MHWSharpnessExtractor
     public interface IDataSource
     {
         string Name { get; }
-        Task<IList<WeaponInfo>> ProduceWeaponsAsync();
+        Task<IList<Weapon>> ProduceWeaponsAsync();
     }
 }

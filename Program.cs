@@ -29,7 +29,7 @@ namespace MHWSharpnessExtractor
 
             try
             {
-                IList<WeaponInfo> weapons = await dataSource.ProduceWeaponsAsync();
+                IList<Weapon> weapons = await dataSource.ProduceWeaponsAsync();
                 resultCode = ResultCode.Success;
             }
             catch (FormatException ex)

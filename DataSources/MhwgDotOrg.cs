@@ -11,12 +11,12 @@ namespace MHWSharpnessExtractor.DataSources
     {
         public string Name { get; } = "mhwg.org";
 
-        public async Task<IList<WeaponInfo>> ProduceWeaponsAsync()
+        public async Task<IList<Weapon>> ProduceWeaponsAsync()
         {
             var httpClient = new HttpClient();
-            var result = new List<WeaponInfo>();
+            var result = new List<Weapon>();
 
-            var tasks = new Task<IList<WeaponInfo>>[]
+            var tasks = new Task<IList<Weapon>>[]
             {
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4000.html"), WeaponType.GreatSword),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4001.html"), WeaponType.LongSword),
@@ -24,19 +24,19 @@ namespace MHWSharpnessExtractor.DataSources
 
             await Task.WhenAll(tasks);
 
-            foreach (Task<IList<WeaponInfo>> task in tasks)
+            foreach (Task<IList<Weapon>> task in tasks)
                 result.AddRange(task.Result);
 
             return result;
         }
 
-        private async Task<IList<WeaponInfo>> GetWeaponsAsync(Task<string> contentProvider, WeaponType weaponType)
+        private async Task<IList<Weapon>> GetWeaponsAsync(Task<string> contentProvider, WeaponType weaponType)
         {
             string content = await contentProvider;
 
             int currentPosition = 0;
 
-            var weapons = new List<WeaponInfo>();
+            var weapons = new List<Weapon>();
 
             while (currentPosition < content.Length)
             {
@@ -152,7 +152,7 @@ namespace MHWSharpnessExtractor.DataSources
 
                 // ==================================================================================
 
-                weapons.Add(new WeaponInfo(
+                weapons.Add(new Weapon(
                     weaponName,
                     weaponType,
                     attack,
