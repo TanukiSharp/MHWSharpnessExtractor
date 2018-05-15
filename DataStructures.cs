@@ -172,7 +172,7 @@ namespace MHWSharpnessExtractor
         }
     }
 
-    public enum PhialType
+    public enum ChargeBladePhialType
     {
         None,
         Impact,
@@ -181,11 +181,11 @@ namespace MHWSharpnessExtractor
 
     public class ChargeBlade : Weapon
     {
-        public PhialType PhialType { get; }
+        public ChargeBladePhialType PhialType { get; }
 
         public ChargeBlade(
             string name,
-            PhialType phialType,
+            ChargeBladePhialType phialType,
             int attack,
             int affinity,
             int defense,
@@ -288,6 +288,174 @@ namespace MHWSharpnessExtractor
         public override int GetHashCode()
         {
             return $"{base.GetHashCode()}-{string.Join(":", Melodies)}".GetHashCode();
+        }
+    }
+
+    public enum SwitchAxePhialType
+    {
+        None,
+        Power,
+        PowerElement,
+        Poison,
+        Exhaust,
+        Dragon,
+        Paralysis
+    }
+
+    public class SwitchAxe : Weapon
+    {
+        public SwitchAxePhialType PhialType { get; }
+        public int PhialValue { get; }
+
+        public SwitchAxe(
+            string name,
+            SwitchAxePhialType phialType,
+            int phialValue,
+            int attack,
+            int affinity,
+            int defense,
+            int[] sharpnessRanks,
+            ElementInfo element,
+            int[] slots)
+            : base(
+                  name,
+                  WeaponType.SwitchAxe,
+                  attack,
+                  affinity,
+                  defense,
+                  sharpnessRanks,
+                  element,
+                  slots
+            )
+        {
+            PhialType = phialType;
+            PhialValue = phialValue;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj) == false)
+                return false;
+
+            if (obj is SwitchAxe other)
+                return other.PhialType == PhialType && other.PhialValue == PhialValue;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{base.GetHashCode()}-{(int)PhialType}-{PhialValue}".GetHashCode();
+        }
+    }
+
+    public enum GunlanceShellingType
+    {
+        None,
+        Normal,
+        Long,
+        Wide
+    }
+
+    public class Gunlance : Weapon
+    {
+        public GunlanceShellingType ShellingType { get; }
+        public int ShellingLevel { get; }
+
+        public Gunlance(
+            string name,
+            GunlanceShellingType shellingType,
+            int shellingLevel,
+            int attack,
+            int affinity,
+            int defense,
+            int[] sharpnessRanks,
+            ElementInfo element,
+            int[] slots)
+            : base(
+                  name,
+                  WeaponType.Gunlance,
+                  attack,
+                  affinity,
+                  defense,
+                  sharpnessRanks,
+                  element,
+                  slots
+            )
+        {
+            ShellingType = shellingType;
+            ShellingLevel = shellingLevel;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj) == false)
+                return false;
+
+            if (obj is Gunlance other)
+                return other.ShellingType == ShellingType && other.ShellingLevel == ShellingLevel;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{base.GetHashCode()}-{(int)ShellingType}-{ShellingLevel}".GetHashCode();
+        }
+    }
+
+    public enum KinsectBonusType
+    {
+        None,
+        Sever,
+        Speed,
+        Element,
+        Health,
+        Stamina,
+        Blunt
+    }
+
+    public class InsectGlaive : Weapon
+    {
+        public KinsectBonusType KinsectBonus { get; }
+
+        public InsectGlaive(
+            string name,
+            KinsectBonusType kinsectBonus,
+            int attack,
+            int affinity,
+            int defense,
+            int[] sharpnessRanks,
+            ElementInfo element,
+            int[] slots)
+            : base(
+                  name,
+                  WeaponType.InsectGlaive,
+                  attack,
+                  affinity,
+                  defense,
+                  sharpnessRanks,
+                  element,
+                  slots
+            )
+        {
+            KinsectBonus = kinsectBonus;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj) == false)
+                return false;
+
+            if (obj is InsectGlaive other)
+                return other.KinsectBonus == KinsectBonus;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{base.GetHashCode()}-{(int)KinsectBonus}".GetHashCode();
         }
     }
 }

@@ -125,6 +125,9 @@ namespace MHWSharpnessExtractor
         {
             var result = new Dictionary<string, string>();
 
+            if (styles == null || styles.Length == 0)
+                return result;
+
             foreach (string property in styles.Split(';', StringSplitOptions.RemoveEmptyEntries))
             {
                 string[] kv = property.Split(':');

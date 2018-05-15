@@ -20,8 +20,15 @@ namespace MHWSharpnessExtractor.DataSources
             {
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4000.html"), WeaponType.GreatSword),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4001.html"), WeaponType.LongSword),
-                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4009.html"), WeaponType.ChargeBlade),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4002.html"), WeaponType.SwordAndShield),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4003.html"), WeaponType.DualBlades),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4004.html"), WeaponType.Hammer),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4005.html"), WeaponType.HuntingHorn),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4006.html"), WeaponType.Lance),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4007.html"), WeaponType.Gunlance),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4008.html"), WeaponType.SwitchAxe),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4009.html"), WeaponType.ChargeBlade),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4010.html"), WeaponType.InsectGlaive),
             };
 
             await Task.WhenAll(tasks);
@@ -83,18 +90,40 @@ namespace MHWSharpnessExtractor.DataSources
 
                 TryGetWeaponElement(weaponName, weaponElementContent, out int affinity, out int defense, out ElementInfo elementInfo);
 
-                // === charge blade phial type =============================================================
+                // === weapon specific info =============================================================
 
-                PhialType chargeBladePhialType = PhialType.None;
+                ChargeBladePhialType chargeBladePhialType = ChargeBladePhialType.None;
                 Melody[] huntingHornMelodies = null;
+                SwitchAxePhialType switchAxePhialType = SwitchAxePhialType.None;
+                int switchAxePhialValue = 0;
+                GunlanceShellingType gunlanceShellingType = GunlanceShellingType.None;
+                int gunlanceShellingValue = 0;
+                KinsectBonusType insectGlaiveKinsectBonusType = KinsectBonusType.None;
 
                 if (weaponType == WeaponType.ChargeBlade)
                 {
+                    // === charge blade phial type =============================================================
                     TryGetChargeBladePhialType(weaponName, content, ref currentPosition, out chargeBladePhialType);
                 }
                 else if (weaponType == WeaponType.HuntingHorn)
                 {
+                    // === hunting horn melodies =============================================================
                     TryGetHuntingHornMelodies(weaponName, content, ref currentPosition, out huntingHornMelodies);
+                }
+                else if (weaponType == WeaponType.SwitchAxe)
+                {
+                    // === hunting horn melodies =============================================================
+                    TryGetSwitchAxePhialInfo(weaponName, content, ref currentPosition, out switchAxePhialType, out switchAxePhialValue);
+                }
+                else if (weaponType == WeaponType.Gunlance)
+                {
+                    // === gunlance shelling info =============================================================
+                    TryGetGunlanceShellingInfo(weaponName, content, ref currentPosition, out gunlanceShellingType, out gunlanceShellingValue);
+                }
+                else if (weaponType == WeaponType.InsectGlaive)
+                {
+                    // === insect glaive kinsect bonus type =============================================================
+                    TryGetInsectGlaiveKinsectBonus(weaponName, content, ref currentPosition, out insectGlaiveKinsectBonusType);
                 }
 
                 // === sharpness ranks =========================================================
@@ -132,6 +161,8 @@ namespace MHWSharpnessExtractor.DataSources
                 }
 
                 ranks.Sort((a, b) => a.rank.CompareTo(b.rank));
+
+                int[] sharpnessRanks = ranks.Select(x => x.value).ToArray();
 
                 // === slots =========================================================
 
@@ -178,7 +209,7 @@ namespace MHWSharpnessExtractor.DataSources
                         attack,
                         affinity,
                         defense,
-                        ranks.Select(x => x.value).ToArray(),
+                        sharpnessRanks,
                         elementInfo,
                         slots
                     );
@@ -191,7 +222,48 @@ namespace MHWSharpnessExtractor.DataSources
                         attack,
                         affinity,
                         defense,
-                        ranks.Select(x => x.value).ToArray(),
+                        sharpnessRanks,
+                        elementInfo,
+                        slots
+                    );
+                }
+                else if (weaponType == WeaponType.SwitchAxe)
+                {
+                    weapon = new SwitchAxe(
+                        weaponName,
+                        switchAxePhialType,
+                        switchAxePhialValue,
+                        attack,
+                        affinity,
+                        defense,
+                        sharpnessRanks,
+                        elementInfo,
+                        slots
+                    );
+                }
+                else if (weaponType == WeaponType.Gunlance)
+                {
+                    weapon = new Gunlance(
+                        weaponName,
+                        gunlanceShellingType,
+                        gunlanceShellingValue,
+                        attack,
+                        affinity,
+                        defense,
+                        sharpnessRanks,
+                        elementInfo,
+                        slots
+                    );
+                }
+                else if (weaponType == WeaponType.InsectGlaive)
+                {
+                    weapon = new InsectGlaive(
+                        weaponName,
+                        insectGlaiveKinsectBonusType,
+                        attack,
+                        affinity,
+                        defense,
+                        sharpnessRanks,
                         elementInfo,
                         slots
                     );
@@ -204,7 +276,7 @@ namespace MHWSharpnessExtractor.DataSources
                         attack,
                         affinity,
                         defense,
-                        ranks.Select(x => x.value).ToArray(),
+                        sharpnessRanks,
                         elementInfo,
                         slots
                     );
@@ -221,7 +293,7 @@ namespace MHWSharpnessExtractor.DataSources
             return new FormatException(message);
         }
 
-        private void TryGetChargeBladePhialType(string weaponName, string content, ref int currentPosition, out PhialType phialType)
+        private void TryGetChargeBladePhialType(string weaponName, string content, ref int currentPosition, out ChargeBladePhialType phialType)
         {
             Markup cbPhialMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
             if (cbPhialMarkup == null)
@@ -232,9 +304,9 @@ namespace MHWSharpnessExtractor.DataSources
                 throw BadFormat($"Could not find Charge Blade phial markup content for weapon '{weaponName}'");
 
             if (cbPhialContent == "榴弾")
-                phialType = PhialType.Impact;
+                phialType = ChargeBladePhialType.Impact;
             else if (cbPhialContent == "強属性")
-                phialType = PhialType.Elemental;
+                phialType = ChargeBladePhialType.Elemental;
             else
                 throw BadFormat($"Invalid Charge Blade phial value '{cbPhialContent}' for weapon '{weaponName}'");
         }
@@ -261,7 +333,7 @@ namespace MHWSharpnessExtractor.DataSources
                 string stylesValue = melodyMarkup.Properties["style"];
                 IReadOnlyDictionary<string, string> styles = HtmlUtils.ParseStyle(stylesValue);
                 if (styles == null)
-                    throw BadFormat($"Invalid styles value '{stylesValue}' for Hunting Horn weapon '{weaponName}'");
+                    throw BadFormat($"Invalid styles value '{(stylesValue ?? "(null)")}' for Hunting Horn weapon '{weaponName}'");
 
                 if (styles.TryGetValue("color", out string colorValue) == false)
                     throw BadFormat($"Missing 'color' style property for Hunting Horn weapon '{weaponName}'");
@@ -298,6 +370,113 @@ namespace MHWSharpnessExtractor.DataSources
             }
 
             melodies = localMelodies.ToArray();
+        }
+
+        private void TryGetSwitchAxePhialInfo(string weaponName, string content, ref int currentPosition, out SwitchAxePhialType phialType, out int phialValue)
+        {
+            phialType = SwitchAxePhialType.None;
+            phialValue = 0;
+
+            Markup saPhialMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Any(x => x.StartsWith("type_")));
+            if (saPhialMarkup == null)
+                throw BadFormat($"Could not find Switch Axe phial markup for weapon '{weaponName}'");
+
+            string saPhialContent = HtmlUtils.GetMarkupContent(content, saPhialMarkup);
+            if (saPhialContent == null)
+                throw BadFormat($"Could not find Switch Axe phial markup content for weapon '{weaponName}'");
+
+            if (saPhialContent == "強撃")
+                phialType = SwitchAxePhialType.Power;
+            else if (saPhialContent.StartsWith("毒"))
+            {
+                phialType = SwitchAxePhialType.Poison;
+                if (TryGetNumericValueAfterCharacters(saPhialContent, out phialValue) == false)
+                    throw BadFormat($"Invalid Switch Axe poison phial value '{saPhialContent}' for weapon '{weaponName}'");
+            }
+            else if (saPhialContent == "強属性")
+                phialType = SwitchAxePhialType.PowerElement;
+            else if (saPhialContent.StartsWith("減気"))
+            {
+                phialType = SwitchAxePhialType.Exhaust;
+                if (TryGetNumericValueAfterCharacters(saPhialContent, out phialValue) == false)
+                    throw BadFormat($"Invalid Switch Axe exhaust phial value '{saPhialContent}' for weapon '{weaponName}'");
+            }
+            else if (saPhialContent.StartsWith("滅龍"))
+            {
+                phialType = SwitchAxePhialType.Dragon;
+                if (TryGetNumericValueAfterCharacters(saPhialContent, out phialValue) == false)
+                    throw BadFormat($"Invalid Switch Axe dragon phial value '{saPhialContent}' for weapon '{weaponName}'");
+            }
+            else if (saPhialContent.StartsWith("麻痺"))
+            {
+                phialType = SwitchAxePhialType.Paralysis;
+                if (TryGetNumericValueAfterCharacters(saPhialContent, out phialValue) == false)
+                    throw BadFormat($"Invalid Switch Axe paralysis phial value '{saPhialContent}' for weapon '{weaponName}'");
+            }
+            else
+                throw BadFormat($"Invalid Switch Axe phial value '{saPhialContent}' for weapon '{weaponName}'");
+        }
+
+        private void TryGetGunlanceShellingInfo(string weaponName, string content, ref int currentPosition, out GunlanceShellingType shellingType, out int shellingValue)
+        {
+            shellingType = GunlanceShellingType.None;
+            shellingValue = 0;
+
+            Markup glShellingMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
+            if (glShellingMarkup == null)
+                throw BadFormat($"Could not find Gunlance shelling markup for weapon '{weaponName}'");
+
+            string glShellingContent = HtmlUtils.GetMarkupContent(content, glShellingMarkup);
+            if (glShellingContent == null)
+                throw BadFormat($"Could not find Gunlance shelling markup content for weapon '{weaponName}'");
+
+            if (glShellingContent.StartsWith("通常"))
+                shellingType = GunlanceShellingType.Normal;
+            else if (glShellingContent.StartsWith("拡散"))
+                shellingType = GunlanceShellingType.Wide;
+            else if (glShellingContent.StartsWith("放射"))
+                shellingType = GunlanceShellingType.Long;
+            else
+                throw BadFormat($"Invalid Gunlance shelling value '{glShellingContent}' for weapon '{weaponName}'");
+
+            TryGetNumericValueAfterCharacters(glShellingContent, out shellingValue);
+        }
+
+        private void TryGetInsectGlaiveKinsectBonus(string weaponName, string content, ref int currentPosition, out KinsectBonusType kinsectBonusType)
+        {
+            kinsectBonusType = KinsectBonusType.None;
+
+            Markup igBonusMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
+            if (igBonusMarkup == null)
+                throw BadFormat($"Could not find Insect Glaive kinsect bonus markup for weapon '{weaponName}'");
+
+            string igBonusContent = HtmlUtils.GetMarkupContent(content, igBonusMarkup);
+            if (igBonusContent == null)
+                throw BadFormat($"Could not find Insect Glaive kinsect bonus markup content for weapon '{weaponName}'");
+
+            switch (igBonusContent)
+            {
+                case "攻撃強化【切断】":
+                    kinsectBonusType = KinsectBonusType.Sever;
+                    break;
+                case "スピード強化":
+                    kinsectBonusType = KinsectBonusType.Speed;
+                    break;
+                case "攻撃強化【属性】":
+                    kinsectBonusType = KinsectBonusType.Element;
+                    break;
+                case "回復強化【体力】":
+                    kinsectBonusType = KinsectBonusType.Health;
+                    break;
+                case "回復強化【スタミナ】":
+                    kinsectBonusType = KinsectBonusType.Stamina;
+                    break;
+                case "攻撃強化【打撃】":
+                    kinsectBonusType = KinsectBonusType.Blunt;
+                    break;
+                default:
+                    throw BadFormat($"Invalid Insect Glaive kinsect bonus value '{igBonusContent}' for weapon '{weaponName}'");
+            }
         }
 
         private string GetWeaponName(string content)
@@ -384,20 +563,25 @@ namespace MHWSharpnessExtractor.DataSources
                     else
                         throw BadFormat($"Invalid element value '{(elementValueString ?? "(null)")}' for weapon '{weaponName}'");
 
-                    int digitIndex = Array.FindIndex(elementValueString.ToCharArray(), char.IsNumber);
-                    if (digitIndex < 0)
-                        throw BadFormat($"Could not find element numeric value in '{(elementValueString ?? "(null)")}' for weapon '{weaponName}'");
-
-                    elementValueString = elementValueString.Substring(digitIndex, elementValueString.Length - digitIndex); // remove the leading kanji(s)
-
-                    if (int.TryParse(elementValueString, out elementValue) == false)
-                        throw BadFormat($"Invalid element numeric value '{(elementValueString ?? "(null)")}' value for weapon '{weaponName}'");
+                    if (TryGetNumericValueAfterCharacters(elementValueString, out elementValue) == false)
+                        throw BadFormat($"Invalid element value '{(elementValueString ?? "(null)")}' value for weapon '{weaponName}'");
                 }
             }
 
             affinity = localAffinity;
             defense = localDefense;
             elementInfo = new ElementInfo(elementType, isHidden, elementValue, eldersealLevel);
+        }
+
+        private bool TryGetNumericValueAfterCharacters(string content, out int value)
+        {
+            value = 0;
+
+            int digitIndex = Array.FindIndex(content.ToCharArray(), char.IsNumber);
+            if (digitIndex < 0)
+                return false;
+
+            return int.TryParse(content.Substring(digitIndex), out value);
         }
 
         private bool IsEldersealMarkup(Markup markup)
