@@ -222,4 +222,72 @@ namespace MHWSharpnessExtractor
             return $"{base.GetHashCode()}-{(int)PhialType}".GetHashCode();
         }
     }
+
+    public enum Melody
+    {
+        None,
+        White,
+        Red,
+        Blue,
+        Purple,
+        Green,
+        Orange,
+        Cyan,
+        Yellow,
+    }
+
+    public class HuntingHorn : Weapon
+    {
+        public Melody[] Melodies { get; }
+
+        public HuntingHorn(
+            string name,
+            Melody[] melodies,
+            int attack,
+            int affinity,
+            int defense,
+            int[] sharpnessRanks,
+            ElementInfo element,
+            int[] slots)
+            : base(
+                  name,
+                  WeaponType.HuntingHorn,
+                  attack,
+                  affinity,
+                  defense,
+                  sharpnessRanks,
+                  element,
+                  slots
+            )
+        {
+            Melodies = melodies ?? new Melody[0];
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj) == false)
+                return false;
+
+            if (obj is HuntingHorn other)
+            {
+                if (other.Melodies.Length != Melodies.Length)
+                    return false;
+
+                for (int i = 0; i < Melodies.Length; i++)
+                {
+                    if (other.Melodies[i] != Melodies[i])
+                        return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{base.GetHashCode()}-{string.Join(":", Melodies)}".GetHashCode();
+        }
+    }
 }

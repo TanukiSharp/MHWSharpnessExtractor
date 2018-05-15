@@ -21,6 +21,7 @@ namespace MHWSharpnessExtractor.DataSources
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4000.html"), WeaponType.GreatSword),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4001.html"), WeaponType.LongSword),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4009.html"), WeaponType.ChargeBlade),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4005.html"), WeaponType.HuntingHorn),
             };
 
             await Task.WhenAll(tasks);
@@ -85,23 +86,15 @@ namespace MHWSharpnessExtractor.DataSources
                 // === charge blade phial type =============================================================
 
                 PhialType chargeBladePhialType = PhialType.None;
+                Melody[] huntingHornMelodies = null;
 
                 if (weaponType == WeaponType.ChargeBlade)
                 {
-                    Markup cbPhialMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
-                    if (cbPhialMarkup == null)
-                        throw BadFormat($"Could not find Charge Blade phial markup for weapon '{weaponName}'");
-
-                    string cbPhialContent = HtmlUtils.GetMarkupContent(content, cbPhialMarkup);
-                    if (cbPhialContent == null)
-                        throw BadFormat($"Could not find Charge Blade phial markup content for weapon '{weaponName}'");
-
-                    if (cbPhialContent == "榴弾")
-                        chargeBladePhialType = PhialType.Impact;
-                    else if (cbPhialContent == "強属性")
-                        chargeBladePhialType = PhialType.Elemental;
-                    else
-                        throw BadFormat($"Invalid Charge Blade phial value '{cbPhialContent}' for weapon '{weaponName}'");
+                    TryGetChargeBladePhialType(weaponName, content, ref currentPosition, out chargeBladePhialType);
+                }
+                else if (weaponType == WeaponType.HuntingHorn)
+                {
+                    TryGetHuntingHornMelodies(weaponName, content, ref currentPosition, out huntingHornMelodies);
                 }
 
                 // === sharpness ranks =========================================================
@@ -190,6 +183,19 @@ namespace MHWSharpnessExtractor.DataSources
                         slots
                     );
                 }
+                else if (weaponType == WeaponType.HuntingHorn)
+                {
+                    weapon = new HuntingHorn(
+                        weaponName,
+                        huntingHornMelodies,
+                        attack,
+                        affinity,
+                        defense,
+                        ranks.Select(x => x.value).ToArray(),
+                        elementInfo,
+                        slots
+                    );
+                }
                 else
                 {
                     weapon = new Weapon(
@@ -213,6 +219,85 @@ namespace MHWSharpnessExtractor.DataSources
         private FormatException BadFormat(string message)
         {
             return new FormatException(message);
+        }
+
+        private void TryGetChargeBladePhialType(string weaponName, string content, ref int currentPosition, out PhialType phialType)
+        {
+            Markup cbPhialMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
+            if (cbPhialMarkup == null)
+                throw BadFormat($"Could not find Charge Blade phial markup for weapon '{weaponName}'");
+
+            string cbPhialContent = HtmlUtils.GetMarkupContent(content, cbPhialMarkup);
+            if (cbPhialContent == null)
+                throw BadFormat($"Could not find Charge Blade phial markup content for weapon '{weaponName}'");
+
+            if (cbPhialContent == "榴弾")
+                phialType = PhialType.Impact;
+            else if (cbPhialContent == "強属性")
+                phialType = PhialType.Elemental;
+            else
+                throw BadFormat($"Invalid Charge Blade phial value '{cbPhialContent}' for weapon '{weaponName}'");
+        }
+
+        private void TryGetHuntingHornMelodies(string weaponName, string content, ref int currentPosition, out Melody[] melodies)
+        {
+            melodies = null;
+
+            Markup hhMelodiesMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "a" && m.Properties.ContainsKey("href") && m.Properties["href"].StartsWith("/data/4243.html#"));
+            if (hhMelodiesMarkup == null)
+                throw BadFormat($"Could not find Hunting Horn melodies markup for weapon '{weaponName}'");
+
+            var localMelodies = new List<Melody>(3);
+
+            for (int i = 0; i < 3; i++)
+            {
+                Markup melodyMarkup = HtmlUtils.GetNextMarkup(content, ref currentPosition);
+                if (melodyMarkup == null)
+                    throw BadFormat($"Could not find Hunting Horn note markup for weapon '{weaponName}'");
+
+                if (melodyMarkup.Properties.ContainsKey("style") == false)
+                    throw BadFormat($"Hunting Horn note markup is missing 'style' property for weapon '{weaponName}'");
+
+                string stylesValue = melodyMarkup.Properties["style"];
+                IReadOnlyDictionary<string, string> styles = HtmlUtils.ParseStyle(stylesValue);
+                if (styles == null)
+                    throw BadFormat($"Invalid styles value '{stylesValue}' for Hunting Horn weapon '{weaponName}'");
+
+                if (styles.TryGetValue("color", out string colorValue) == false)
+                    throw BadFormat($"Missing 'color' style property for Hunting Horn weapon '{weaponName}'");
+
+                switch (colorValue.ToLower())
+                {
+                    case "#f3f3f3":
+                        localMelodies.Add(Melody.White);
+                        break;
+                    case "#e0002a":
+                        localMelodies.Add(Melody.Red);
+                        break;
+                    case "blue":
+                        localMelodies.Add(Melody.Blue);
+                        break;
+                    case "#c778c7":
+                        localMelodies.Add(Melody.Purple);
+                        break;
+                    case "#00cc00":
+                        localMelodies.Add(Melody.Green);
+                        break;
+                    case "#ef810f":
+                        localMelodies.Add(Melody.Orange);
+                        break;
+                    case "#99f8f8":
+                        localMelodies.Add(Melody.Cyan);
+                        break;
+                    case "#eeee00":
+                        localMelodies.Add(Melody.Yellow);
+                        break;
+                    default:
+                        throw BadFormat($"Invalid color value '{colorValue}' for Hunting Horn weapon '{weaponName}'");
+                }
+            }
+
+            melodies = localMelodies.ToArray();
         }
 
         private string GetWeaponName(string content)

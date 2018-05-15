@@ -120,5 +120,22 @@ namespace MHWSharpnessExtractor
 
             return content.Substring(startIndex, endIndex - startIndex);
         }
+
+        public static IReadOnlyDictionary<string, string> ParseStyle(string styles)
+        {
+            var result = new Dictionary<string, string>();
+
+            foreach (string property in styles.Split(';', StringSplitOptions.RemoveEmptyEntries))
+            {
+                string[] kv = property.Split(':');
+
+                if (kv.Length != 2)
+                    return null;
+
+                result[kv[0].Trim().ToLower()] = kv[1].Trim();
+            }
+
+            return new ReadOnlyDictionary<string, string>(result);
+        }
     }
 }
