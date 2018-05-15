@@ -171,4 +171,55 @@ namespace MHWSharpnessExtractor
             return !(left == right);
         }
     }
+
+    public enum PhialType
+    {
+        None,
+        Impact,
+        Elemental
+    }
+
+    public class ChargeBlade : Weapon
+    {
+        public PhialType PhialType { get; }
+
+        public ChargeBlade(
+            string name,
+            PhialType phialType,
+            int attack,
+            int affinity,
+            int defense,
+            int[] sharpnessRanks,
+            ElementInfo element,
+            int[] slots)
+            : base(
+                  name,
+                  WeaponType.ChargeBlade,
+                  attack,
+                  affinity,
+                  defense,
+                  sharpnessRanks,
+                  element,
+                  slots
+            )
+        {
+            PhialType = phialType;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj) == false)
+                return false;
+
+            if (obj is ChargeBlade other)
+                return other.PhialType == PhialType;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{base.GetHashCode()}-{(int)PhialType}".GetHashCode();
+        }
+    }
 }

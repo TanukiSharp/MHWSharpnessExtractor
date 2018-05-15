@@ -20,6 +20,7 @@ namespace MHWSharpnessExtractor.DataSources
             {
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4000.html"), WeaponType.GreatSword),
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4001.html"), WeaponType.LongSword),
+                GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4009.html"), WeaponType.ChargeBlade),
             };
 
             await Task.WhenAll(tasks);
@@ -80,6 +81,28 @@ namespace MHWSharpnessExtractor.DataSources
                 string weaponElementContent = content.Substring(currentPosition, closingTdIndex - currentPosition);
 
                 TryGetWeaponElement(weaponName, weaponElementContent, out int affinity, out int defense, out ElementInfo elementInfo);
+
+                // === charge blade phial type =============================================================
+
+                PhialType chargeBladePhialType = PhialType.None;
+
+                if (weaponType == WeaponType.ChargeBlade)
+                {
+                    Markup cbPhialMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "td" && m.Classes.Contains("type_0"));
+                    if (cbPhialMarkup == null)
+                        throw BadFormat($"Could not find Charge Blade phial markup for weapon '{weaponName}'");
+
+                    string cbPhialContent = HtmlUtils.GetMarkupContent(content, cbPhialMarkup);
+                    if (cbPhialContent == null)
+                        throw BadFormat($"Could not find Charge Blade phial markup content for weapon '{weaponName}'");
+
+                    if (cbPhialContent == "榴弾")
+                        chargeBladePhialType = PhialType.Impact;
+                    else if (cbPhialContent == "強属性")
+                        chargeBladePhialType = PhialType.Elemental;
+                    else
+                        throw BadFormat($"Invalid Charge Blade phial value '{cbPhialContent}' for weapon '{weaponName}'");
+                }
 
                 // === sharpness ranks =========================================================
 
@@ -152,16 +175,36 @@ namespace MHWSharpnessExtractor.DataSources
 
                 // ==================================================================================
 
-                weapons.Add(new Weapon(
-                    weaponName,
-                    weaponType,
-                    attack,
-                    affinity,
-                    defense,
-                    ranks.Select(x => x.value).ToArray(),
-                    elementInfo,
-                    slots
-                ));
+                Weapon weapon;
+
+                if (weaponType == WeaponType.ChargeBlade)
+                {
+                    weapon = new ChargeBlade(
+                        weaponName,
+                        chargeBladePhialType,
+                        attack,
+                        affinity,
+                        defense,
+                        ranks.Select(x => x.value).ToArray(),
+                        elementInfo,
+                        slots
+                    );
+                }
+                else
+                {
+                    weapon = new Weapon(
+                        weaponName,
+                        weaponType,
+                        attack,
+                        affinity,
+                        defense,
+                        ranks.Select(x => x.value).ToArray(),
+                        elementInfo,
+                        slots
+                    );
+                }
+
+                weapons.Add(weapon);
             }
 
             return weapons;
