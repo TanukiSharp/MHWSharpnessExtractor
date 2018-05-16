@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace MHWSharpnessExtractor
 {
@@ -45,16 +46,14 @@ namespace MHWSharpnessExtractor
         public ElementType Type { get; }
         public bool IsHidden { get; }
         public int Value { get; }
-        public EldersealLevel Elderseal { get; }
 
-        public static readonly ElementInfo None = new ElementInfo(ElementType.None, true, 0, EldersealLevel.None);
+        public static readonly ElementInfo None = new ElementInfo(ElementType.None, true, 0);
 
-        public ElementInfo(ElementType type, bool isHidden, int value, EldersealLevel elderseal)
+        public ElementInfo(ElementType type, bool isHidden, int value)
         {
             Type = type;
             IsHidden = isHidden;
             Value = value;
-            Elderseal = elderseal;
         }
 
         public override bool Equals(object obj)
@@ -64,8 +63,7 @@ namespace MHWSharpnessExtractor
                 return
                     other.Type == Type &&
                     other.IsHidden == IsHidden &&
-                    other.Value == Value &&
-                    other.Elderseal == Elderseal;
+                    other.Value == Value;
             }
 
             return false;
@@ -73,7 +71,7 @@ namespace MHWSharpnessExtractor
 
         public override int GetHashCode()
         {
-            return $"{(int)Type}-{(IsHidden ? "1" : "0")}-{Value}-{(int)Elderseal}".GetHashCode();
+            return $"{(int)Type}-{(IsHidden ? "1" : "0")}-{Value}".GetHashCode();
         }
 
         public static bool operator ==(ElementInfo left, ElementInfo right)
@@ -84,6 +82,12 @@ namespace MHWSharpnessExtractor
         public static bool operator !=(ElementInfo left, ElementInfo right)
         {
             return !(left == right);
+        }
+
+        public override string ToString()
+        {
+            string value = $"{Type} {Value}";
+            return IsHidden ? $"({value})" : value;
         }
     }
 
@@ -96,7 +100,8 @@ namespace MHWSharpnessExtractor
         public int Affinity { get; }
         public int Defense { get; }
         public int[] SharpnessRanks { get; }
-        public ElementInfo Element { get; }
+        public EldersealLevel Elderseal { get; }
+        public ElementInfo[] Elements { get; }
         public int[] Slots { get; }
 
         public Weapon(
@@ -106,7 +111,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots
         )
         {
@@ -117,7 +123,8 @@ namespace MHWSharpnessExtractor
             Affinity = affinity;
             Defense = defense;
             SharpnessRanks = sharpnessRanks;
-            Element = element;
+            Elderseal = elderseal;
+            Elements = elements;
             Slots = slots;
         }
 
@@ -146,12 +153,21 @@ namespace MHWSharpnessExtractor
                         return false;
                 }
 
+                if (other.Elements.Length != Elements.Length)
+                    return false;
+
+                for (int i = 0; i < Elements.Length; i++)
+                {
+                    if (other.Elements[i] != Elements[i])
+                        return false;
+                }
+
                 return
                     other.Type == Type &&
                     other.Attack == Attack &&
                     other.Affinity == Affinity &&
                     other.Defense == Defense &&
-                    other.Element == Element;
+                    other.Elderseal == Elderseal;
             }
 
             return false;
@@ -159,7 +175,7 @@ namespace MHWSharpnessExtractor
 
         public override int GetHashCode()
         {
-            return $"{Attack}-{Element.GetHashCode()}".GetHashCode();
+            return $"{Attack}-{(int)Elderseal}-{string.Join('-', Elements.Select(x => x.GetHashCode().ToString()))}".GetHashCode();
         }
 
         public static bool operator ==(Weapon left, Weapon right)
@@ -170,6 +186,11 @@ namespace MHWSharpnessExtractor
         public static bool operator !=(Weapon left, Weapon right)
         {
             return !(left == right);
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 
@@ -191,7 +212,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots)
             : base(
                   name,
@@ -200,7 +222,8 @@ namespace MHWSharpnessExtractor
                   affinity,
                   defense,
                   sharpnessRanks,
-                  element,
+                  elderseal,
+                  elements,
                   slots
             )
         {
@@ -248,7 +271,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots)
             : base(
                   name,
@@ -257,7 +281,8 @@ namespace MHWSharpnessExtractor
                   affinity,
                   defense,
                   sharpnessRanks,
-                  element,
+                  elderseal,
+                  elements,
                   slots
             )
         {
@@ -316,7 +341,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots)
             : base(
                   name,
@@ -325,7 +351,8 @@ namespace MHWSharpnessExtractor
                   affinity,
                   defense,
                   sharpnessRanks,
-                  element,
+                  elderseal,
+                  elements,
                   slots
             )
         {
@@ -371,7 +398,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots)
             : base(
                   name,
@@ -380,7 +408,8 @@ namespace MHWSharpnessExtractor
                   affinity,
                   defense,
                   sharpnessRanks,
-                  element,
+                  elderseal,
+                  elements,
                   slots
             )
         {
@@ -427,7 +456,8 @@ namespace MHWSharpnessExtractor
             int affinity,
             int defense,
             int[] sharpnessRanks,
-            ElementInfo element,
+            EldersealLevel elderseal,
+            ElementInfo[] elements,
             int[] slots)
             : base(
                   name,
@@ -436,7 +466,8 @@ namespace MHWSharpnessExtractor
                   affinity,
                   defense,
                   sharpnessRanks,
-                  element,
+                  elderseal,
+                  elements,
                   slots
             )
         {

@@ -9,6 +9,11 @@ namespace MHWSharpnessExtractor.DataSources
 {
     public class MhwgDotOrg : IDataSource
     {
+        private static class Constants
+        {
+            public const int SharpnessMultiplier = 10; // input values are stored out of 40, output is desired out of 400
+        }
+
         public string Name { get; } = "mhwg.org";
 
         public async Task<IList<Weapon>> ProduceWeaponsAsync()
@@ -88,7 +93,7 @@ namespace MHWSharpnessExtractor.DataSources
 
                 string weaponElementContent = content.Substring(currentPosition, closingTdIndex - currentPosition);
 
-                TryGetWeaponElement(weaponName, weaponElementContent, out int affinity, out int defense, out ElementInfo elementInfo);
+                TryGetWeaponElement(weaponName, weaponElementContent, out int affinity, out int defense, out ElementInfo[] elementInfo, out EldersealLevel eldersealLevel);
 
                 // === weapon specific info =============================================================
 
@@ -157,7 +162,7 @@ namespace MHWSharpnessExtractor.DataSources
                         throw BadFormat($"Could not find inner sharpness markup content for weapon '{weaponName}'");
 
                     if (rankValue.Length > 0)
-                        ranks.Add((rank, rankValue.Length));
+                        ranks.Add((rank, rankValue.Length * Constants.SharpnessMultiplier));
                 }
 
                 ranks.Sort((a, b) => a.rank.CompareTo(b.rank));
@@ -210,6 +215,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -223,6 +229,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -237,6 +244,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -251,6 +259,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -264,6 +273,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -277,6 +287,7 @@ namespace MHWSharpnessExtractor.DataSources
                         affinity,
                         defense,
                         sharpnessRanks,
+                        eldersealLevel,
                         elementInfo,
                         slots
                     );
@@ -490,7 +501,7 @@ namespace MHWSharpnessExtractor.DataSources
             return content.Trim();
         }
 
-        private void TryGetWeaponElement(string weaponName, string content, out int affinity, out int defense, out ElementInfo elementInfo)
+        private void TryGetWeaponElement(string weaponName, string content, out int affinity, out int defense, out ElementInfo[] elementInfo, out EldersealLevel eldersealLevel)
         {
             affinity = 0;
             defense = 0;
@@ -498,16 +509,15 @@ namespace MHWSharpnessExtractor.DataSources
             int localAffinity = 0;
             int localDefense = 0;
 
-            ElementType elementType = ElementType.None;
-            bool isHidden = true;
-            int elementValue = 0;
-            EldersealLevel eldersealLevel = EldersealLevel.None;
+            EldersealLevel localEldersealLevel = EldersealLevel.None;
 
             IList<string> lines = content
                 .Split("\n")
                 .Select(x => x.Trim())
                 .Where(x => x.Length > 0)
                 .ToList();
+
+            var elements = new List<ElementInfo>();
 
             foreach (string line in lines)
             {
@@ -538,11 +548,9 @@ namespace MHWSharpnessExtractor.DataSources
                 }
                 else if (IsElementMarkup(markup))
                 {
-                    string elementClassName = markup.Classes.First(x => x.StartsWith("type_"));
-                    if (int.TryParse(elementClassName.Substring(5), out int numericElementType) == false)
-                        throw BadFormat($"Invalid element class '{(elementClassName ?? "(null)")}' for weapon '{weaponName}' (expected 'type_X' where X is a numeric value)");
-
-                    elementType = (ElementType)numericElementType;
+                    ElementType elementType = ElementType.None;
+                    bool isHidden = true;
+                    int elementValue = 0;
 
                     string elementValueString = HtmlUtils.GetMarkupContent(line, markup);
                     if (elementValueString == null)
@@ -563,14 +571,20 @@ namespace MHWSharpnessExtractor.DataSources
                     else
                         throw BadFormat($"Invalid element value '{(elementValueString ?? "(null)")}' for weapon '{weaponName}'");
 
-                    if (TryGetNumericValueAfterCharacters(elementValueString, out elementValue) == false)
-                        throw BadFormat($"Invalid element value '{(elementValueString ?? "(null)")}' value for weapon '{weaponName}'");
+                    TryGetElementTypeAndValue(weaponName, elementValueString, out elementType, out elementValue);
+
+                    elements.Add(new ElementInfo(elementType, isHidden, elementValue));
                 }
+            }
+
+            if (elements.Count > 1)
+            {
             }
 
             affinity = localAffinity;
             defense = localDefense;
-            elementInfo = new ElementInfo(elementType, isHidden, elementValue, eldersealLevel);
+            elementInfo = elements.ToArray();
+            eldersealLevel = localEldersealLevel;
         }
 
         private bool TryGetNumericValueAfterCharacters(string content, out int value)
@@ -582,6 +596,54 @@ namespace MHWSharpnessExtractor.DataSources
                 return false;
 
             return int.TryParse(content.Substring(digitIndex), out value);
+        }
+
+        private void TryGetElementTypeAndValue(string weaponName, string content, out ElementType elementType, out int value)
+        {
+            value = 0;
+            elementType = ElementType.None;
+
+            int digitIndex = Array.FindIndex(content.ToCharArray(), char.IsNumber);
+            if (digitIndex < 0)
+                throw BadFormat($"Invalid element value '{content}' for weapon '{weaponName}'");
+
+            switch (content.Substring(0, digitIndex))
+            {
+                case "火":
+                    elementType = ElementType.Fire;
+                    break;
+                case "水":
+                    elementType = ElementType.Water;
+                    break;
+                case "雷":
+                    elementType = ElementType.Thunder;
+                    break;
+                case "氷":
+                    elementType = ElementType.Ice;
+                    break;
+                case "龍":
+                    elementType = ElementType.Dragon;
+                    break;
+                case "毒":
+                    elementType = ElementType.Poison;
+                    break;
+                case "睡眠":
+                    elementType = ElementType.Sleep;
+                    break;
+                case "麻痺":
+                    elementType = ElementType.Paralysis;
+                    break;
+                case "爆破":
+                    elementType = ElementType.Blast;
+                    break;
+                //case "":
+                //    elementType = ElementType.Stun;
+                //    break;
+                default:
+                    throw BadFormat($"Invalid element value '{content}' for weapon '{weaponName}'");
+            }
+
+            int.TryParse(content.Substring(digitIndex), out value);
         }
 
         private bool IsEldersealMarkup(Markup markup)

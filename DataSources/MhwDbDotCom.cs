@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,7 @@ namespace MHWSharpnessExtractor.DataSources
 
             ExtractAttributes(attributes, out attack, out affinity, out defense, out eldersealLevel);
 
-            ElementInfo elementInfo = ExtractElementInfo((JArray)weapon["elements"], eldersealLevel);
+            ElementInfo[] elementInfo = ExtractElementInfo((JArray)weapon["elements"]);
             int[] slots = ExtractSlots((JArray)weapon["slots"]);
 
             Weapon outputWeapon;
@@ -74,17 +75,61 @@ namespace MHWSharpnessExtractor.DataSources
             if (type == WeaponType.ChargeBlade)
             {
                 ChargeBladePhialType phialType = ExtractChargeBladePhialType(attributes);
-                outputWeapon = new ChargeBlade(name, phialType, attack, affinity, defense, null, elementInfo, slots);
+                outputWeapon = new ChargeBlade(name, phialType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+            }
+            else if (type == WeaponType.HuntingHorn)
+            {
+                // mhw-db.com is missing melodies info
+                outputWeapon = new HuntingHorn(name, new Melody[0], attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.SwitchAxe)
             {
                 ExtractSwitchAxePhialInfo(attributes, out SwitchAxePhialType phialType, out int phialValue);
-                outputWeapon = new SwitchAxe(name, phialType, phialValue, attack, affinity, defense, null, elementInfo, slots);
+                outputWeapon = new SwitchAxe(name, phialType, phialValue, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+            }
+            else if (type == WeaponType.Gunlance)
+            {
+                ExtractGunlanceShellingInfo(attributes, out GunlanceShellingType shellingType, out int shellingLevel);
+                outputWeapon = new Gunlance(name, shellingType, shellingLevel, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+            }
+            else if (type == WeaponType.InsectGlaive)
+            {
+                KinsectBonusType kinsectBonusType = ExtractInsectGlaiveKinsectBonusType(attributes);
+                outputWeapon = new InsectGlaive(name, kinsectBonusType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else
-                outputWeapon = new Weapon(name, type, attack, affinity, defense, null, elementInfo, slots);
+                outputWeapon = new Weapon(name, type, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
 
             return outputWeapon.UpdateId((int)weapon["id"]);
+        }
+
+        private KinsectBonusType ExtractInsectGlaiveKinsectBonusType(JObject attributes)
+        {
+            if (attributes.TryGetValue("boostType", out JToken value))
+                return ConvertInsectGlaiveKinsectBonusType((string)value);
+            else
+                throw new FormatException($"An Insect Glaive is missing kinsect bonus type.");
+        }
+
+        private void ExtractGunlanceShellingInfo(JObject attributes, out GunlanceShellingType shellingType, out int shellingLevel)
+        {
+            shellingType = GunlanceShellingType.None;
+            shellingLevel = 0;
+
+            if (attributes.TryGetValue("shellingType", out JToken value))
+            {
+                string shellingInfoContent = (string)value;
+                string[] shellingInfoParts = shellingInfoContent.Split(' ');
+
+                if (shellingInfoParts.Length != 2 || shellingInfoParts[1].StartsWith("LV") == false)
+                    throw new FormatException($"Unsupported '{shellingInfoContent}' Gunlance shelling info.");
+
+                shellingType = ConvertGunlanceShellingType(shellingInfoParts[0]);
+                if (int.TryParse(shellingInfoParts[1].Substring(2), out shellingLevel) == false)
+                    throw new FormatException($"Unsupported '{shellingInfoParts}' Gunlance shelling level.");
+            }
+            else
+                throw new FormatException($"A Gunlance is missing shelling info.");
         }
 
         private void ExtractSwitchAxePhialInfo(JObject attributes, out SwitchAxePhialType phialType, out int phialValue)
@@ -148,22 +193,18 @@ namespace MHWSharpnessExtractor.DataSources
                 elderseal = ConvertEldersealLevel((string)value);
         }
 
-        private ElementInfo ExtractElementInfo(JArray elements, EldersealLevel eldersealLevel)
+        private ElementInfo[] ExtractElementInfo(JArray elements)
         {
             if (elements.Count == 0)
-                return ElementInfo.None;
+                return new ElementInfo[0];
 
-            if (elements.Count > 1)
-                throw new NotSupportedException("A weapon has multiple elements");
-
-            JObject element = (JObject)elements[0];
-
-            return new ElementInfo(
-                ConvertElementType((string)element["type"]),
-                (bool)element["hidden"],
-                (int)element["damage"],
-                eldersealLevel
-            );
+            return elements
+                .Select(elem => new ElementInfo(
+                    ConvertElementType((string)elem["type"]),
+                    (bool)elem["hidden"],
+                    (int)elem["damage"]
+                ))
+                .ToArray();
         }
 
         private int[] ExtractSlots(JArray slots)
@@ -250,6 +291,33 @@ namespace MHWSharpnessExtractor.DataSources
             }
 
             throw new FormatException($"Unsupported '{switchAxePhialType}' Switch Axe phial type.");
+        }
+
+        private GunlanceShellingType ConvertGunlanceShellingType(string gunlanceShellingType)
+        {
+            switch (gunlanceShellingType)
+            {
+                case "Normal": return GunlanceShellingType.Normal;
+                case "Long": return GunlanceShellingType.Long;
+                case "Wide": return GunlanceShellingType.Wide;
+            }
+
+            throw new FormatException($"Unsupported '{gunlanceShellingType}' Gunlance shelling type.");
+        }
+
+        private KinsectBonusType ConvertInsectGlaiveKinsectBonusType(string insectGlaiveKinsectBonusType)
+        {
+            switch (insectGlaiveKinsectBonusType)
+            {
+                case "Speed Boost": return KinsectBonusType.Speed;
+                case "Element Boost": return KinsectBonusType.Element;
+                case "Health Boost": return KinsectBonusType.Health;
+                case "Stamina Boost": return KinsectBonusType.Stamina;
+                case "Blunt Boost": return KinsectBonusType.Blunt;
+                case "Sever Boost": return KinsectBonusType.Sever;
+            }
+
+            throw new FormatException($"Unsupported '{insectGlaiveKinsectBonusType}' Insect Glaive kinsect bonus type.");
         }
 
         private async Task<JArray> Download(HttpClient httpClient, string weaponType)
