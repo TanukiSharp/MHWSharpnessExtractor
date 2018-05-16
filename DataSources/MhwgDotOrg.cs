@@ -19,6 +19,8 @@ namespace MHWSharpnessExtractor.DataSources
         public async Task<IList<Weapon>> ProduceWeaponsAsync()
         {
             var httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromSeconds(3.0);
+
             var result = new List<Weapon>();
 
             var tasks = new Task<IList<Weapon>>[]
