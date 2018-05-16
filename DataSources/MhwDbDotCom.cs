@@ -155,28 +155,26 @@ namespace MHWSharpnessExtractor.DataSources
             {
                 string phialTypeContent = (string)value;
 
-                if (phialTypeContent == "Power Phial")
-                    phialType = SwitchAxePhialType.Power;
-                else if (phialTypeContent == "Power Element Phial")
-                    phialType = SwitchAxePhialType.PowerElement;
-                else
+                int i = 0;
+                int index = -1;
+                foreach (char c in phialTypeContent)
                 {
-                    int i = 0;
-                    int index = -1;
-                    foreach (char c in phialTypeContent)
+                    if (char.IsNumber(c))
                     {
-                        if (char.IsNumber(c))
-                        {
-                            index = i;
-                            break;
-                        }
-                        i++;
+                        index = i;
+                        break;
                     }
+                    i++;
+                }
 
+                if (index > -1)
+                {
                     phialType = ConvertSwitchAxePhialType(phialTypeContent.Substring(0, index - 1));
                     if (int.TryParse(phialTypeContent.Substring(index), out phialValue) == false)
                         throw new FormatException($"Unsupported '{phialTypeContent}' Switch Axe phial type.");
                 }
+                else
+                    phialType = ConvertSwitchAxePhialType(phialTypeContent);
             }
         }
 
@@ -296,7 +294,7 @@ namespace MHWSharpnessExtractor.DataSources
         {
             switch (switchAxePhialType)
             {
-                case "Element Phial": return SwitchAxePhialType.PowerElement;
+                case "Power Element Phial": return SwitchAxePhialType.PowerElement;
                 case "Power Phial": return SwitchAxePhialType.Power;
                 case "Dragon Phial": return SwitchAxePhialType.Dragon;
                 case "Exhaust Phial": return SwitchAxePhialType.Exhaust;
