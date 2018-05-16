@@ -37,15 +37,25 @@ namespace MHWSharpnessExtractor.DataSources
 
             await Task.WhenAll(tasks);
 
+            var sw = Instrumentation.BeginProcessingMeasure();
+
             foreach (Task<IList<Weapon>> task in tasks)
                 result.AddRange(task.Result);
+
+            Instrumentation.EndProcessingMeasure(sw);
 
             return result;
         }
 
         private async Task<IList<Weapon>> CreateWeapons(HttpClient httpClient, string weaponType)
         {
-            JArray inputWeapons = await Download(httpClient, weaponType);
+            var sw = Instrumentation.BeginNetworkMeasure();
+            string content = await httpClient.GetStringAsync($"https://mhw-db.com/weapons?q={{%22type%22:%22{weaponType}%22}}");
+            Instrumentation.EndNetworkMeasure(sw);
+
+            sw = Instrumentation.BeginProcessingMeasure();
+
+            JArray inputWeapons = (JArray)JsonConvert.DeserializeObject(content);
 
             WeaponType typedWeaponType = ConvertWeaponType(weaponType);
 
@@ -53,6 +63,8 @@ namespace MHWSharpnessExtractor.DataSources
 
             for (int i = 0; i < inputWeapons.Count; i++)
                 outputWeapons.Add(CreateWeapon((JObject)inputWeapons[i], typedWeaponType));
+
+            Instrumentation.EndProcessingMeasure(sw);
 
             return outputWeapons;
         }
@@ -320,11 +332,6 @@ namespace MHWSharpnessExtractor.DataSources
             }
 
             throw new FormatException($"Unsupported '{insectGlaiveKinsectBonusType}' Insect Glaive kinsect bonus type.");
-        }
-
-        private async Task<JArray> Download(HttpClient httpClient, string weaponType)
-        {
-            return (JArray)JsonConvert.DeserializeObject(await httpClient.GetStringAsync($"https://mhw-db.com/weapons?q={{%22type%22:%22{weaponType}%22}}"));
         }
     }
 }

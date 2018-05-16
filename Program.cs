@@ -27,6 +27,8 @@ namespace MHWSharpnessExtractor
 
             try
             {
+                var sw = Instrumentation.BeginTotalMeasure();
+
                 Task<IList<Weapon>> sourceWeaponsTask = sourceDataSource.ProduceWeaponsAsync();
                 Task<IList<Weapon>> targetWeaponsTask = targetDataSource.ProduceWeaponsAsync();
 
@@ -34,6 +36,15 @@ namespace MHWSharpnessExtractor
 
                 IList<Weapon> sourceWeapons = sourceWeaponsTask.Result;
                 IList<Weapon> targetWeapons = targetWeaponsTask.Result;
+
+                Instrumentation.EndTotalMeasure(sw);
+
+                Console.WriteLine($"Real total time: {Instrumentation.RealTotalTime} ms");
+
+                long total = Instrumentation.NetworkTime + Instrumentation.ProcessingTime;
+                double networkPercent = Math.Round(Instrumentation.NetworkTime * 100.0 / total, 2);
+                Console.WriteLine($"Network time: {networkPercent}%");
+                Console.WriteLine($"Processing time: {100.0 - networkPercent}%");
 
                 resultCode = ResultCode.Success;
             }

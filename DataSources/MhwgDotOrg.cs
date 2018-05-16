@@ -48,8 +48,19 @@ namespace MHWSharpnessExtractor.DataSources
 
         private async Task<IList<Weapon>> GetWeaponsAsync(Task<string> contentProvider, WeaponType weaponType)
         {
+            var sw = Instrumentation.BeginNetworkMeasure();
             string content = await contentProvider;
+            Instrumentation.EndNetworkMeasure(sw);
 
+            sw = Instrumentation.BeginProcessingMeasure();
+            IList<Weapon> result = ProcessContent(content, weaponType);
+            Instrumentation.EndProcessingMeasure(sw);
+
+            return result;
+        }
+
+        private IList<Weapon> ProcessContent(string content, WeaponType weaponType)
+        {
             int currentPosition = 0;
 
             var weapons = new List<Weapon>();
@@ -577,10 +588,6 @@ namespace MHWSharpnessExtractor.DataSources
 
                     elements.Add(new ElementInfo(elementType, isHidden, elementValue));
                 }
-            }
-
-            if (elements.Count > 1)
-            {
             }
 
             affinity = localAffinity;
