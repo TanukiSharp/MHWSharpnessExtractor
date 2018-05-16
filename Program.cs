@@ -22,7 +22,8 @@ namespace MHWSharpnessExtractor
         private async Task<int> Run(string[] args)
         {
             ResultCode resultCode;
-            IDataSource dataSource = new MhwgDotOrg();
+            //IDataSource dataSource = new MhwgDotOrg();
+            IDataSource dataSource = new MhwDbDotCom();
 
             try
             {

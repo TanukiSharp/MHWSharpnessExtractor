@@ -121,9 +121,10 @@ namespace MHWSharpnessExtractor
             Slots = slots;
         }
 
-        public void UpdateId(int newId)
+        public Weapon UpdateId(int newId)
         {
             Id = newId;
+            return this;
         }
 
         public override bool Equals(object obj)
