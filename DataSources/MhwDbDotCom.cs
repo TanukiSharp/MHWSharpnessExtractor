@@ -20,6 +20,16 @@ namespace MHWSharpnessExtractor.DataSources
             var tasks = new Task<IList<Weapon>>[]
             {
                 CreateWeapons(httpClient, "great-sword"),
+                CreateWeapons(httpClient, "long-sword"),
+                CreateWeapons(httpClient, "sword-and-shield"),
+                CreateWeapons(httpClient, "dual-blades"),
+                CreateWeapons(httpClient, "hammer"),
+                CreateWeapons(httpClient, "hunting-horn"),
+                CreateWeapons(httpClient, "lance"),
+                CreateWeapons(httpClient, "gunlance"),
+                CreateWeapons(httpClient, "switch-axe"),
+                CreateWeapons(httpClient, "charge-blade"),
+                CreateWeapons(httpClient, "insect-glaive"),
             };
 
             await Task.WhenAll(tasks);
@@ -44,26 +54,79 @@ namespace MHWSharpnessExtractor.DataSources
             return outputWeapons;
         }
 
-        private Weapon CreateWeapon(JObject weapon, WeaponType weaponType)
+        private Weapon CreateWeapon(JObject weapon, WeaponType type)
         {
             int attack;
             int affinity;
             int defense;
             EldersealLevel eldersealLevel;
 
-            ExtractAttributes((JObject)weapon["attributes"], out attack, out affinity, out defense, out eldersealLevel);
+            string name = (string)weapon["name"];
+            JObject attributes = (JObject)weapon["attributes"];
 
-            return new Weapon(
-                (string)weapon["name"],
-                weaponType,
-                attack,
-                affinity,
-                defense,
-                null,
-                ExtractElementInfo((JArray)weapon["elements"], eldersealLevel),
-                ExtractSlots((JArray)weapon["slots"])
-            )
-            .UpdateId((int)weapon["id"]);
+            ExtractAttributes(attributes, out attack, out affinity, out defense, out eldersealLevel);
+
+            ElementInfo elementInfo = ExtractElementInfo((JArray)weapon["elements"], eldersealLevel);
+            int[] slots = ExtractSlots((JArray)weapon["slots"]);
+
+            Weapon outputWeapon;
+
+            if (type == WeaponType.ChargeBlade)
+            {
+                ChargeBladePhialType phialType = ExtractChargeBladePhialType(attributes);
+                outputWeapon = new ChargeBlade(name, phialType, attack, affinity, defense, null, elementInfo, slots);
+            }
+            else if (type == WeaponType.SwitchAxe)
+            {
+                ExtractSwitchAxePhialInfo(attributes, out SwitchAxePhialType phialType, out int phialValue);
+                outputWeapon = new SwitchAxe(name, phialType, phialValue, attack, affinity, defense, null, elementInfo, slots);
+            }
+            else
+                outputWeapon = new Weapon(name, type, attack, affinity, defense, null, elementInfo, slots);
+
+            return outputWeapon.UpdateId((int)weapon["id"]);
+        }
+
+        private void ExtractSwitchAxePhialInfo(JObject attributes, out SwitchAxePhialType phialType, out int phialValue)
+        {
+            phialType = SwitchAxePhialType.None;
+            phialValue = 0;
+
+            if (attributes.TryGetValue("phialType", out JToken value))
+            {
+                string phialTypeContent = (string)value;
+
+                if (phialTypeContent == "Power Phial")
+                    phialType = SwitchAxePhialType.Power;
+                else if (phialTypeContent == "Power Element Phial")
+                    phialType = SwitchAxePhialType.PowerElement;
+                else
+                {
+                    int i = 0;
+                    int index = -1;
+                    foreach (char c in phialTypeContent)
+                    {
+                        if (char.IsNumber(c))
+                        {
+                            index = i;
+                            break;
+                        }
+                        i++;
+                    }
+
+                    phialType = ConvertSwitchAxePhialType(phialTypeContent.Substring(0, index - 1));
+                    if (int.TryParse(phialTypeContent.Substring(index), out phialValue) == false)
+                        throw new FormatException($"Unsupported '{phialTypeContent}' Switch Axe phial type.");
+                }
+            }
+        }
+
+        private ChargeBladePhialType ExtractChargeBladePhialType(JObject attributes)
+        {
+            if (attributes.TryGetValue("phialType", out JToken value))
+                return ConvertChargeBladePhialType((string)value);
+
+            return ChargeBladePhialType.None;
         }
 
         private void ExtractAttributes(JObject attributes, out int attack, out int affinity, out int defense, out EldersealLevel elderseal)
@@ -161,6 +224,32 @@ namespace MHWSharpnessExtractor.DataSources
             }
 
             throw new FormatException($"Unsupported '{eldersealLevel}' elderseal level.");
+        }
+
+        private ChargeBladePhialType ConvertChargeBladePhialType(string chargeBladePhialType)
+        {
+            switch (chargeBladePhialType)
+            {
+                case "Impact Phial": return ChargeBladePhialType.Impact;
+                case "Power Element Phial": return ChargeBladePhialType.Elemental;
+            }
+
+            throw new FormatException($"Unsupported '{chargeBladePhialType}' Charge Blade phial type.");
+        }
+
+        private SwitchAxePhialType ConvertSwitchAxePhialType(string switchAxePhialType)
+        {
+            switch (switchAxePhialType)
+            {
+                case "Element Phial": return SwitchAxePhialType.PowerElement;
+                case "Power Phial": return SwitchAxePhialType.Power;
+                case "Dragon Phial": return SwitchAxePhialType.Dragon;
+                case "Exhaust Phial": return SwitchAxePhialType.Exhaust;
+                case "Para Phial": return SwitchAxePhialType.Paralysis;
+                case "Poison Phial": return SwitchAxePhialType.Poison;
+            }
+
+            throw new FormatException($"Unsupported '{switchAxePhialType}' Switch Axe phial type.");
         }
 
         private async Task<JArray> Download(HttpClient httpClient, string weaponType)

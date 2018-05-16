@@ -22,12 +22,19 @@ namespace MHWSharpnessExtractor
         private async Task<int> Run(string[] args)
         {
             ResultCode resultCode;
-            //IDataSource dataSource = new MhwgDotOrg();
-            IDataSource dataSource = new MhwDbDotCom();
+            IDataSource sourceDataSource = new MhwgDotOrg();
+            IDataSource targetDataSource = new MhwDbDotCom();
 
             try
             {
-                IList<Weapon> weapons = await dataSource.ProduceWeaponsAsync();
+                Task<IList<Weapon>> sourceWeaponsTask = sourceDataSource.ProduceWeaponsAsync();
+                Task<IList<Weapon>> targetWeaponsTask = targetDataSource.ProduceWeaponsAsync();
+
+                await Task.WhenAll(sourceWeaponsTask, targetWeaponsTask);
+
+                IList<Weapon> sourceWeapons = sourceWeaponsTask.Result;
+                IList<Weapon> targetWeapons = targetWeaponsTask.Result;
+
                 resultCode = ResultCode.Success;
             }
             catch (FormatException ex)
