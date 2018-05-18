@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MHWSharpnessExtractor
@@ -147,14 +148,14 @@ namespace MHWSharpnessExtractor
 
             if (obj is Weapon other)
             {
-                if (other.Slots.Length != Slots.Length)
-                    return false;
+                //if (other.Slots.Length != Slots.Length)
+                //    return false;
 
-                for (int i = 0; i < Slots.Length; i++)
-                {
-                    if (other.Slots[i] != Slots[i])
-                        return false;
-                }
+                //for (int i = 0; i < Slots.Length; i++)
+                //{
+                //    if (other.Slots[i] != Slots[i])
+                //        return false;
+                //}
 
                 if (other.Elements.Length != Elements.Length)
                     return false;
@@ -178,7 +179,8 @@ namespace MHWSharpnessExtractor
 
         public override int GetHashCode()
         {
-            return $"{Attack}-{(int)Elderseal}-{string.Join('-', Elements.Select(x => x.GetHashCode().ToString()))}".GetHashCode();
+            //return $"{(int)Type}-{Attack}-{Affinity}-{Defense}-{(int)Elderseal}-{string.Join("|", Slots.Select(x => x.ToString()))}-{string.Join('|', Elements.Select(x => x.GetHashCode().ToString()))}".GetHashCode();
+            return $"{(int)Type}-{Attack}-{Affinity}-{Defense}-{(int)Elderseal}-{string.Join('|', Elements.Select(x => x.GetHashCode().ToString()))}".GetHashCode();
         }
 
         public static bool operator ==(Weapon left, Weapon right)
@@ -303,14 +305,14 @@ namespace MHWSharpnessExtractor
 
             if (obj is HuntingHorn other)
             {
-                if (other.Melodies.Length != Melodies.Length)
-                    return false;
+                //if (other.Melodies.Length != Melodies.Length)
+                //    return false;
 
-                for (int i = 0; i < Melodies.Length; i++)
-                {
-                    if (other.Melodies[i] != Melodies[i])
-                        return false;
-                }
+                //for (int i = 0; i < Melodies.Length; i++)
+                //{
+                //    if (other.Melodies[i] != Melodies[i])
+                //        return false;
+                //}
 
                 return true;
             }
@@ -320,7 +322,8 @@ namespace MHWSharpnessExtractor
 
         public override int GetHashCode()
         {
-            return $"{base.GetHashCode()}-{string.Join(":", Melodies)}".GetHashCode();
+            //return $"{base.GetHashCode()}-{string.Join(":", Melodies)}".GetHashCode();
+            return base.GetHashCode();
         }
     }
 

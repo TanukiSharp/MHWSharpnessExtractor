@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MHWSharpnessExtractor.DataSources;
+using System.Text;
 
 namespace MHWSharpnessExtractor
 {
@@ -46,7 +48,9 @@ namespace MHWSharpnessExtractor
                 Console.WriteLine($"Network time: {networkPercent}%");
                 Console.WriteLine($"Processing time: {100.0 - networkPercent}%");
 
-                resultCode = ResultCode.Success;
+                Analyze(sourceWeapons, targetWeapons);
+
+				resultCode = ResultCode.Success;
             }
             catch (FormatException ex)
             {
@@ -60,6 +64,65 @@ namespace MHWSharpnessExtractor
             }
 
             return (int)resultCode;
+        }
+
+        private void Analyze(IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            Weapon[] intersect = sourceWeapons.Intersect(targetWeapons, WeaponEqualityComparer.Default).ToArray();
+
+            Console.WriteLine();
+            Console.WriteLine($"Total intersect is {intersect.Length}");
+            Console.WriteLine();
+
+            WeaponType[] weaponTypes = new WeaponType[]
+            {
+                    WeaponType.GreatSword,
+                    WeaponType.LongSword,
+                    WeaponType.SwordAndShield,
+                    WeaponType.DualBlades,
+                    WeaponType.Hammer,
+                    WeaponType.HuntingHorn,
+                    WeaponType.Lance,
+                    WeaponType.Gunlance,
+                    WeaponType.SwitchAxe,
+                    WeaponType.ChargeBlade,
+                    WeaponType.InsectGlaive
+            };
+
+            var report = new StringBuilder();
+            var markdownTableRows = new StringBuilder();
+
+            foreach (WeaponType type in weaponTypes)
+            {
+                Weapon[] s = sourceWeapons
+                    .Where(x => x.Type == type)
+                    .ToArray();
+
+                Weapon[] t = targetWeapons
+                    .Where(x => x.Type == type)
+                    .ToArray();
+
+                report.AppendLine($"{type}:");
+
+                int len = Math.Min(s.Length, t.Length);
+                for (int i = 0; i < len; i++)
+                {
+                    if (s[i].Equals(t[i]) == false)
+                        report.AppendLine($"    [{i}] {t[i].Name}");
+                }
+
+                Weapon[] sMinusT = s.Except(t, WeaponEqualityComparer.Default).ToArray();
+                Weapon[] tMinusS = t.Except(s, WeaponEqualityComparer.Default).ToArray();
+
+                Weapon[] perTypeIntersect = s
+                    .Intersect(t, WeaponEqualityComparer.Default)
+                    .ToArray();
+
+                markdownTableRows.AppendLine($"| {type} | {s.Length} | {t.Length} | {t.Length - s.Length} | {sMinusT.Length} | {tMinusS.Length} | {perTypeIntersect.Length} |");
+            }
+
+            Console.WriteLine(report.ToString());
+            Console.WriteLine(markdownTableRows.ToString());
         }
     }
 }
