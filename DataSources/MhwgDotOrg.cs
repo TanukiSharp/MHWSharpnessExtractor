@@ -222,6 +222,7 @@ namespace MHWSharpnessExtractor.DataSources
                 if (weaponType == WeaponType.ChargeBlade)
                 {
                     weapon = new ChargeBlade(
+                        this,
                         weaponName,
                         chargeBladePhialType,
                         attack,
@@ -236,6 +237,7 @@ namespace MHWSharpnessExtractor.DataSources
                 else if (weaponType == WeaponType.HuntingHorn)
                 {
                     weapon = new HuntingHorn(
+                        this,
                         weaponName,
                         huntingHornMelodies,
                         attack,
@@ -250,6 +252,7 @@ namespace MHWSharpnessExtractor.DataSources
                 else if (weaponType == WeaponType.SwitchAxe)
                 {
                     weapon = new SwitchAxe(
+                        this,
                         weaponName,
                         switchAxePhialType,
                         switchAxePhialValue,
@@ -265,6 +268,7 @@ namespace MHWSharpnessExtractor.DataSources
                 else if (weaponType == WeaponType.Gunlance)
                 {
                     weapon = new Gunlance(
+                        this,
                         weaponName,
                         gunlanceShellingType,
                         gunlanceShellingValue,
@@ -280,6 +284,7 @@ namespace MHWSharpnessExtractor.DataSources
                 else if (weaponType == WeaponType.InsectGlaive)
                 {
                     weapon = new InsectGlaive(
+                        this,
                         weaponName,
                         insectGlaiveKinsectBonusType,
                         attack,
@@ -294,6 +299,7 @@ namespace MHWSharpnessExtractor.DataSources
                 else
                 {
                     weapon = new Weapon(
+                        this,
                         weaponName,
                         weaponType,
                         attack,
@@ -705,6 +711,11 @@ namespace MHWSharpnessExtractor.DataSources
                 IsElementMarkup(markup) ||
                 // add more checks here is needed
                 false;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

@@ -93,6 +93,7 @@ namespace MHWSharpnessExtractor
 
     public class Weapon
     {
+        public IDataSource DataSource { get; }
         public int Id { get; private set; }
         public string Name { get; private set; }
         public WeaponType Type { get; }
@@ -105,6 +106,7 @@ namespace MHWSharpnessExtractor
         public int[] Slots { get; }
 
         public Weapon(
+            IDataSource dataSource,
             string name,
             WeaponType type,
             int attack,
@@ -116,6 +118,7 @@ namespace MHWSharpnessExtractor
             int[] slots
         )
         {
+            DataSource = dataSource;
             Id = -1;
             Name = name;
             Type = type;
@@ -206,6 +209,7 @@ namespace MHWSharpnessExtractor
         public ChargeBladePhialType PhialType { get; }
 
         public ChargeBlade(
+            IDataSource dataSource,
             string name,
             ChargeBladePhialType phialType,
             int attack,
@@ -216,6 +220,7 @@ namespace MHWSharpnessExtractor
             ElementInfo[] elements,
             int[] slots)
             : base(
+                  dataSource,
                   name,
                   WeaponType.ChargeBlade,
                   attack,
@@ -265,6 +270,7 @@ namespace MHWSharpnessExtractor
         public Melody[] Melodies { get; }
 
         public HuntingHorn(
+            IDataSource dataSource,
             string name,
             Melody[] melodies,
             int attack,
@@ -275,6 +281,7 @@ namespace MHWSharpnessExtractor
             ElementInfo[] elements,
             int[] slots)
             : base(
+                  dataSource,
                   name,
                   WeaponType.HuntingHorn,
                   attack,
@@ -334,6 +341,7 @@ namespace MHWSharpnessExtractor
         public int PhialValue { get; }
 
         public SwitchAxe(
+            IDataSource dataSource,
             string name,
             SwitchAxePhialType phialType,
             int phialValue,
@@ -345,6 +353,7 @@ namespace MHWSharpnessExtractor
             ElementInfo[] elements,
             int[] slots)
             : base(
+                  dataSource,
                   name,
                   WeaponType.SwitchAxe,
                   attack,
@@ -391,6 +400,7 @@ namespace MHWSharpnessExtractor
         public int ShellingLevel { get; }
 
         public Gunlance(
+            IDataSource dataSource,
             string name,
             GunlanceShellingType shellingType,
             int shellingLevel,
@@ -402,6 +412,7 @@ namespace MHWSharpnessExtractor
             ElementInfo[] elements,
             int[] slots)
             : base(
+                  dataSource,
                   name,
                   WeaponType.Gunlance,
                   attack,
@@ -450,6 +461,7 @@ namespace MHWSharpnessExtractor
         public KinsectBonusType KinsectBonus { get; }
 
         public InsectGlaive(
+            IDataSource dataSource,
             string name,
             KinsectBonusType kinsectBonus,
             int attack,
@@ -460,6 +472,7 @@ namespace MHWSharpnessExtractor
             ElementInfo[] elements,
             int[] slots)
             : base(
+                  dataSource,
                   name,
                   WeaponType.InsectGlaive,
                   attack,

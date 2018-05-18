@@ -89,30 +89,30 @@ namespace MHWSharpnessExtractor.DataSources
             if (type == WeaponType.ChargeBlade)
             {
                 ChargeBladePhialType phialType = ExtractChargeBladePhialType(attributes);
-                outputWeapon = new ChargeBlade(name, phialType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new ChargeBlade(this, name, phialType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.HuntingHorn)
             {
                 // mhw-db.com is missing melodies info
-                outputWeapon = new HuntingHorn(name, new Melody[0], attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new HuntingHorn(this, name, new Melody[0], attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.SwitchAxe)
             {
                 ExtractSwitchAxePhialInfo(attributes, out SwitchAxePhialType phialType, out int phialValue);
-                outputWeapon = new SwitchAxe(name, phialType, phialValue, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new SwitchAxe(this, name, phialType, phialValue, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.Gunlance)
             {
                 ExtractGunlanceShellingInfo(attributes, out GunlanceShellingType shellingType, out int shellingLevel);
-                outputWeapon = new Gunlance(name, shellingType, shellingLevel, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new Gunlance(this, name, shellingType, shellingLevel, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.InsectGlaive)
             {
                 KinsectBonusType kinsectBonusType = ExtractInsectGlaiveKinsectBonusType(attributes);
-                outputWeapon = new InsectGlaive(name, kinsectBonusType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new InsectGlaive(this, name, kinsectBonusType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
             }
             else
-                outputWeapon = new Weapon(name, type, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new Weapon(this, name, type, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
 
             return outputWeapon.UpdateId((int)weapon["id"]);
         }
@@ -330,6 +330,11 @@ namespace MHWSharpnessExtractor.DataSources
             }
 
             throw new FormatException($"Unsupported '{insectGlaiveKinsectBonusType}' Insect Glaive kinsect bonus type.");
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
