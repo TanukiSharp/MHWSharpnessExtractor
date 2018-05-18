@@ -557,11 +557,11 @@ namespace MHWSharpnessExtractor.DataSources
                 {
                     string eldersealStringContent = HtmlUtils.GetMarkupContent(line, markup);
                     if (eldersealStringContent.Contains("小"))
-                        eldersealLevel = EldersealLevel.Low;
+                        localEldersealLevel = EldersealLevel.Low;
                     else if (eldersealStringContent.Contains("中"))
-                        eldersealLevel = EldersealLevel.Average;
+                        localEldersealLevel = EldersealLevel.Average;
                     else if (eldersealStringContent.Contains("大"))
-                        eldersealLevel = EldersealLevel.High;
+                        localEldersealLevel = EldersealLevel.High;
                     else
                         throw BadFormat($"Could not determine elderseal value for weapon '{weaponName}'");
                 }
