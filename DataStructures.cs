@@ -503,4 +503,19 @@ namespace MHWSharpnessExtractor
             return $"{base.GetHashCode()}-{(int)KinsectBonus}".GetHashCode();
         }
     }
+
+    public class WeaponEqualityComparer : IEqualityComparer<Weapon>
+    {
+        public static readonly WeaponEqualityComparer Default = new WeaponEqualityComparer();
+
+        public bool Equals(Weapon x, Weapon y)
+        {
+            return x.Equals(y);
+        }
+
+        public int GetHashCode(Weapon obj)
+        {
+            return 0;
+        }
+    }
 }
