@@ -76,21 +76,27 @@ namespace MHWSharpnessExtractor
 
         public override string ToString()
         {
-
             return string.Join("", Slots.Select(x => x > 0 ? x.ToString() : "-"));
         }
 
         public override bool Equals(object obj)
         {
-            if (obj is SlotInfo other)
-                return other.GetHashCode() == GetHashCode();
-
-            return false;
+            return obj is SlotInfo other && other.GetHashCode() == GetHashCode();
         }
 
         public override int GetHashCode()
         {
             return string.Join("|", Slots).GetHashCode();
+        }
+
+        public static bool operator ==(SlotInfo left, SlotInfo right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(SlotInfo left, SlotInfo right)
+        {
+            return !(left == right);
         }
     }
 
@@ -109,30 +115,9 @@ namespace MHWSharpnessExtractor
             Value = value;
         }
 
-        //public void PrintMismatches(ElementInfo other, TextWriter sb)
-        //{
-        //    if (other.Type != Type)
-        //        sb.Write($"type is different (should be {other.Type} but is {Type}), ");
-        //    if (other.IsHidden != IsHidden)
-        //        sb.Write($"hidden is different (should be {other.IsHidden} but is {IsHidden}), ");
-        //    if (other.Value != Value)
-        //        sb.Write($"value is different (should be {other.Value} but is {Value}), ");
-        //    sb.WriteLine();
-        //}
-
         public override bool Equals(object obj)
         {
-            if (obj is ElementInfo other)
-            {
-                return other.GetHashCode() == GetHashCode();
-
-                //return
-                //    other.Type == Type &&
-                //    other.IsHidden == IsHidden &&
-                //    other.Value == Value;
-            }
-
-            return false;
+            return obj is ElementInfo other && other.GetHashCode() == GetHashCode();
         }
 
         public override int GetHashCode()
@@ -209,20 +194,6 @@ namespace MHWSharpnessExtractor
             return this;
         }
 
-        public override bool Equals(object obj)
-        {
-            // Id and Name are not taken into account on purpose,
-            // matching against all other domain and language-independent parameters to find the matching weapon in DB.
-
-            // Sharpness is not taken into account on purpose,
-            // this is the value known to be different from the DB.
-
-            if (obj is Weapon other)
-                return other.GetHashCode() == GetHashCode();
-
-            return false;
-        }
-
         public virtual int ComputeMatchingScore(Weapon other)
         {
             int score = 0;
@@ -265,36 +236,9 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
-        public virtual void PrintMismatches(Weapon other, TextWriter sb)
+        public override bool Equals(object obj)
         {
-            if (other.Slots.Equals(Slots) == false)
-                sb.WriteLine($"- slot is different (should be '{other.Slots}' but is '{Slots}')");
-
-            if (other.Elements.Length != Elements.Length)
-                sb.WriteLine($"- element count is different (should be {other.Elements.Length} but is {Elements.Length})");
-            else
-            {
-                for (int i = 0; i < Elements.Length; i++)
-                {
-                    if (other.Elements[i] != Elements[i])
-                        sb.WriteLine($"- element {i + 1} is different (should be '{other.Elements[i]}' but is '{Elements[i]}')");
-                }
-            }
-
-            if (other.Type != Type)
-                sb.WriteLine($"- weapon type is different (should be {other.Type} but is {Type})");
-
-            if (other.Attack != Attack)
-                sb.WriteLine($"- attack is different (should be {other.Attack} but is {Attack})");
-
-            if (other.Affinity != Affinity)
-                sb.WriteLine($"- affinity is different (should be {other.Affinity} but is {Affinity})");
-
-            if (other.Defense != Defense)
-                sb.WriteLine($"- defense is different (should be {other.Defense} but is {Defense})");
-
-            if (other.Elderseal != Elderseal)
-                sb.WriteLine($"- elderseal is different (should be {other.Elderseal} but is {Elderseal})");
+            return obj is Weapon other && other.GetHashCode() == GetHashCode();
         }
 
         public override int GetHashCode()
@@ -372,17 +316,6 @@ namespace MHWSharpnessExtractor
             PhialType = phialType;
         }
 
-        public override void PrintMismatches(Weapon other, TextWriter sb)
-        {
-            base.PrintMismatches(other, sb);
-
-            if (other is ChargeBlade x)
-            {
-                if (x.PhialType != PhialType)
-                    sb.WriteLine($"- phial type is different (should be {x.PhialType} but is {Type})");
-            }
-        }
-
         public override int ComputeMatchingScore(Weapon other)
         {
             int score = base.ComputeMatchingScore(other);
@@ -396,9 +329,24 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is ChargeBlade other && other.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             return $"{base.GetHashCode()}-{(int)PhialType}".GetHashCode();
+        }
+
+        public static bool operator ==(ChargeBlade left, ChargeBlade right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(ChargeBlade left, ChargeBlade right)
+        {
+            return !(left == right);
         }
     }
 
@@ -446,15 +394,6 @@ namespace MHWSharpnessExtractor
             Melodies = melodies ?? new Melody[0];
         }
 
-        public override void PrintMismatches(Weapon other, TextWriter sb)
-        {
-            base.PrintMismatches(other, sb);
-
-            if (other is HuntingHorn x)
-            {
-            }
-        }
-
         public override int ComputeMatchingScore(Weapon other)
         {
             int score = base.ComputeMatchingScore(other);
@@ -474,10 +413,25 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is HuntingHorn other && other.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             //return $"{base.GetHashCode()}-{string.Join(":", Melodies)}".GetHashCode();
             return base.GetHashCode();
+        }
+
+        public static bool operator ==(HuntingHorn left, HuntingHorn right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(HuntingHorn left, HuntingHorn right)
+        {
+            return !(left == right);
         }
     }
 
@@ -526,20 +480,6 @@ namespace MHWSharpnessExtractor
             PhialValue = phialValue;
         }
 
-        public override void PrintMismatches(Weapon other, TextWriter sb)
-        {
-            base.PrintMismatches(other, sb);
-
-            if (other is SwitchAxe x)
-            {
-                if (x.PhialType != PhialType)
-                    sb.WriteLine($"- phial type is different (should be {x.PhialType} but is {Type})");
-
-                if (x.PhialValue != PhialValue)
-                    sb.WriteLine($"- phial value is different (should be {x.PhialValue} but is {PhialValue})");
-            }
-        }
-
         public override int ComputeMatchingScore(Weapon other)
         {
             int score = base.ComputeMatchingScore(other);
@@ -556,9 +496,24 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is SwitchAxe other && other.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             return $"{base.GetHashCode()}-{(int)PhialType}-{PhialValue}".GetHashCode();
+        }
+
+        public static bool operator ==(SwitchAxe left, SwitchAxe right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(SwitchAxe left, SwitchAxe right)
+        {
+            return !(left == right);
         }
     }
 
@@ -604,20 +559,6 @@ namespace MHWSharpnessExtractor
             ShellingLevel = shellingLevel;
         }
 
-        public override void PrintMismatches(Weapon other, TextWriter sb)
-        {
-            base.PrintMismatches(other, sb);
-
-            if (other is Gunlance x)
-            {
-                if (x.ShellingType != ShellingType)
-                    sb.WriteLine($"- shelling type is different (should be {x.ShellingType} but is {ShellingType})");
-
-                if (x.ShellingLevel != ShellingLevel)
-                    sb.WriteLine($"- shelling level is different (should be {x.ShellingLevel} but is {ShellingLevel})");
-            }
-        }
-
         public override int ComputeMatchingScore(Weapon other)
         {
             int score = base.ComputeMatchingScore(other);
@@ -634,9 +575,24 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Gunlance other && other.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             return $"{base.GetHashCode()}-{(int)ShellingType}-{ShellingLevel}".GetHashCode();
+        }
+
+        public static bool operator ==(Gunlance left, Gunlance right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Gunlance left, Gunlance right)
+        {
+            return !(left == right);
         }
     }
 
@@ -682,17 +638,6 @@ namespace MHWSharpnessExtractor
             KinsectBonus = kinsectBonus;
         }
 
-        public override void PrintMismatches(Weapon other, TextWriter sb)
-        {
-            base.PrintMismatches(other, sb);
-
-            if (other is InsectGlaive x)
-            {
-                if (x.KinsectBonus != KinsectBonus)
-                    sb.WriteLine($"- kinsect bonus is different (should be {x.KinsectBonus} but is {KinsectBonus})");
-            }
-        }
-
         public override int ComputeMatchingScore(Weapon other)
         {
             int score = base.ComputeMatchingScore(other);
@@ -706,9 +651,24 @@ namespace MHWSharpnessExtractor
             return score;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is InsectGlaive other && other.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             return $"{base.GetHashCode()}-{(int)KinsectBonus}".GetHashCode();
+        }
+
+        public static bool operator ==(InsectGlaive left, InsectGlaive right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(InsectGlaive left, InsectGlaive right)
+        {
+            return !(left == right);
         }
     }
 }
