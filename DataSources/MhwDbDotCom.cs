@@ -50,7 +50,7 @@ namespace MHWSharpnessExtractor.DataSources
         private async Task<IList<Weapon>> CreateWeapons(HttpClient httpClient, string weaponType)
         {
             var sw = Instrumentation.BeginNetworkMeasure();
-            string content = await httpClient.GetStringAsync($"https://mhw-db.com/weapons?q={{%22type%22:%22{weaponType}%22}}");
+            string content = await httpClient.GetStringAsync($"https://mhw-db.com/weapons?q={{%22type%22:%22{weaponType}%22}}&p={{%22crafting%22:false,%22assets%22:false}}");
             Instrumentation.EndNetworkMeasure(sw);
 
             sw = Instrumentation.BeginProcessingMeasure();
