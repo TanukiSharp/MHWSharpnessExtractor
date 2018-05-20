@@ -1,0 +1,3742 @@
+[
+    {
+        "mhwg.org": "バスターソードⅠ",
+        "mhw-db.com": "Buster Sword 1"
+    },
+    {
+        "mhwg.org": "バスターソードⅡ",
+        "mhw-db.com": "Buster Sword 2"
+    },
+    {
+        "mhwg.org": "バスターソードⅢ",
+        "mhw-db.com": "Buster Sword 3"
+    },
+    {
+        "mhwg.org": "バスターブレイドⅠ",
+        "mhw-db.com": "Buster Blade 1"
+    },
+    {
+        "mhwg.org": "バスターブレイドⅡ",
+        "mhw-db.com": "Buster Blade 2"
+    },
+    {
+        "mhwg.org": "バスターブレイドⅢ",
+        "mhw-db.com": "Buster Blade 3"
+    },
+    {
+        "mhwg.org": "クロームレイザーⅠ",
+        "mhw-db.com": "Chrome Razor 1"
+    },
+    {
+        "mhwg.org": "クロームレイザーⅡ",
+        "mhw-db.com": "Chrome Razor 2"
+    },
+    {
+        "mhwg.org": "ネルガルジャッジ",
+        "mhw-db.com": "Nergal Judicator"
+    },
+    {
+        "mhwg.org": "滅鬼の凶器",
+        "mhw-db.com": "Purgation's Atrocity"
+    },
+    {
+        "mhwg.org": "サンダーブレイドⅠ",
+        "mhw-db.com": "Thunder Blade 1"
+    },
+    {
+        "mhwg.org": "サンダーブレイドⅡ",
+        "mhw-db.com": "Thunder Blade 2"
+    },
+    {
+        "mhwg.org": "ライトニングパニッシュⅠ",
+        "mhw-db.com": "Lightning Punisher 1"
+    },
+    {
+        "mhwg.org": "ライトニングパニッシュⅡ",
+        "mhw-db.com": "Lightning Punisher 2"
+    },
+    {
+        "mhwg.org": "ライトニングパニッシュⅢ",
+        "mhw-db.com": "Lightning Punisher 3"
+    },
+    {
+        "mhwg.org": "フリーズブレイドⅠ",
+        "mhw-db.com": "Freeze Blade 1"
+    },
+    {
+        "mhwg.org": "フリーズブレイドⅡ",
+        "mhw-db.com": "Freeze Blade 2"
+    },
+    {
+        "mhwg.org": "フロストブレイズⅠ",
+        "mhw-db.com": "Frost Blaze 1"
+    },
+    {
+        "mhwg.org": "フロストブレイズⅡ",
+        "mhw-db.com": "Frost Blaze 2"
+    },
+    {
+        "mhwg.org": "ジャグラスブレイドⅠ",
+        "mhw-db.com": "Jagras Blade 1"
+    },
+    {
+        "mhwg.org": "ジャグラスブレイドⅡ",
+        "mhw-db.com": "Jagras Blade 2"
+    },
+    {
+        "mhwg.org": "ジャグラスブレイドⅢ",
+        "mhw-db.com": "Jagras Blade 3"
+    },
+    {
+        "mhwg.org": "ジャグラスハッカーⅠ",
+        "mhw-db.com": "Jagras Hacker 1"
+    },
+    {
+        "mhwg.org": "ジャグラスハッカーⅡ",
+        "mhw-db.com": "Jagras Hacker 2"
+    },
+    {
+        "mhwg.org": "ジャグラスハッカーⅢ",
+        "mhw-db.com": "Jagras Hacker 3"
+    },
+    {
+        "mhwg.org": "ギルオスブレイドⅠ",
+        "mhw-db.com": "Girros Blade 1"
+    },
+    {
+        "mhwg.org": "ギルオスブレイドⅡ",
+        "mhw-db.com": "Girros Blade 2"
+    },
+    {
+        "mhwg.org": "マラドハディードⅠ",
+        "mhw-db.com": "Malady's Kiss 1"
+    },
+    {
+        "mhwg.org": "マラドハディードⅡ",
+        "mhw-db.com": "Malady's Kiss 2"
+    },
+    {
+        "mhwg.org": "マラドハディードⅢ",
+        "mhw-db.com": "Malady's Kiss 3"
+    },
+    {
+        "mhwg.org": "ラヴァブレイズⅠ",
+        "mhw-db.com": "Lava Blaze 1"
+    },
+    {
+        "mhwg.org": "ラヴァブレイズⅡ",
+        "mhw-db.com": "Lava Blaze 2"
+    },
+    {
+        "mhwg.org": "ブルームブレイドⅠ",
+        "mhw-db.com": "Blooming Blade 1"
+    },
+    {
+        "mhwg.org": "ブルームブレイドⅡ",
+        "mhw-db.com": "Blooming Blade 2"
+    },
+    {
+        "mhwg.org": "ブルームブレイドⅢ",
+        "mhw-db.com": "Blooming Blade 3"
+    },
+    {
+        "mhwg.org": "ダチュラブレイズⅠ",
+        "mhw-db.com": "Datura Blaze 1"
+    },
+    {
+        "mhwg.org": "ダチュラブレイズⅡ",
+        "mhw-db.com": "Datura Blaze 2"
+    },
+    {
+        "mhwg.org": "ダチュラブレイズⅢ",
+        "mhw-db.com": "Datura Blaze 3"
+    },
+    {
+        "mhwg.org": "フレイムブレイドⅠ",
+        "mhw-db.com": "Flame Blade 1"
+    },
+    {
+        "mhwg.org": "フレイムブレイドⅡ",
+        "mhw-db.com": "Flame Blade 2"
+    },
+    {
+        "mhwg.org": "レッドウィング",
+        "mhw-db.com": "Red Wing"
+    },
+    {
+        "mhwg.org": "ブルーウィング",
+        "mhw-db.com": "Blue Wing"
+    },
+    {
+        "mhwg.org": "煌剣リオレウス",
+        "mhw-db.com": "Rathalos Glinsword"
+    },
+    {
+        "mhwg.org": "ボーンブレイドⅠ",
+        "mhw-db.com": "Bone Blade 1"
+    },
+    {
+        "mhwg.org": "ボーンブレイドⅡ",
+        "mhw-db.com": "Bone Blade 2"
+    },
+    {
+        "mhwg.org": "ボーンブレイドⅢ",
+        "mhw-db.com": "Bone Blade 3"
+    },
+    {
+        "mhwg.org": "ボーンスラッシャーⅠ",
+        "mhw-db.com": "Bone Slasher 1"
+    },
+    {
+        "mhwg.org": "ボーンスラッシャーⅡ",
+        "mhw-db.com": "Bone Slasher 2"
+    },
+    {
+        "mhwg.org": "ボーンスラッシャーⅢ",
+        "mhw-db.com": "Bone Slasher 3"
+    },
+    {
+        "mhwg.org": "オオアギトⅠ",
+        "mhw-db.com": "Giant Jawblade 1"
+    },
+    {
+        "mhwg.org": "オオアギトⅡ",
+        "mhw-db.com": "Giant Jawblade 2"
+    },
+    {
+        "mhwg.org": "ハザクラキス",
+        "mhw-db.com": "Hazak Kys"
+    },
+    {
+        "mhwg.org": "モンストロの憤怒",
+        "mhw-db.com": "Leviathan's Fury"
+    },
+    {
+        "mhwg.org": "フラムエルヘレヴ",
+        "mhw-db.com": "Flammenzahn"
+    },
+    {
+        "mhwg.org": "フラムエルヘレヴ改",
+        "mhw-db.com": "Flammenzahn+"
+    },
+    {
+        "mhwg.org": "蛮顎大剣フラムヘレヴ",
+        "mhw-db.com": "Gnashing Flammenzahn"
+    },
+    {
+        "mhwg.org": "アクアスラッシャーⅠ",
+        "mhw-db.com": "Aqua Slasher 1"
+    },
+    {
+        "mhwg.org": "アクアスラッシャーⅡ",
+        "mhw-db.com": "Aqua Slasher 2"
+    },
+    {
+        "mhwg.org": "アクアスラッシャーⅢ",
+        "mhw-db.com": "Aqua Slasher 3"
+    },
+    {
+        "mhwg.org": "ウォーターゴーレムⅠ",
+        "mhw-db.com": "Water Golem 1"
+    },
+    {
+        "mhwg.org": "ウォーターゴーレムⅡ",
+        "mhw-db.com": "Water Golem 2"
+    },
+    {
+        "mhwg.org": "ウォーターゴーレムⅢ",
+        "mhw-db.com": "Water Golem 3"
+    },
+    {
+        "mhwg.org": "ドラグロバスターⅠ",
+        "mhw-db.com": "Carapace Buster 1"
+    },
+    {
+        "mhwg.org": "ドラグロバスターⅡ",
+        "mhw-db.com": "Carapace Buster 2"
+    },
+    {
+        "mhwg.org": "ドラグロバスターⅢ",
+        "mhw-db.com": "Carapace Buster 3"
+    },
+    {
+        "mhwg.org": "ボルボシュレッダーⅠ",
+        "mhw-db.com": "Barroth Shredder 1"
+    },
+    {
+        "mhwg.org": "ボルボシュレッダーⅡ",
+        "mhw-db.com": "Barroth Shredder 2"
+    },
+    {
+        "mhwg.org": "ボルボシュレッダーⅢ",
+        "mhw-db.com": "Barroth Shredder 3"
+    },
+    {
+        "mhwg.org": "スパイクブレイドⅠ",
+        "mhw-db.com": "Spiked Blade 1"
+    },
+    {
+        "mhwg.org": "スパイクブレイドⅡ",
+        "mhw-db.com": "Spiked Blade 2"
+    },
+    {
+        "mhwg.org": "塊剣ラドバルクⅠ",
+        "mhw-db.com": "Radobaan Slab 1"
+    },
+    {
+        "mhwg.org": "塊剣ラドバルクⅡ",
+        "mhw-db.com": "Radobaan Slab 2"
+    },
+    {
+        "mhwg.org": "塊剣ラドバルクⅢ",
+        "mhw-db.com": "Radobaan Slab 3"
+    },
+    {
+        "mhwg.org": "龍骨大剣Ⅰ",
+        "mhw-db.com": "Dragonbone Cleaver 1"
+    },
+    {
+        "mhwg.org": "龍骨大剣Ⅱ",
+        "mhw-db.com": "Dragonbone Cleaver 2"
+    },
+    {
+        "mhwg.org": "龍骨大剣Ⅲ",
+        "mhw-db.com": "Dragonbone Cleaver 3"
+    },
+    {
+        "mhwg.org": "召雷剣",
+        "mhw-db.com": "Thundersword"
+    },
+    {
+        "mhwg.org": "召雷剣【麒麟】",
+        "mhw-db.com": "Kirin Thundersword"
+    },
+    {
+        "mhwg.org": "召雷剣【麒麟王】",
+        "mhw-db.com": "King Thundersword"
+    },
+    {
+        "mhwg.org": "マグダ・ポテスタスⅠ",
+        "mhw-db.com": "Magda Potestas 1"
+    },
+    {
+        "mhwg.org": "マグダ・ポテスタスⅡ",
+        "mhw-db.com": "Magda Potestas 2"
+    },
+    {
+        "mhwg.org": "黒鋼の大剣Ⅰ",
+        "mhw-db.com": "Blacksteel Chopper 1"
+    },
+    {
+        "mhwg.org": "黒鋼の大剣Ⅱ",
+        "mhw-db.com": "Blacksteel Chopper 2"
+    },
+    {
+        "mhwg.org": "鋼氷大剣",
+        "mhw-db.com": "Icesteel Edge"
+    },
+    {
+        "mhwg.org": "ダオラ＝デグニダル",
+        "mhw-db.com": "Daora's Decimator"
+    },
+    {
+        "mhwg.org": "ゼノ＝マーリク",
+        "mhw-db.com": "Xeno Maliq"
+    },
+    {
+        "mhwg.org": "リュウノアギト",
+        "mhw-db.com": "Wyvern Jawblade"
+    },
+    {
+        "mhwg.org": "リュウノアギト【大牙】",
+        "mhw-db.com": "Great Wyvern Jawblade"
+    },
+    {
+        "mhwg.org": "ベルセルクソード",
+        "mhw-db.com": "Berserker Sword"
+    },
+    {
+        "mhwg.org": "アングイッシュ",
+        "mhw-db.com": "Anguish"
+    },
+    {
+        "mhwg.org": "竜熱機関式【鋼翼】",
+        "mhw-db.com": "Wyvern Ignition \"Steel\""
+    },
+    {
+        "mhwg.org": "竜熱機関式【鋼翼】改",
+        "mhw-db.com": "Wyvern Ignition \"Impact\""
+    },
+    {
+        "mhwg.org": "鉄刀Ⅰ",
+        "mhw-db.com": "Iron Katana 1"
+    },
+    {
+        "mhwg.org": "鉄刀Ⅱ",
+        "mhw-db.com": "Iron Katana 2"
+    },
+    {
+        "mhwg.org": "鉄刀Ⅲ",
+        "mhw-db.com": "Iron Katana 3"
+    },
+    {
+        "mhwg.org": "鉄刀【禊】Ⅰ",
+        "mhw-db.com": "Iron Grace 1"
+    },
+    {
+        "mhwg.org": "鉄刀【禊】Ⅱ",
+        "mhw-db.com": "Iron Grace 2"
+    },
+    {
+        "mhwg.org": "鉄刀【禊】Ⅲ",
+        "mhw-db.com": "Iron Grace 3"
+    },
+    {
+        "mhwg.org": "鉄刀【神楽】Ⅰ",
+        "mhw-db.com": "Iron Gospel 1"
+    },
+    {
+        "mhwg.org": "鉄刀【神楽】Ⅱ",
+        "mhw-db.com": "Iron Gospel 2"
+    },
+    {
+        "mhwg.org": "ネルガルリーヴェ",
+        "mhw-db.com": "Nergal Reaver"
+    },
+    {
+        "mhwg.org": "滅尽の一刀",
+        "mhw-db.com": "Extermination's Edge"
+    },
+    {
+        "mhwg.org": "眩刀【揺】Ⅰ",
+        "mhw-db.com": "Flickering Glow 1"
+    },
+    {
+        "mhwg.org": "眩刀【揺】Ⅱ",
+        "mhw-db.com": "Flickering Glow 2"
+    },
+    {
+        "mhwg.org": "眩惑刀【閃】Ⅰ",
+        "mhw-db.com": "Dazzling Flash 1"
+    },
+    {
+        "mhwg.org": "眩惑刀【閃】Ⅱ",
+        "mhw-db.com": "Dazzling Flash 2"
+    },
+    {
+        "mhwg.org": "眩惑刀【閃】Ⅲ",
+        "mhw-db.com": "Dazzling Flash 3"
+    },
+    {
+        "mhwg.org": "アルリーシャⅠ",
+        "mhw-db.com": "First Dance 1"
+    },
+    {
+        "mhwg.org": "アルリーシャⅡ",
+        "mhw-db.com": "First Dance 2"
+    },
+    {
+        "mhwg.org": "アルリーシャⅢ",
+        "mhw-db.com": "First Dance 3"
+    },
+    {
+        "mhwg.org": "アルダジャージュⅠ",
+        "mhw-db.com": "Last Dance 1"
+    },
+    {
+        "mhwg.org": "アルダジャージュⅡ",
+        "mhw-db.com": "Last Dance 2"
+    },
+    {
+        "mhwg.org": "アルダジャージュⅢ",
+        "mhw-db.com": "Last Dance 3"
+    },
+    {
+        "mhwg.org": "ブラスリッジⅠ",
+        "mhw-db.com": "Brazenridge 1"
+    },
+    {
+        "mhwg.org": "ブラスリッジⅡ",
+        "mhw-db.com": "Brazenridge 2"
+    },
+    {
+        "mhwg.org": "飛竜刀【青葉】",
+        "mhw-db.com": "Wyvern Blade \"Leaf\""
+    },
+    {
+        "mhwg.org": "飛竜刀【翠】",
+        "mhw-db.com": "Wyvern Blade \"Verde\""
+    },
+    {
+        "mhwg.org": "飛竜刀【葵】",
+        "mhw-db.com": "Wyvern Blade \"Holly\""
+    },
+    {
+        "mhwg.org": "飛竜刀【紅葉】",
+        "mhw-db.com": "Wyvern Blade \"Fall\""
+    },
+    {
+        "mhwg.org": "飛竜刀【朱】",
+        "mhw-db.com": "Wyvern Blade \"Blood\""
+    },
+    {
+        "mhwg.org": "飛竜刀【蒼】",
+        "mhw-db.com": "Wyvern Blade \"Azure\""
+    },
+    {
+        "mhwg.org": "飛竜刀【藍染】",
+        "mhw-db.com": "Wyvern Blade \"Indigo\""
+    },
+    {
+        "mhwg.org": "ボーンショテルⅠ",
+        "mhw-db.com": "Bone Shotel 1"
+    },
+    {
+        "mhwg.org": "ボーンショテルⅡ",
+        "mhw-db.com": "Bone Shotel 2"
+    },
+    {
+        "mhwg.org": "ボーンショテルⅢ",
+        "mhw-db.com": "Bone Shotel 3"
+    },
+    {
+        "mhwg.org": "ハードボーンショテルⅠ",
+        "mhw-db.com": "Hard Bone Shotel 1"
+    },
+    {
+        "mhwg.org": "ハードボーンショテルⅡ",
+        "mhw-db.com": "Hard Bone Shotel 2"
+    },
+    {
+        "mhwg.org": "ハードボーンショテルⅢ",
+        "mhw-db.com": "Hard Bone Shotel 3"
+    },
+    {
+        "mhwg.org": "ボーンリーパーⅠ",
+        "mhw-db.com": "Bone Reaper 1"
+    },
+    {
+        "mhwg.org": "ボーンリーパーⅡ",
+        "mhw-db.com": "Bone Reaper 2"
+    },
+    {
+        "mhwg.org": "爆鱗の大刀",
+        "mhw-db.com": "Rookslayer Long Sword"
+    },
+    {
+        "mhwg.org": "爆鱗刀バゼルバルガー",
+        "mhw-db.com": "Bazel Varga Rookslayer"
+    },
+    {
+        "mhwg.org": "ブレイズショテルⅠ",
+        "mhw-db.com": "Blazing Shotel 1"
+    },
+    {
+        "mhwg.org": "ブレイズショテルⅡ",
+        "mhw-db.com": "Blazing Shotel 2"
+    },
+    {
+        "mhwg.org": "ジャナフシミターⅠ",
+        "mhw-db.com": "Anja Scimitar 1"
+    },
+    {
+        "mhwg.org": "ジャナフシミターⅡ",
+        "mhw-db.com": "Anja Scimitar 2"
+    },
+    {
+        "mhwg.org": "ジャナフシミターⅢ",
+        "mhw-db.com": "Anja Scimitar 3"
+    },
+    {
+        "mhwg.org": "シュラムショテルⅠ",
+        "mhw-db.com": "Jyura Shotel 1"
+    },
+    {
+        "mhwg.org": "シュラムショテルⅡ",
+        "mhw-db.com": "Jyura Shotel 2"
+    },
+    {
+        "mhwg.org": "シュラムショテルⅢ",
+        "mhw-db.com": "Jyura Shotel 3"
+    },
+    {
+        "mhwg.org": "ディプテルスⅠ",
+        "mhw-db.com": "Dipterus 1"
+    },
+    {
+        "mhwg.org": "ディプテルスⅡ",
+        "mhw-db.com": "Dipterus 2"
+    },
+    {
+        "mhwg.org": "ディプテルスⅢ",
+        "mhw-db.com": "Dipterus 3"
+    },
+    {
+        "mhwg.org": "ハザクグローサⅠ",
+        "mhw-db.com": "Hazak Grosser 1"
+    },
+    {
+        "mhwg.org": "ハザクグローサⅡ",
+        "mhw-db.com": "Hazak Grosser 2"
+    },
+    {
+        "mhwg.org": "パルサーショテルⅠ",
+        "mhw-db.com": "Pulsar Shotel 1"
+    },
+    {
+        "mhwg.org": "パルサーショテルⅡ",
+        "mhw-db.com": "Pulsar Shotel 2"
+    },
+    {
+        "mhwg.org": "パルサーショテルⅢ",
+        "mhw-db.com": "Pulsar Shotel 3"
+    },
+    {
+        "mhwg.org": "カガチノキバⅠ",
+        "mhw-db.com": "Kadachi Fang 1"
+    },
+    {
+        "mhwg.org": "カガチノキバⅡ",
+        "mhw-db.com": "Kadachi Fang 2"
+    },
+    {
+        "mhwg.org": "カガチノキバⅢ",
+        "mhw-db.com": "Kadachi Fang 3"
+    },
+    {
+        "mhwg.org": "グレイスショテルⅠ",
+        "mhw-db.com": "Glacial Shotel 1"
+    },
+    {
+        "mhwg.org": "グレイスショテルⅡ",
+        "mhw-db.com": "Glacial Shotel 2"
+    },
+    {
+        "mhwg.org": "スティーラー",
+        "mhw-db.com": "Stealer"
+    },
+    {
+        "mhwg.org": "レイ＝スティーラー",
+        "mhw-db.com": "Legia Stealer"
+    },
+    {
+        "mhwg.org": "ダークショテルⅠ",
+        "mhw-db.com": "Dark Shotel 1"
+    },
+    {
+        "mhwg.org": "ダークショテルⅡ",
+        "mhw-db.com": "Dark Shotel 2"
+    },
+    {
+        "mhwg.org": "ダークシミターⅠ",
+        "mhw-db.com": "Dark Scimitar 1"
+    },
+    {
+        "mhwg.org": "ダークシミターⅡ",
+        "mhw-db.com": "Dark Scimitar 2"
+    },
+    {
+        "mhwg.org": "ダークシミターⅢ",
+        "mhw-db.com": "Dark Scimitar 3"
+    },
+    {
+        "mhwg.org": "龍骨刀Ⅰ",
+        "mhw-db.com": "Dragonbone Stabber 1"
+    },
+    {
+        "mhwg.org": "龍骨刀Ⅱ",
+        "mhw-db.com": "Dragonbone Stabber 2"
+    },
+    {
+        "mhwg.org": "龍骨刀Ⅲ",
+        "mhw-db.com": "Dragonbone Stabber 3"
+    },
+    {
+        "mhwg.org": "マグダ・ファクルタスⅠ",
+        "mhw-db.com": "Magda Facultas 1"
+    },
+    {
+        "mhwg.org": "マグダ・ファクルタスⅡ",
+        "mhw-db.com": "Magda Facultas 2"
+    },
+    {
+        "mhwg.org": "黒鋼の太刀Ⅰ",
+        "mhw-db.com": "Blacksteel Long Sword 1"
+    },
+    {
+        "mhwg.org": "黒鋼の太刀Ⅱ",
+        "mhw-db.com": "Blacksteel Long Sword 2"
+    },
+    {
+        "mhwg.org": "帝王刀",
+        "mhw-db.com": "Imperial Saber"
+    },
+    {
+        "mhwg.org": "帝王刀【陽炎】",
+        "mhw-db.com": "Imperial Shimmer"
+    },
+    {
+        "mhwg.org": "ゼノ＝サイファ",
+        "mhw-db.com": "Xeno Cypher"
+    },
+    {
+        "mhwg.org": "天下無双刀",
+        "mhw-db.com": "Supremacy Blade"
+    },
+    {
+        "mhwg.org": "天上天下無双刀",
+        "mhw-db.com": "Divine Slasher"
+    },
+    {
+        "mhwg.org": "クルーエルペイン",
+        "mhw-db.com": "Reaver \"Cruelty\""
+    },
+    {
+        "mhwg.org": "カラミティペイン",
+        "mhw-db.com": "Reaver \"Calamity\""
+    },
+    {
+        "mhwg.org": "蒼星ノ太刀",
+        "mhw-db.com": "Azure Star Blade"
+    },
+    {
+        "mhwg.org": "ハンターナイフⅠ",
+        "mhw-db.com": "Hunter's Knife 1"
+    },
+    {
+        "mhwg.org": "ハンターナイフⅡ",
+        "mhw-db.com": "Hunter's Knife 2"
+    },
+    {
+        "mhwg.org": "ハンターナイフⅢ",
+        "mhw-db.com": "Hunter's Knife 3"
+    },
+    {
+        "mhwg.org": "スティールナイフⅠ",
+        "mhw-db.com": "Steel Knife 1"
+    },
+    {
+        "mhwg.org": "スティールナイフⅡ",
+        "mhw-db.com": "Steel Knife 2"
+    },
+    {
+        "mhwg.org": "スティールナイフⅢ",
+        "mhw-db.com": "Steel Knife 3"
+    },
+    {
+        "mhwg.org": "クロムスライサーⅠ",
+        "mhw-db.com": "Chrome Slicer 1"
+    },
+    {
+        "mhwg.org": "クロムスライサーⅡ",
+        "mhw-db.com": "Chrome Slicer 2"
+    },
+    {
+        "mhwg.org": "ネルガルジャック",
+        "mhw-db.com": "Nergal Jack"
+    },
+    {
+        "mhwg.org": "討滅の尖兵",
+        "mhw-db.com": "Eradication Vanguard"
+    },
+    {
+        "mhwg.org": "フレイムナイフⅠ",
+        "mhw-db.com": "Flame Knife 1"
+    },
+    {
+        "mhwg.org": "フレイムナイフⅡ",
+        "mhw-db.com": "Flame Knife 2"
+    },
+    {
+        "mhwg.org": "ヒートエッジ",
+        "mhw-db.com": "Heat Edge"
+    },
+    {
+        "mhwg.org": "コロナ",
+        "mhw-db.com": "Corona"
+    },
+    {
+        "mhwg.org": "ヘビィバング",
+        "mhw-db.com": "Heavy Bang"
+    },
+    {
+        "mhwg.org": "ヘビィバング改",
+        "mhw-db.com": "Heavy Bang+"
+    },
+    {
+        "mhwg.org": "マスターバング",
+        "mhw-db.com": "Master Bang"
+    },
+    {
+        "mhwg.org": "アクアメッサーⅠ",
+        "mhw-db.com": "Aqua Messer 1"
+    },
+    {
+        "mhwg.org": "アクアメッサーⅡ",
+        "mhw-db.com": "Aqua Messer 2"
+    },
+    {
+        "mhwg.org": "アクアメッサーⅢ",
+        "mhw-db.com": "Aqua Messer 3"
+    },
+    {
+        "mhwg.org": "フラッドウェイブⅠ",
+        "mhw-db.com": "Rogue Wave 1"
+    },
+    {
+        "mhwg.org": "フラッドウェイブⅡ",
+        "mhw-db.com": "Rogue Wave 2"
+    },
+    {
+        "mhwg.org": "フラッドウェイブⅢ",
+        "mhw-db.com": "Rogue Wave 3"
+    },
+    {
+        "mhwg.org": "グレイスファイターⅠ",
+        "mhw-db.com": "Glacial Grace 1"
+    },
+    {
+        "mhwg.org": "グレイスファイターⅡ",
+        "mhw-db.com": "Glacial Grace 2"
+    },
+    {
+        "mhwg.org": "トリアングラー",
+        "mhw-db.com": "Rimespire"
+    },
+    {
+        "mhwg.org": "レイ＝トリアングラー",
+        "mhw-db.com": "Legia Rimespire"
+    },
+    {
+        "mhwg.org": "プリンセスレイピア",
+        "mhw-db.com": "Princess Rapier"
+    },
+    {
+        "mhwg.org": "クイーンレイピア",
+        "mhw-db.com": "Queen Rapier"
+    },
+    {
+        "mhwg.org": "クイーンローズ",
+        "mhw-db.com": "Queen Rose"
+    },
+    {
+        "mhwg.org": "ロイヤルローズ",
+        "mhw-db.com": "Royal Rose"
+    },
+    {
+        "mhwg.org": "ウルムーナイフⅠ",
+        "mhw-db.com": "Lumu Knife 1"
+    },
+    {
+        "mhwg.org": "ウルムーナイフⅡ",
+        "mhw-db.com": "Lumu Knife 2"
+    },
+    {
+        "mhwg.org": "ウルムータバールⅠ",
+        "mhw-db.com": "Lumu Tabar 1"
+    },
+    {
+        "mhwg.org": "ウルムータバールⅡ",
+        "mhw-db.com": "Lumu Tabar 2"
+    },
+    {
+        "mhwg.org": "ウルムータバールⅢ",
+        "mhw-db.com": "Lumu Tabar 3"
+    },
+    {
+        "mhwg.org": "ブルームナイフⅠ",
+        "mhw-db.com": "Blooming Knife 1"
+    },
+    {
+        "mhwg.org": "ブルームナイフⅡ",
+        "mhw-db.com": "Blooming Knife 2"
+    },
+    {
+        "mhwg.org": "ブルームナイフⅢ",
+        "mhw-db.com": "Blooming Knife 3"
+    },
+    {
+        "mhwg.org": "ダチュラブロッサムⅠ",
+        "mhw-db.com": "Datura Blossom 1"
+    },
+    {
+        "mhwg.org": "ダチュラブロッサムⅡ",
+        "mhw-db.com": "Datura Blossom 2"
+    },
+    {
+        "mhwg.org": "ダチュラブロッサムⅢ",
+        "mhw-db.com": "Datura Blossom 3"
+    },
+    {
+        "mhwg.org": "ギルオスナイフⅠ",
+        "mhw-db.com": "Girros Knife 1"
+    },
+    {
+        "mhwg.org": "ギルオスナイフⅡ",
+        "mhw-db.com": "Girros Knife 2"
+    },
+    {
+        "mhwg.org": "マラドタバールⅠ",
+        "mhw-db.com": "Malady's Tabar 1"
+    },
+    {
+        "mhwg.org": "マラドタバールⅡ",
+        "mhw-db.com": "Malady's Tabar 2"
+    },
+    {
+        "mhwg.org": "マラドタバールⅢ",
+        "mhw-db.com": "Malady's Tabar 3"
+    },
+    {
+        "mhwg.org": "ボーンククリⅠ",
+        "mhw-db.com": "Bone Kukri 1"
+    },
+    {
+        "mhwg.org": "ボーンククリⅡ",
+        "mhw-db.com": "Bone Kukri 2"
+    },
+    {
+        "mhwg.org": "ボーンククリⅢ",
+        "mhw-db.com": "Bone Kukri 3"
+    },
+    {
+        "mhwg.org": "チーフククリⅠ",
+        "mhw-db.com": "Chief Kukri 1"
+    },
+    {
+        "mhwg.org": "チーフククリⅡ",
+        "mhw-db.com": "Chief Kukri 2"
+    },
+    {
+        "mhwg.org": "チーフククリⅢ",
+        "mhw-db.com": "Chief Kukri 3"
+    },
+    {
+        "mhwg.org": "グランドバロングⅠ",
+        "mhw-db.com": "Grand Barong 1"
+    },
+    {
+        "mhwg.org": "グランドバロングⅡ",
+        "mhw-db.com": "Grand Barong 2"
+    },
+    {
+        "mhwg.org": "スパイクエッジⅠ",
+        "mhw-db.com": "Spiked Edge 1"
+    },
+    {
+        "mhwg.org": "スパイクエッジⅡ",
+        "mhw-db.com": "Spiked Edge 2"
+    },
+    {
+        "mhwg.org": "バルキンガロテⅠ",
+        "mhw-db.com": "Baan Claw 1"
+    },
+    {
+        "mhwg.org": "バルキンガロテⅡ",
+        "mhw-db.com": "Baan Claw 2"
+    },
+    {
+        "mhwg.org": "バルキンガロテⅢ",
+        "mhw-db.com": "Baan Claw 3"
+    },
+    {
+        "mhwg.org": "ジャグラスエッジⅠ",
+        "mhw-db.com": "Jagras Edge 1"
+    },
+    {
+        "mhwg.org": "ジャグラスエッジⅡ",
+        "mhw-db.com": "Jagras Edge 2"
+    },
+    {
+        "mhwg.org": "ジャグラスエッジⅢ",
+        "mhw-db.com": "Jagras Edge 3"
+    },
+    {
+        "mhwg.org": "ジャグラスガロテⅠ",
+        "mhw-db.com": "Jagras Garotte 1"
+    },
+    {
+        "mhwg.org": "ジャグラスガロテⅡ",
+        "mhw-db.com": "Jagras Garotte 2"
+    },
+    {
+        "mhwg.org": "ジャグラスガロテⅢ",
+        "mhw-db.com": "Jagras Garotte 3"
+    },
+    {
+        "mhwg.org": "サンダーエッジⅠ",
+        "mhw-db.com": "Thunder Edge 1"
+    },
+    {
+        "mhwg.org": "サンダーエッジⅡ",
+        "mhw-db.com": "Thunder Edge 2"
+    },
+    {
+        "mhwg.org": "ライトニングバトラーⅠ",
+        "mhw-db.com": "Lightning Nemesis 1"
+    },
+    {
+        "mhwg.org": "ライトニングバトラーⅡ",
+        "mhw-db.com": "Lightning Nemesis 2"
+    },
+    {
+        "mhwg.org": "ライトニングバトラーⅢ",
+        "mhw-db.com": "Lightning Nemesis 3"
+    },
+    {
+        "mhwg.org": "ドラグロエッジⅠ",
+        "mhw-db.com": "Carapace Edge 1"
+    },
+    {
+        "mhwg.org": "ドラグロエッジⅡ",
+        "mhw-db.com": "Carapace Edge 2"
+    },
+    {
+        "mhwg.org": "ドラグロエッジⅢ",
+        "mhw-db.com": "Carapace Edge 3"
+    },
+    {
+        "mhwg.org": "ボルボクラブⅠ",
+        "mhw-db.com": "Barroth Club 1"
+    },
+    {
+        "mhwg.org": "ボルボクラブⅡ",
+        "mhw-db.com": "Barroth Club 2"
+    },
+    {
+        "mhwg.org": "ボルボクラブⅢ",
+        "mhw-db.com": "Barroth Club 3"
+    },
+    {
+        "mhwg.org": "ブレイズエッジⅠ",
+        "mhw-db.com": "Blazing Edge 1"
+    },
+    {
+        "mhwg.org": "ブレイズエッジⅡ",
+        "mhw-db.com": "Blazing Edge 2"
+    },
+    {
+        "mhwg.org": "フラムエルシーカ",
+        "mhw-db.com": "Flammensucher"
+    },
+    {
+        "mhwg.org": "蛮顎剣フラムシーカ",
+        "mhw-db.com": "Gnashing Flammensucher"
+    },
+    {
+        "mhwg.org": "龍骨剣Ⅰ",
+        "mhw-db.com": "Dragonbone Sword 1"
+    },
+    {
+        "mhwg.org": "龍骨剣Ⅱ",
+        "mhw-db.com": "Dragonbone Sword 2"
+    },
+    {
+        "mhwg.org": "龍骨剣Ⅲ",
+        "mhw-db.com": "Dragonbone Sword 3"
+    },
+    {
+        "mhwg.org": "雷刃",
+        "mhw-db.com": "Fulminator"
+    },
+    {
+        "mhwg.org": "雷光刃Ⅰ",
+        "mhw-db.com": "Thunderbolt Sword 1"
+    },
+    {
+        "mhwg.org": "雷光刃Ⅱ",
+        "mhw-db.com": "Thunderbolt Sword 2"
+    },
+    {
+        "mhwg.org": "黒鋼の剣Ⅰ",
+        "mhw-db.com": "Blacksteel Sword 1"
+    },
+    {
+        "mhwg.org": "黒鋼の剣Ⅱ",
+        "mhw-db.com": "Blacksteel Sword 2"
+    },
+    {
+        "mhwg.org": "テオ＝スパーダ",
+        "mhw-db.com": "Teostra's Spada"
+    },
+    {
+        "mhwg.org": "テオ＝エンブレム",
+        "mhw-db.com": "Teostra's Emblem"
+    },
+    {
+        "mhwg.org": "ゼノ＝マブーラー",
+        "mhw-db.com": "Xeno Mabura"
+    },
+    {
+        "mhwg.org": "フェイタルジョー",
+        "mhw-db.com": "Fatal Jho"
+    },
+    {
+        "mhwg.org": "フェイタルヴァイト",
+        "mhw-db.com": "Fatal Bite"
+    },
+    {
+        "mhwg.org": "ツインダガーⅠ",
+        "mhw-db.com": "Matched Slicers 1"
+    },
+    {
+        "mhwg.org": "ツインダガーⅡ",
+        "mhw-db.com": "Matched Slicers 2"
+    },
+    {
+        "mhwg.org": "ツインダガーⅢ",
+        "mhw-db.com": "Matched Slicers 3"
+    },
+    {
+        "mhwg.org": "デュエルツインダガーⅠ",
+        "mhw-db.com": "Dual Slicers 1"
+    },
+    {
+        "mhwg.org": "デュエルツインダガーⅡ",
+        "mhw-db.com": "Dual Slicers 2"
+    },
+    {
+        "mhwg.org": "デュエルツインダガーⅢ",
+        "mhw-db.com": "Dual Slicers 3"
+    },
+    {
+        "mhwg.org": "クロムツインダガーⅠ",
+        "mhw-db.com": "Chrome Slicers 1"
+    },
+    {
+        "mhwg.org": "クロムツインダガーⅡ",
+        "mhw-db.com": "Chrome Slicers 2"
+    },
+    {
+        "mhwg.org": "ネルガルガウジ",
+        "mhw-db.com": "Nergal Gouge"
+    },
+    {
+        "mhwg.org": "残滅の爪",
+        "mhw-db.com": "Decimation Claws"
+    },
+    {
+        "mhwg.org": "イルミナルダガーⅠ",
+        "mhw-db.com": "Luminous Daggers 1"
+    },
+    {
+        "mhwg.org": "イルミナルダガーⅡ",
+        "mhw-db.com": "Luminous Daggers 2"
+    },
+    {
+        "mhwg.org": "デュエルデステリオⅠ",
+        "mhw-db.com": "Dual Destroyers 1"
+    },
+    {
+        "mhwg.org": "デュエルデステリオⅡ",
+        "mhw-db.com": "Dual Destroyers 2"
+    },
+    {
+        "mhwg.org": "デュエルデステリオⅢ",
+        "mhw-db.com": "Dual Destroyers 3"
+    },
+    {
+        "mhwg.org": "爆鱗の手斧",
+        "mhw-db.com": "Rookslayer Handaxes"
+    },
+    {
+        "mhwg.org": "爆鱗双斧バゼルホーク",
+        "mhw-db.com": "Bazelhawk Rookslayer"
+    },
+    {
+        "mhwg.org": "フリーズダガーⅠ",
+        "mhw-db.com": "Freeze Daggers 1"
+    },
+    {
+        "mhwg.org": "フリーズダガーⅡ",
+        "mhw-db.com": "Freeze Daggers 2"
+    },
+    {
+        "mhwg.org": "フリーズチェーンⅠ",
+        "mhw-db.com": "Freeze Chain 1"
+    },
+    {
+        "mhwg.org": "フリーズチェーンⅡ",
+        "mhw-db.com": "Freeze Chain 2"
+    },
+    {
+        "mhwg.org": "ビークダガーⅠ",
+        "mhw-db.com": "Rending Beaks 1"
+    },
+    {
+        "mhwg.org": "ビークダガーⅡ",
+        "mhw-db.com": "Rending Beaks 2"
+    },
+    {
+        "mhwg.org": "ビークダガーⅢ",
+        "mhw-db.com": "Rending Beaks 3"
+    },
+    {
+        "mhwg.org": "アルカナリアⅠ",
+        "mhw-db.com": "Arcanaria 1"
+    },
+    {
+        "mhwg.org": "アルカナリアⅡ",
+        "mhw-db.com": "Arcanaria 2"
+    },
+    {
+        "mhwg.org": "アルカナリアⅢ",
+        "mhw-db.com": "Arcanaria 3"
+    },
+    {
+        "mhwg.org": "オーダーレイピア",
+        "mhw-db.com": "Sworn Rapiers"
+    },
+    {
+        "mhwg.org": "オーダーレイピア改",
+        "mhw-db.com": "Sworn Rapiers+"
+    },
+    {
+        "mhwg.org": "ホーリーセーバー",
+        "mhw-db.com": "Holy Sabers"
+    },
+    {
+        "mhwg.org": "ボーンハチェットⅠ",
+        "mhw-db.com": "Bone Hatchets 1"
+    },
+    {
+        "mhwg.org": "ボーンハチェットⅡ",
+        "mhw-db.com": "Bone Hatchets 2"
+    },
+    {
+        "mhwg.org": "ボーンハチェットⅢ",
+        "mhw-db.com": "Bone Hatchets 3"
+    },
+    {
+        "mhwg.org": "ワイルドハチェットⅠ",
+        "mhw-db.com": "Wild Hatchets 1"
+    },
+    {
+        "mhwg.org": "ワイルドハチェットⅡ",
+        "mhw-db.com": "Wild Hatchets 2"
+    },
+    {
+        "mhwg.org": "ワイルドハチェットⅢ",
+        "mhw-db.com": "Wild Hatchets 3"
+    },
+    {
+        "mhwg.org": "ストロングハチェットⅠ",
+        "mhw-db.com": "Strong Hatchets 1"
+    },
+    {
+        "mhwg.org": "ストロングハチェットⅡ",
+        "mhw-db.com": "Strong Hatchets 2"
+    },
+    {
+        "mhwg.org": "ブレイズハチェットⅠ",
+        "mhw-db.com": "Blazing Hatchets 1"
+    },
+    {
+        "mhwg.org": "ブレイズハチェットⅡ",
+        "mhw-db.com": "Blazing Hatchets 2"
+    },
+    {
+        "mhwg.org": "ジャナフサイクロンⅠ",
+        "mhw-db.com": "Anja Cyclone 1"
+    },
+    {
+        "mhwg.org": "ジャナフサイクロンⅡ",
+        "mhw-db.com": "Anja Cyclone 2"
+    },
+    {
+        "mhwg.org": "ジャナフサイクロンⅢ",
+        "mhw-db.com": "Anja Cyclone 3"
+    },
+    {
+        "mhwg.org": "ブロスハチェットⅠ",
+        "mhw-db.com": "Diablos Hatchets 1"
+    },
+    {
+        "mhwg.org": "ブロスハチェットⅡ",
+        "mhw-db.com": "Diablos Hatchets 2"
+    },
+    {
+        "mhwg.org": "ブロスクラブⅠ",
+        "mhw-db.com": "Diablos Clubs 1"
+    },
+    {
+        "mhwg.org": "ブロスクラブⅡ",
+        "mhw-db.com": "Diablos Clubs 2"
+    },
+    {
+        "mhwg.org": "マッドバンガーⅠ",
+        "mhw-db.com": "Madness Pangas 1"
+    },
+    {
+        "mhwg.org": "マッドバンガーⅡ",
+        "mhw-db.com": "Madness Pangas 2"
+    },
+    {
+        "mhwg.org": "マッドバンガーⅢ",
+        "mhw-db.com": "Madness Pangas 3"
+    },
+    {
+        "mhwg.org": "シュラムハチェットⅠ",
+        "mhw-db.com": "Jyura Hatchets 1"
+    },
+    {
+        "mhwg.org": "シュラムハチェットⅡ",
+        "mhw-db.com": "Jyura Hatchets 2"
+    },
+    {
+        "mhwg.org": "シュラムハチェットⅢ",
+        "mhw-db.com": "Jyura Hatchets 3"
+    },
+    {
+        "mhwg.org": "ラヴァサイクロンⅠ",
+        "mhw-db.com": "Lava Cyclone 1"
+    },
+    {
+        "mhwg.org": "ラヴァサイクロンⅡ",
+        "mhw-db.com": "Lava Cyclone 2"
+    },
+    {
+        "mhwg.org": "タロスバンガーⅠ",
+        "mhw-db.com": "Taurus Pangas 1"
+    },
+    {
+        "mhwg.org": "タロスバンガーⅡ",
+        "mhw-db.com": "Taurus Pangas 2"
+    },
+    {
+        "mhwg.org": "ダークリッパーⅠ",
+        "mhw-db.com": "Dark Ripper 1"
+    },
+    {
+        "mhwg.org": "ダークリッパーⅡ",
+        "mhw-db.com": "Dark Ripper 2"
+    },
+    {
+        "mhwg.org": "ダークリッパーⅢ",
+        "mhw-db.com": "Dark Ripper 3"
+    },
+    {
+        "mhwg.org": "パルサーハチェットⅠ",
+        "mhw-db.com": "Pulsar Hatchets 1"
+    },
+    {
+        "mhwg.org": "パルサーハチェットⅡ",
+        "mhw-db.com": "Pulsar Hatchets 2"
+    },
+    {
+        "mhwg.org": "パルサーハチェットⅢ",
+        "mhw-db.com": "Pulsar Hatchets 3"
+    },
+    {
+        "mhwg.org": "カガチノツメⅠ",
+        "mhw-db.com": "Kadachi Claws 1"
+    },
+    {
+        "mhwg.org": "カガチノツメⅡ",
+        "mhw-db.com": "Kadachi Claws 2"
+    },
+    {
+        "mhwg.org": "カガチノツメⅢ",
+        "mhw-db.com": "Kadachi Claws 3"
+    },
+    {
+        "mhwg.org": "ガロンハチェットⅠ",
+        "mhw-db.com": "Garon Hatchets 1"
+    },
+    {
+        "mhwg.org": "ガロンハチェットⅡ",
+        "mhw-db.com": "Garon Hatchets 2"
+    },
+    {
+        "mhwg.org": "血吸いの鎖鎌",
+        "mhw-db.com": "Blood-drinker Chainblade"
+    },
+    {
+        "mhwg.org": "罪【シン】",
+        "mhw-db.com": "Sin"
+    },
+    {
+        "mhwg.org": "龍骨双刃Ⅰ",
+        "mhw-db.com": "Dragonbone Twinblades 1"
+    },
+    {
+        "mhwg.org": "龍骨双刃Ⅱ",
+        "mhw-db.com": "Dragonbone Twinblades 2"
+    },
+    {
+        "mhwg.org": "封龍剣【超絶一門】",
+        "mhw-db.com": "Enduring Schism"
+    },
+    {
+        "mhwg.org": "双雷剣キリン",
+        "mhw-db.com": "Kirin Bolts"
+    },
+    {
+        "mhwg.org": "双雷剣キリン改",
+        "mhw-db.com": "Kirin Bolts+"
+    },
+    {
+        "mhwg.org": "迅雷",
+        "mhw-db.com": "Monarch"
+    },
+    {
+        "mhwg.org": "マグダ・ウングラⅠ",
+        "mhw-db.com": "Magda Ungulae 1"
+    },
+    {
+        "mhwg.org": "マグダ・ウングラⅡ",
+        "mhw-db.com": "Magda Ungulae 2"
+    },
+    {
+        "mhwg.org": "黒鋼の双剣Ⅰ",
+        "mhw-db.com": "Blacksteel Twins 1"
+    },
+    {
+        "mhwg.org": "黒鋼の双剣Ⅱ",
+        "mhw-db.com": "Blacksteel Twins 2"
+    },
+    {
+        "mhwg.org": "ツインネイル",
+        "mhw-db.com": "Twin Nails"
+    },
+    {
+        "mhwg.org": "氷炎剣ヴィルマフレア",
+        "mhw-db.com": "Fire and Ice"
+    },
+    {
+        "mhwg.org": "ゼノ＝ラクス",
+        "mhw-db.com": "Xeno Raqs"
+    },
+    {
+        "mhwg.org": "憤怒の双刃",
+        "mhw-db.com": "Wrath & Rancor"
+    },
+    {
+        "mhwg.org": "ラースプレデター",
+        "mhw-db.com": "Wrathful Predation"
+    },
+    {
+        "mhwg.org": "アイアンハンマーⅠ",
+        "mhw-db.com": "Iron Hammer 1"
+    },
+    {
+        "mhwg.org": "アイアンハンマーⅡ",
+        "mhw-db.com": "Iron Hammer 2"
+    },
+    {
+        "mhwg.org": "アイアンハンマーⅢ",
+        "mhw-db.com": "Iron Hammer 3"
+    },
+    {
+        "mhwg.org": "鬼鉄Ⅰ",
+        "mhw-db.com": "Iron Demon 1"
+    },
+    {
+        "mhwg.org": "鬼鉄Ⅱ",
+        "mhw-db.com": "Iron Demon 2"
+    },
+    {
+        "mhwg.org": "鬼鉄Ⅲ",
+        "mhw-db.com": "Iron Demon 3"
+    },
+    {
+        "mhwg.org": "大鬼鉄Ⅰ",
+        "mhw-db.com": "Iron Archdemon 1"
+    },
+    {
+        "mhwg.org": "大鬼鉄Ⅱ",
+        "mhw-db.com": "Iron Archdemon 2"
+    },
+    {
+        "mhwg.org": "ネルガルクラッシュ",
+        "mhw-db.com": "Nergal Crusher"
+    },
+    {
+        "mhwg.org": "潰滅の一撃",
+        "mhw-db.com": "Obliteration's Footfall"
+    },
+    {
+        "mhwg.org": "フローズンコア",
+        "mhw-db.com": "Frozen Core"
+    },
+    {
+        "mhwg.org": "フローズンコア改",
+        "mhw-db.com": "Frozen Core+"
+    },
+    {
+        "mhwg.org": "コキュートス",
+        "mhw-db.com": "Cocytus"
+    },
+    {
+        "mhwg.org": "アクアハンマーⅠ",
+        "mhw-db.com": "Aqua Hammer 1"
+    },
+    {
+        "mhwg.org": "アクアハンマーⅡ",
+        "mhw-db.com": "Aqua Hammer 2"
+    },
+    {
+        "mhwg.org": "アクアハンマーⅢ",
+        "mhw-db.com": "Aqua Hammer 3"
+    },
+    {
+        "mhwg.org": "ウォーターバッシュⅠ",
+        "mhw-db.com": "Water Basher 1"
+    },
+    {
+        "mhwg.org": "ウォーターバッシュⅡ",
+        "mhw-db.com": "Water Basher 2"
+    },
+    {
+        "mhwg.org": "ウォーターバッシュⅢ",
+        "mhw-db.com": "Water Basher 3"
+    },
+    {
+        "mhwg.org": "ギルオスハンマーⅠ",
+        "mhw-db.com": "Girros Hammer 1"
+    },
+    {
+        "mhwg.org": "ギルオスハンマーⅡ",
+        "mhw-db.com": "Girros Hammer 2"
+    },
+    {
+        "mhwg.org": "マラドマトラカⅠ",
+        "mhw-db.com": "Malady's Fist 1"
+    },
+    {
+        "mhwg.org": "マラドマトラカⅡ",
+        "mhw-db.com": "Malady's Fist 2"
+    },
+    {
+        "mhwg.org": "マラドマトラカⅢ",
+        "mhw-db.com": "Malady's Fist 3"
+    },
+    {
+        "mhwg.org": "ブルームハンマーⅠ",
+        "mhw-db.com": "Blooming Hammer 1"
+    },
+    {
+        "mhwg.org": "ブルームハンマーⅡ",
+        "mhw-db.com": "Blooming Hammer 2"
+    },
+    {
+        "mhwg.org": "ブルームハンマーⅢ",
+        "mhw-db.com": "Blooming Hammer 3"
+    },
+    {
+        "mhwg.org": "ベネ・フロル",
+        "mhw-db.com": "Buon Fiore"
+    },
+    {
+        "mhwg.org": "ベネ・フローラ",
+        "mhw-db.com": "Buona Flora"
+    },
+    {
+        "mhwg.org": "サンダーハンマーⅠ",
+        "mhw-db.com": "Thunder Hammer 1"
+    },
+    {
+        "mhwg.org": "サンダーハンマーⅡ",
+        "mhw-db.com": "Thunder Hammer 2"
+    },
+    {
+        "mhwg.org": "ライトニングバッシュⅠ",
+        "mhw-db.com": "Lightning Bash 1"
+    },
+    {
+        "mhwg.org": "ライトニングバッシュⅡ",
+        "mhw-db.com": "Lightning Bash 2"
+    },
+    {
+        "mhwg.org": "ライトニングバッシュⅢ",
+        "mhw-db.com": "Lightning Bash 3"
+    },
+    {
+        "mhwg.org": "ロックボーンⅠ",
+        "mhw-db.com": "Bone Bludgeon 1"
+    },
+    {
+        "mhwg.org": "ロックボーンⅡ",
+        "mhw-db.com": "Bone Bludgeon 2"
+    },
+    {
+        "mhwg.org": "ロックボーンⅢ",
+        "mhw-db.com": "Bone Bludgeon 3"
+    },
+    {
+        "mhwg.org": "ヘヴィロックボーンⅠ",
+        "mhw-db.com": "Fossil Bludgeon 1"
+    },
+    {
+        "mhwg.org": "ヘヴィロックボーンⅡ",
+        "mhw-db.com": "Fossil Bludgeon 2"
+    },
+    {
+        "mhwg.org": "ヘヴィロックボーンⅢ",
+        "mhw-db.com": "Fossil Bludgeon 3"
+    },
+    {
+        "mhwg.org": "グランドロックⅠ",
+        "mhw-db.com": "Grandrock 1"
+    },
+    {
+        "mhwg.org": "グランドロックⅡ",
+        "mhw-db.com": "Grandrock 2"
+    },
+    {
+        "mhwg.org": "ハザクヴラフォス",
+        "mhw-db.com": "Hazak Vlafos"
+    },
+    {
+        "mhwg.org": "デモナスの禍根",
+        "mhw-db.com": "Pandemonium's Root"
+    },
+    {
+        "mhwg.org": "ボーンスパイクⅠ",
+        "mhw-db.com": "Bone Spike 1"
+    },
+    {
+        "mhwg.org": "ボーンスパイクⅡ",
+        "mhw-db.com": "Bone Spike 2"
+    },
+    {
+        "mhwg.org": "バルキンストライクⅠ",
+        "mhw-db.com": "Baan Strike 1"
+    },
+    {
+        "mhwg.org": "バルキンストライクⅡ",
+        "mhw-db.com": "Baan Strike 2"
+    },
+    {
+        "mhwg.org": "バルキンストライクⅢ",
+        "mhw-db.com": "Baan Strike 3"
+    },
+    {
+        "mhwg.org": "ブラスブレイカーⅠ",
+        "mhw-db.com": "Brazenbreak 1"
+    },
+    {
+        "mhwg.org": "ブラスブレイカーⅡ",
+        "mhw-db.com": "Brazenbreak 2"
+    },
+    {
+        "mhwg.org": "クルルビークⅠ",
+        "mhw-db.com": "Kulu Beak 1"
+    },
+    {
+        "mhwg.org": "クルルビークⅡ",
+        "mhw-db.com": "Kulu Beak 2"
+    },
+    {
+        "mhwg.org": "クルルビークⅢ",
+        "mhw-db.com": "Kulu Beak 3"
+    },
+    {
+        "mhwg.org": "ビークインパクトⅠ",
+        "mhw-db.com": "Crushing Beak 1"
+    },
+    {
+        "mhwg.org": "ビークインパクトⅡ",
+        "mhw-db.com": "Crushing Beak 2"
+    },
+    {
+        "mhwg.org": "ビークインパクトⅢ",
+        "mhw-db.com": "Crushing Beak 3"
+    },
+    {
+        "mhwg.org": "ブロスヘッドⅠ",
+        "mhw-db.com": "Diablos Sledge 1"
+    },
+    {
+        "mhwg.org": "ブロスヘッドⅡ",
+        "mhw-db.com": "Diablos Sledge 2"
+    },
+    {
+        "mhwg.org": "ブロスシャッターⅠ",
+        "mhw-db.com": "Diablos Shatterer 1"
+    },
+    {
+        "mhwg.org": "ブロスシャッターⅡ",
+        "mhw-db.com": "Diablos Shatterer 2"
+    },
+    {
+        "mhwg.org": "ドラグロフレームⅠ",
+        "mhw-db.com": "Carapace Sledge 1"
+    },
+    {
+        "mhwg.org": "ドラグロフレームⅡ",
+        "mhw-db.com": "Carapace Sledge 2"
+    },
+    {
+        "mhwg.org": "ドラグロフレームⅢ",
+        "mhw-db.com": "Carapace Sledge 3"
+    },
+    {
+        "mhwg.org": "ボルボブレイカーⅠ",
+        "mhw-db.com": "Barroth Breaker 1"
+    },
+    {
+        "mhwg.org": "ボルボブレイカーⅡ",
+        "mhw-db.com": "Barroth Breaker 2"
+    },
+    {
+        "mhwg.org": "ボルボブレイカーⅢ",
+        "mhw-db.com": "Barroth Breaker 3"
+    },
+    {
+        "mhwg.org": "ブレイズハンマーⅠ",
+        "mhw-db.com": "Blazing Hammer 1"
+    },
+    {
+        "mhwg.org": "ブレイズハンマーⅡ",
+        "mhw-db.com": "Blazing Hammer 2"
+    },
+    {
+        "mhwg.org": "ジャナフストライクⅠ",
+        "mhw-db.com": "Anja Striker 1"
+    },
+    {
+        "mhwg.org": "ジャナフストライクⅡ",
+        "mhw-db.com": "Anja Striker 2"
+    },
+    {
+        "mhwg.org": "ジャナフストライクⅢ",
+        "mhw-db.com": "Anja Striker 3"
+    },
+    {
+        "mhwg.org": "龍骨大槌Ⅰ",
+        "mhw-db.com": "Dragonbone Basher 1"
+    },
+    {
+        "mhwg.org": "龍骨大槌Ⅱ",
+        "mhw-db.com": "Dragonbone Basher 2"
+    },
+    {
+        "mhwg.org": "龍骨大槌Ⅲ",
+        "mhw-db.com": "Dragonbone Basher 3"
+    },
+    {
+        "mhwg.org": "マグダ・フロガ",
+        "mhw-db.com": "Magda Floga"
+    },
+    {
+        "mhwg.org": "活火激発マグフロガ",
+        "mhw-db.com": "Ragefire Magda Floga"
+    },
+    {
+        "mhwg.org": "黒鋼の鎚Ⅰ",
+        "mhw-db.com": "Blacksteel Hammer 1"
+    },
+    {
+        "mhwg.org": "黒鋼の鎚Ⅱ",
+        "mhw-db.com": "Blacksteel Hammer 2"
+    },
+    {
+        "mhwg.org": "鋼氷棍",
+        "mhw-db.com": "Icesteel Hammer"
+    },
+    {
+        "mhwg.org": "コロサル＝ダオラ",
+        "mhw-db.com": "Daora's Colossus"
+    },
+    {
+        "mhwg.org": "ゼノ＝マファガルナ",
+        "mhw-db.com": "Xeno Maph'agarna"
+    },
+    {
+        "mhwg.org": "ジェイルハンマー",
+        "mhw-db.com": "Jail Hammer"
+    },
+    {
+        "mhwg.org": "バインドキューブ",
+        "mhw-db.com": "Binder Mace"
+    },
+    {
+        "mhwg.org": "混沌の鎚",
+        "mhw-db.com": "Devil's Due"
+    },
+    {
+        "mhwg.org": "カオスラッシュ",
+        "mhw-db.com": "Devil's Crush"
+    },
+    {
+        "mhwg.org": "メタルバグパイプⅠ",
+        "mhw-db.com": "Metal Bagpipe 1"
+    },
+    {
+        "mhwg.org": "メタルバグパイプⅡ",
+        "mhw-db.com": "Metal Bagpipe 2"
+    },
+    {
+        "mhwg.org": "メタルバグパイプⅢ",
+        "mhw-db.com": "Metal Bagpipe 3"
+    },
+    {
+        "mhwg.org": "グレードバグパイプⅠ",
+        "mhw-db.com": "Great Bagpipe 1"
+    },
+    {
+        "mhwg.org": "グレードバグパイプⅡ",
+        "mhw-db.com": "Great Bagpipe 2"
+    },
+    {
+        "mhwg.org": "グレードバグパイプⅢ",
+        "mhw-db.com": "Great Bagpipe 3"
+    },
+    {
+        "mhwg.org": "フォルティッシモⅠ",
+        "mhw-db.com": "Fortissimo 1"
+    },
+    {
+        "mhwg.org": "フォルティッシモⅡ",
+        "mhw-db.com": "Fortissimo 2"
+    },
+    {
+        "mhwg.org": "ネルガルグルーヴ",
+        "mhw-db.com": "Nergal Groove"
+    },
+    {
+        "mhwg.org": "寂滅の一節",
+        "mhw-db.com": "Desolation's Overture"
+    },
+    {
+        "mhwg.org": "サンダーガイダⅠ",
+        "mhw-db.com": "Thunder Gaida 1"
+    },
+    {
+        "mhwg.org": "サンダーガイダⅡ",
+        "mhw-db.com": "Thunder Gaida 2"
+    },
+    {
+        "mhwg.org": "ライトニングドラムⅠ",
+        "mhw-db.com": "Lightning Drum 1"
+    },
+    {
+        "mhwg.org": "ライトニングドラムⅡ",
+        "mhw-db.com": "Lightning Drum 2"
+    },
+    {
+        "mhwg.org": "ライトニングドラムⅢ",
+        "mhw-db.com": "Lightning Drum 3"
+    },
+    {
+        "mhwg.org": "クルルドゥダⅠ",
+        "mhw-db.com": "Kulu Duda 1"
+    },
+    {
+        "mhwg.org": "クルルドゥダⅡ",
+        "mhw-db.com": "Kulu Duda 2"
+    },
+    {
+        "mhwg.org": "クルルドゥダⅢ",
+        "mhw-db.com": "Kulu Duda 3"
+    },
+    {
+        "mhwg.org": "リーシャタブルⅠ",
+        "mhw-db.com": "Dancing Davul 1"
+    },
+    {
+        "mhwg.org": "リーシャタブルⅡ",
+        "mhw-db.com": "Dancing Davul 2"
+    },
+    {
+        "mhwg.org": "リーシャタブルⅢ",
+        "mhw-db.com": "Dancing Davul 3"
+    },
+    {
+        "mhwg.org": "ヴァルキリコーダー",
+        "mhw-db.com": "Valkyrie Chordmaker"
+    },
+    {
+        "mhwg.org": "クイーンリコーダー",
+        "mhw-db.com": "Queen Chordmaker"
+    },
+    {
+        "mhwg.org": "サクラノリコーダー",
+        "mhw-db.com": "Coral Chordmaker"
+    },
+    {
+        "mhwg.org": "ロイヤルリコーダー",
+        "mhw-db.com": "Royal Chordmaker"
+    },
+    {
+        "mhwg.org": "アクアバグパイプⅠ",
+        "mhw-db.com": "Aqua Bagpipe 1"
+    },
+    {
+        "mhwg.org": "アクアバグパイプⅡ",
+        "mhw-db.com": "Aqua Bagpipe 2"
+    },
+    {
+        "mhwg.org": "アクアバグパイプⅢ",
+        "mhw-db.com": "Aqua Bagpipe 3"
+    },
+    {
+        "mhwg.org": "ウォータータムタムⅠ",
+        "mhw-db.com": "Water Tamtam 1"
+    },
+    {
+        "mhwg.org": "ウォータータムタムⅡ",
+        "mhw-db.com": "Water Tamtam 2"
+    },
+    {
+        "mhwg.org": "ウォータータムタムⅢ",
+        "mhw-db.com": "Water Tamtam 3"
+    },
+    {
+        "mhwg.org": "グレイスパグパイプⅠ",
+        "mhw-db.com": "Glacial Bagpipe 1"
+    },
+    {
+        "mhwg.org": "グレイスパグパイプⅡ",
+        "mhw-db.com": "Glacial Bagpipe 2"
+    },
+    {
+        "mhwg.org": "セクタード",
+        "mhw-db.com": "Sectored"
+    },
+    {
+        "mhwg.org": "レイ＝セクタード",
+        "mhw-db.com": "Legia Sectored"
+    },
+    {
+        "mhwg.org": "ボーンホルンⅠ",
+        "mhw-db.com": "Bone Horn 1"
+    },
+    {
+        "mhwg.org": "ボーンホルンⅡ",
+        "mhw-db.com": "Bone Horn 2"
+    },
+    {
+        "mhwg.org": "ボーンホルンⅢ",
+        "mhw-db.com": "Bone Horn 3"
+    },
+    {
+        "mhwg.org": "ハードボーンホルンⅠ",
+        "mhw-db.com": "Hard Bone Horn 1"
+    },
+    {
+        "mhwg.org": "ハードボーンホルンⅡ",
+        "mhw-db.com": "Hard Bone Horn 2"
+    },
+    {
+        "mhwg.org": "ハードボーンホルンⅢ",
+        "mhw-db.com": "Hard Bone Horn 3"
+    },
+    {
+        "mhwg.org": "ヘビィボーンホルンⅠ",
+        "mhw-db.com": "Heavy Bone Horn 1"
+    },
+    {
+        "mhwg.org": "ヘビィボーンホルンⅡ",
+        "mhw-db.com": "Heavy Bone Horn 2"
+    },
+    {
+        "mhwg.org": "ガマルホルンⅠ",
+        "mhw-db.com": "Gama Horn 1"
+    },
+    {
+        "mhwg.org": "ガマルホルンⅡ",
+        "mhw-db.com": "Gama Horn 2"
+    },
+    {
+        "mhwg.org": "ブレイズホルンⅠ",
+        "mhw-db.com": "Blazing Horn 1"
+    },
+    {
+        "mhwg.org": "ブレイズホルンⅡ",
+        "mhw-db.com": "Blazing Horn 2"
+    },
+    {
+        "mhwg.org": "ジャナフバローネⅠ",
+        "mhw-db.com": "Anja Barone 1"
+    },
+    {
+        "mhwg.org": "ジャナフバローネⅡ",
+        "mhw-db.com": "Anja Barone 2"
+    },
+    {
+        "mhwg.org": "ジャナフバローネⅢ",
+        "mhw-db.com": "Anja Barone 3"
+    },
+    {
+        "mhwg.org": "ブルームホルンⅠ",
+        "mhw-db.com": "Blooming Horn 1"
+    },
+    {
+        "mhwg.org": "ブルームホルンⅡ",
+        "mhw-db.com": "Blooming Horn 2"
+    },
+    {
+        "mhwg.org": "ブルームホルンⅢ",
+        "mhw-db.com": "Blooming Horn 3"
+    },
+    {
+        "mhwg.org": "ダチュラホルンⅠ",
+        "mhw-db.com": "Datura Horn 1"
+    },
+    {
+        "mhwg.org": "ダチュラホルンⅡ",
+        "mhw-db.com": "Datura Horn 2"
+    },
+    {
+        "mhwg.org": "ダチュラホルンⅢ",
+        "mhw-db.com": "Datura Horn 3"
+    },
+    {
+        "mhwg.org": "ウルムーホルンⅠ",
+        "mhw-db.com": "Lumu Horn 1"
+    },
+    {
+        "mhwg.org": "ウルムーホルンⅡ",
+        "mhw-db.com": "Lumu Horn 2"
+    },
+    {
+        "mhwg.org": "ウルムーバローネⅠ",
+        "mhw-db.com": "Lumu Barone 1"
+    },
+    {
+        "mhwg.org": "ウルムーバローネⅡ",
+        "mhw-db.com": "Lumu Barone 2"
+    },
+    {
+        "mhwg.org": "ウルムーバローネⅢ",
+        "mhw-db.com": "Lumu Barone 3"
+    },
+    {
+        "mhwg.org": "爆鱗の太鼓",
+        "mhw-db.com": "Rookslayer Drum"
+    },
+    {
+        "mhwg.org": "爆鱗鼓バゼルライド",
+        "mhw-db.com": "Bazelreid Rookslayer"
+    },
+    {
+        "mhwg.org": "ソニックホルンⅠ",
+        "mhw-db.com": "Sonic Horn 1"
+    },
+    {
+        "mhwg.org": "ソニックホルンⅡ",
+        "mhw-db.com": "Sonic Horn 2"
+    },
+    {
+        "mhwg.org": "ソニックホルンⅢ",
+        "mhw-db.com": "Sonic Horn 3"
+    },
+    {
+        "mhwg.org": "ロイヤルビードロー",
+        "mhw-db.com": "Glass Royale"
+    },
+    {
+        "mhwg.org": "ロイヤルビードロー改",
+        "mhw-db.com": "Glass Royale+"
+    },
+    {
+        "mhwg.org": "女王笛ランゴスタ",
+        "mhw-db.com": "Queen Vespoid Horn"
+    },
+    {
+        "mhwg.org": "スパイクホルンⅠ",
+        "mhw-db.com": "Spiked Horn 1"
+    },
+    {
+        "mhwg.org": "スパイクホルンⅡ",
+        "mhw-db.com": "Spiked Horn 2"
+    },
+    {
+        "mhwg.org": "バルキンホルンⅠ",
+        "mhw-db.com": "Baan Horn 1"
+    },
+    {
+        "mhwg.org": "バルキンホルンⅡ",
+        "mhw-db.com": "Baan Horn 2"
+    },
+    {
+        "mhwg.org": "バルキンホルンⅢ",
+        "mhw-db.com": "Baan Horn 3"
+    },
+    {
+        "mhwg.org": "龍骨古笛Ⅰ",
+        "mhw-db.com": "Dragonbone Auldhorn 1"
+    },
+    {
+        "mhwg.org": "龍骨古笛Ⅱ",
+        "mhw-db.com": "Dragonbone Auldhorn 2"
+    },
+    {
+        "mhwg.org": "龍骨古笛Ⅲ",
+        "mhw-db.com": "Dragonbone Auldhorn 3"
+    },
+    {
+        "mhwg.org": "雷鳴ノ笛",
+        "mhw-db.com": "Thundercry Horn"
+    },
+    {
+        "mhwg.org": "雷光ノ笛Ⅰ",
+        "mhw-db.com": "Thunderbolt Horn 1"
+    },
+    {
+        "mhwg.org": "雷光ノ笛Ⅱ",
+        "mhw-db.com": "Thunderbolt Horn 2"
+    },
+    {
+        "mhwg.org": "黒鋼の龍笛Ⅰ",
+        "mhw-db.com": "Blacksteel Dragonhorn 1"
+    },
+    {
+        "mhwg.org": "黒鋼の龍笛Ⅱ",
+        "mhw-db.com": "Blacksteel Dragonhorn 2"
+    },
+    {
+        "mhwg.org": "テオ＝クエルダ",
+        "mhw-db.com": "Teostra's Tiple"
+    },
+    {
+        "mhwg.org": "テオ＝オルフェス",
+        "mhw-db.com": "Teostra's Orphée"
+    },
+    {
+        "mhwg.org": "ゼノ＝マナシーナ",
+        "mhw-db.com": "Xeno Manasheena"
+    },
+    {
+        "mhwg.org": "鎖縛の暴竜",
+        "mhw-db.com": "Devil's Maestro"
+    },
+    {
+        "mhwg.org": "ディープヴェロウ",
+        "mhw-db.com": "Deep Vero"
+    },
+    {
+        "mhwg.org": "アイアンランスⅠ",
+        "mhw-db.com": "Iron Lance 1"
+    },
+    {
+        "mhwg.org": "アイアンランスⅡ",
+        "mhw-db.com": "Iron Lance 2"
+    },
+    {
+        "mhwg.org": "アイアンランスⅢ",
+        "mhw-db.com": "Iron Lance 3"
+    },
+    {
+        "mhwg.org": "スティールランスⅠ",
+        "mhw-db.com": "Steel Lance 1"
+    },
+    {
+        "mhwg.org": "スティールランスⅡ",
+        "mhw-db.com": "Steel Lance 2"
+    },
+    {
+        "mhwg.org": "スティールランスⅢ",
+        "mhw-db.com": "Steel Lance 3"
+    },
+    {
+        "mhwg.org": "クロムランツェⅠ",
+        "mhw-db.com": "Chrome Lance 1"
+    },
+    {
+        "mhwg.org": "クロムランツェⅡ",
+        "mhw-db.com": "Chrome Lance 2"
+    },
+    {
+        "mhwg.org": "ネルガルカルガ",
+        "mhw-db.com": "Nergal Impaler"
+    },
+    {
+        "mhwg.org": "亡滅の腕",
+        "mhw-db.com": "Perdition's Hand"
+    },
+    {
+        "mhwg.org": "グレイスランサーⅠ",
+        "mhw-db.com": "Glacial Lance 1"
+    },
+    {
+        "mhwg.org": "グレイスランサーⅡ",
+        "mhw-db.com": "Glacial Lance 2"
+    },
+    {
+        "mhwg.org": "ギエナハルバⅠ",
+        "mhw-db.com": "Legiana Halberd 1"
+    },
+    {
+        "mhwg.org": "ギエナハルバⅡ",
+        "mhw-db.com": "Legiana Halberd 2"
+    },
+    {
+        "mhwg.org": "クルルランスⅠ",
+        "mhw-db.com": "Kulu Lance 1"
+    },
+    {
+        "mhwg.org": "クルルランスⅡ",
+        "mhw-db.com": "Kulu Lance 2"
+    },
+    {
+        "mhwg.org": "クルルランスⅢ",
+        "mhw-db.com": "Kulu Lance 3"
+    },
+    {
+        "mhwg.org": "クルルハスタ―Ⅰ",
+        "mhw-db.com": "Kulu Hasta 1"
+    },
+    {
+        "mhwg.org": "クルルハスタ―Ⅱ",
+        "mhw-db.com": "Kulu Hasta 2"
+    },
+    {
+        "mhwg.org": "クルルハスタ―Ⅲ",
+        "mhw-db.com": "Kulu Hasta 3"
+    },
+    {
+        "mhwg.org": "ガマルパイルⅠ",
+        "mhw-db.com": "Gama Pilebunker 1"
+    },
+    {
+        "mhwg.org": "ガマルパイルⅡ",
+        "mhw-db.com": "Gama Pilebunker 2"
+    },
+    {
+        "mhwg.org": "サンダーランスⅠ",
+        "mhw-db.com": "Thunder Lance 1"
+    },
+    {
+        "mhwg.org": "サンダーランスⅡ",
+        "mhw-db.com": "Thunder Lance 2"
+    },
+    {
+        "mhwg.org": "ライトニングパイルⅠ",
+        "mhw-db.com": "Lightning Spire 1"
+    },
+    {
+        "mhwg.org": "ライトニングパイルⅡ",
+        "mhw-db.com": "Lightning Spire 2"
+    },
+    {
+        "mhwg.org": "ライトニングパイルⅢ",
+        "mhw-db.com": "Lightning Spire 3"
+    },
+    {
+        "mhwg.org": "ブルームランスⅠ",
+        "mhw-db.com": "Blooming Lance 1"
+    },
+    {
+        "mhwg.org": "ブルームランスⅡ",
+        "mhw-db.com": "Blooming Lance 2"
+    },
+    {
+        "mhwg.org": "ブルームランスⅢ",
+        "mhw-db.com": "Blooming Lance 3"
+    },
+    {
+        "mhwg.org": "ダチュラパイクⅠ",
+        "mhw-db.com": "Datura Pike 1"
+    },
+    {
+        "mhwg.org": "ダチュラパイクⅡ",
+        "mhw-db.com": "Datura Pike 2"
+    },
+    {
+        "mhwg.org": "ダチュラパイクⅢ",
+        "mhw-db.com": "Datura Pike 3"
+    },
+    {
+        "mhwg.org": "フレイムランスⅠ",
+        "mhw-db.com": "Flame Lance 1"
+    },
+    {
+        "mhwg.org": "フレイムランスⅡ",
+        "mhw-db.com": "Flame Lance 2"
+    },
+    {
+        "mhwg.org": "レッドテイル",
+        "mhw-db.com": "Red Tail"
+    },
+    {
+        "mhwg.org": "ブルーテイル",
+        "mhw-db.com": "Blue Tail"
+    },
+    {
+        "mhwg.org": "ブループロミネンス",
+        "mhw-db.com": "Blue Prominence"
+    },
+    {
+        "mhwg.org": "ボーンランスⅠ",
+        "mhw-db.com": "Bone Lance 1"
+    },
+    {
+        "mhwg.org": "ボーンランスⅡ",
+        "mhw-db.com": "Bone Lance 2"
+    },
+    {
+        "mhwg.org": "ボーンランスⅢ",
+        "mhw-db.com": "Bone Lance 3"
+    },
+    {
+        "mhwg.org": "ハードボーンランスⅠ",
+        "mhw-db.com": "Hard Bone Lance 1"
+    },
+    {
+        "mhwg.org": "ハードボーンランスⅡ",
+        "mhw-db.com": "Hard Bone Lance 2"
+    },
+    {
+        "mhwg.org": "ハードボーンランスⅢ",
+        "mhw-db.com": "Hard Bone Lance 3"
+    },
+    {
+        "mhwg.org": "ヘビィボーンランスⅠ",
+        "mhw-db.com": "Heavy Bone Lance 1"
+    },
+    {
+        "mhwg.org": "ヘビィボーンランスⅡ",
+        "mhw-db.com": "Heavy Bone Lance 2"
+    },
+    {
+        "mhwg.org": "ハザクヴェヒター",
+        "mhw-db.com": "Hazak Wächter"
+    },
+    {
+        "mhwg.org": "ラ・モールの哀愁",
+        "mhw-db.com": "Love's Sorrow"
+    },
+    {
+        "mhwg.org": "タロスランスⅠ",
+        "mhw-db.com": "Taurus Lance 1"
+    },
+    {
+        "mhwg.org": "タロスランスⅡ",
+        "mhw-db.com": "Taurus Lance 2"
+    },
+    {
+        "mhwg.org": "ダークスティンガーⅠ",
+        "mhw-db.com": "Dark Stinger 1"
+    },
+    {
+        "mhwg.org": "ダークスティンガーⅡ",
+        "mhw-db.com": "Dark Stinger 2"
+    },
+    {
+        "mhwg.org": "ダークスティンガーⅢ",
+        "mhw-db.com": "Dark Stinger 3"
+    },
+    {
+        "mhwg.org": "ドラグロランスⅠ",
+        "mhw-db.com": "Carapace Lance 1"
+    },
+    {
+        "mhwg.org": "ドラグロランスⅡ",
+        "mhw-db.com": "Carapace Lance 2"
+    },
+    {
+        "mhwg.org": "ドラグロランスⅢ",
+        "mhw-db.com": "Carapace Lance 3"
+    },
+    {
+        "mhwg.org": "ボロススティンガーⅠ",
+        "mhw-db.com": "Barroth Stinger 1"
+    },
+    {
+        "mhwg.org": "ボロススティンガーⅡ",
+        "mhw-db.com": "Barroth Stinger 2"
+    },
+    {
+        "mhwg.org": "ボロススティンガーⅢ",
+        "mhw-db.com": "Barroth Stinger 3"
+    },
+    {
+        "mhwg.org": "ガロンランスⅠ",
+        "mhw-db.com": "Garon Lance 1"
+    },
+    {
+        "mhwg.org": "ガロンランスⅡ",
+        "mhw-db.com": "Garon Lance 2"
+    },
+    {
+        "mhwg.org": "ガロンダーラⅠ",
+        "mhw-db.com": "Garon Dhara 1"
+    },
+    {
+        "mhwg.org": "ガロンダーラⅡ",
+        "mhw-db.com": "Garon Dhara 2"
+    },
+    {
+        "mhwg.org": "アクアホーンⅠ",
+        "mhw-db.com": "Aqua Horn 1"
+    },
+    {
+        "mhwg.org": "アクアホーンⅡ",
+        "mhw-db.com": "Aqua Horn 2"
+    },
+    {
+        "mhwg.org": "アクアホーンⅢ",
+        "mhw-db.com": "Aqua Horn 3"
+    },
+    {
+        "mhwg.org": "ウォータースパイクⅠ",
+        "mhw-db.com": "Water Spike 1"
+    },
+    {
+        "mhwg.org": "ウォータースパイクⅡ",
+        "mhw-db.com": "Water Spike 2"
+    },
+    {
+        "mhwg.org": "ウォータースパイクⅢ",
+        "mhw-db.com": "Water Spike 3"
+    },
+    {
+        "mhwg.org": "龍骨槍Ⅰ",
+        "mhw-db.com": "Dragonbone Lance 1"
+    },
+    {
+        "mhwg.org": "龍骨槍Ⅱ",
+        "mhw-db.com": "Dragonbone Lance 2"
+    },
+    {
+        "mhwg.org": "龍骨槍Ⅲ",
+        "mhw-db.com": "Dragonbone Lance 3"
+    },
+    {
+        "mhwg.org": "爆鱗の突撃槍",
+        "mhw-db.com": "Rookslayer Lance"
+    },
+    {
+        "mhwg.org": "爆鱗槍バゼルミニアド",
+        "mhw-db.com": "Bazel Myniad Rookslayer"
+    },
+    {
+        "mhwg.org": "雷槍",
+        "mhw-db.com": "Thunderpike"
+    },
+    {
+        "mhwg.org": "雷槍【イカズチ】",
+        "mhw-db.com": "Thunderspear"
+    },
+    {
+        "mhwg.org": "雷槍【タケミカヅチ】",
+        "mhw-db.com": "Thunderpiercer"
+    },
+    {
+        "mhwg.org": "黒鋼の槍Ⅰ",
+        "mhw-db.com": "Blacksteel Lance 1"
+    },
+    {
+        "mhwg.org": "黒鋼の槍Ⅱ",
+        "mhw-db.com": "Blacksteel Lance 2"
+    },
+    {
+        "mhwg.org": "鋼氷槍",
+        "mhw-db.com": "Icesteel Spear"
+    },
+    {
+        "mhwg.org": "テリオス＝ダオラ",
+        "mhw-db.com": "Daora's Fang"
+    },
+    {
+        "mhwg.org": "ゼノ＝ザウータ",
+        "mhw-db.com": "Xeno Zauta"
+    },
+    {
+        "mhwg.org": "バベル",
+        "mhw-db.com": "Babel Spear"
+    },
+    {
+        "mhwg.org": "エルダーバベル",
+        "mhw-db.com": "Elder Babel Spear"
+    },
+    {
+        "mhwg.org": "悲哀の重鎗",
+        "mhw-db.com": "Grief Lance"
+    },
+    {
+        "mhwg.org": "アトロシスタワー",
+        "mhw-db.com": "Fiendish Tower"
+    },
+    {
+        "mhwg.org": "アイアンガンランスⅠ",
+        "mhw-db.com": "Iron Gunlance 1"
+    },
+    {
+        "mhwg.org": "アイアンガンランスⅡ",
+        "mhw-db.com": "Iron Gunlance 2"
+    },
+    {
+        "mhwg.org": "アイアンガンランスⅢ",
+        "mhw-db.com": "Iron Gunlance 3"
+    },
+    {
+        "mhwg.org": "スティールガンランスⅠ",
+        "mhw-db.com": "Steel Gunlance 1"
+    },
+    {
+        "mhwg.org": "スティールガンランスⅡ",
+        "mhw-db.com": "Steel Gunlance 2"
+    },
+    {
+        "mhwg.org": "スティールガンランスⅢ",
+        "mhw-db.com": "Steel Gunlance 3"
+    },
+    {
+        "mhwg.org": "クロムガンランスⅠ",
+        "mhw-db.com": "Chrome Gunlance 1"
+    },
+    {
+        "mhwg.org": "クロムガンランスⅡ",
+        "mhw-db.com": "Chrome Gunlance 2"
+    },
+    {
+        "mhwg.org": "ネルガルクランブル",
+        "mhw-db.com": "Nergal Ram"
+    },
+    {
+        "mhwg.org": "焼滅の種火",
+        "mhw-db.com": "Eradication Flame"
+    },
+    {
+        "mhwg.org": "パルサーガンランスⅠ",
+        "mhw-db.com": "Pulsar Gunlance 1"
+    },
+    {
+        "mhwg.org": "パルサーガンランスⅡ",
+        "mhw-db.com": "Pulsar Gunlance 2"
+    },
+    {
+        "mhwg.org": "パルサーガンランスⅢ",
+        "mhw-db.com": "Pulsar Gunlance 3"
+    },
+    {
+        "mhwg.org": "飛雷銃槍テツカガチ",
+        "mhw-db.com": "Kadachi Striker"
+    },
+    {
+        "mhwg.org": "飛雷銃槍テツカガチ改",
+        "mhw-db.com": "Kadachi Striker+"
+    },
+    {
+        "mhwg.org": "飛雷銃槍【蜻蛉切】",
+        "mhw-db.com": "Mythic Kadachi Striker"
+    },
+    {
+        "mhwg.org": "火竜銃槍Ⅰ",
+        "mhw-db.com": "Rath Gunlance 1"
+    },
+    {
+        "mhwg.org": "火竜銃槍Ⅱ",
+        "mhw-db.com": "Rath Gunlance 2"
+    },
+    {
+        "mhwg.org": "レッドルーク",
+        "mhw-db.com": "Red Rook"
+    },
+    {
+        "mhwg.org": "ブルールーク",
+        "mhw-db.com": "Blue Rook"
+    },
+    {
+        "mhwg.org": "ブルーチャリオット",
+        "mhw-db.com": "Blue Chariot"
+    },
+    {
+        "mhwg.org": "プリンセスバースト",
+        "mhw-db.com": "Princess Panoply"
+    },
+    {
+        "mhwg.org": "プリンセスバースト改",
+        "mhw-db.com": "Princess Panoply+"
+    },
+    {
+        "mhwg.org": "ローゼスバースト",
+        "mhw-db.com": "Rose Burst"
+    },
+    {
+        "mhwg.org": "ロイヤルバースト",
+        "mhw-db.com": "Royal Burst"
+    },
+    {
+        "mhwg.org": "マッドガンランスⅠ",
+        "mhw-db.com": "Madness Gunlance 1"
+    },
+    {
+        "mhwg.org": "マッドガンランスⅡ",
+        "mhw-db.com": "Madness Gunlance 2"
+    },
+    {
+        "mhwg.org": "マッドガンランスⅢ",
+        "mhw-db.com": "Madness Gunlance 3"
+    },
+    {
+        "mhwg.org": "シュラムバスターⅠ",
+        "mhw-db.com": "Jyura Buster 1"
+    },
+    {
+        "mhwg.org": "シュラムバスターⅡ",
+        "mhw-db.com": "Jyura Buster 2"
+    },
+    {
+        "mhwg.org": "シュラムバスターⅢ",
+        "mhw-db.com": "Jyura Buster 3"
+    },
+    {
+        "mhwg.org": "グレイスガンランスⅠ",
+        "mhw-db.com": "Glacial Gunlance 1"
+    },
+    {
+        "mhwg.org": "グレイスガンランスⅡ",
+        "mhw-db.com": "Glacial Gunlance 2"
+    },
+    {
+        "mhwg.org": "ギエナキャノンⅠ",
+        "mhw-db.com": "Legiana Cannon 1"
+    },
+    {
+        "mhwg.org": "ギエナキャノンⅡ",
+        "mhw-db.com": "Legiana Cannon 2"
+    },
+    {
+        "mhwg.org": "骨銃槍Ⅰ",
+        "mhw-db.com": "Bone Gunlance 1"
+    },
+    {
+        "mhwg.org": "骨銃槍Ⅱ",
+        "mhw-db.com": "Bone Gunlance 2"
+    },
+    {
+        "mhwg.org": "骨銃槍Ⅲ",
+        "mhw-db.com": "Bone Gunlance 3"
+    },
+    {
+        "mhwg.org": "大骨銃槍Ⅰ",
+        "mhw-db.com": "Bone Cannon 1"
+    },
+    {
+        "mhwg.org": "大骨銃槍Ⅱ",
+        "mhw-db.com": "Bone Cannon 2"
+    },
+    {
+        "mhwg.org": "大骨銃槍Ⅲ",
+        "mhw-db.com": "Bone Cannon 3"
+    },
+    {
+        "mhwg.org": "大骨銃槍【竜尾】Ⅰ",
+        "mhw-db.com": "Great Bone Gunlance 1"
+    },
+    {
+        "mhwg.org": "大骨銃槍【竜尾】Ⅱ",
+        "mhw-db.com": "Great Bone Gunlance 2"
+    },
+    {
+        "mhwg.org": "バゼルバスターⅠ",
+        "mhw-db.com": "Bazel Buster 1"
+    },
+    {
+        "mhwg.org": "バゼルバスターⅡ",
+        "mhw-db.com": "Bazel Buster 2"
+    },
+    {
+        "mhwg.org": "牙竜銃槍Ⅰ",
+        "mhw-db.com": "Jagras Gunlance 1"
+    },
+    {
+        "mhwg.org": "牙竜銃槍Ⅱ",
+        "mhw-db.com": "Jagras Gunlance 2"
+    },
+    {
+        "mhwg.org": "牙竜銃槍Ⅲ",
+        "mhw-db.com": "Jagras Gunlance 3"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【大喰】Ⅰ",
+        "mhw-db.com": "Glutton Gunlance 1"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【大喰】Ⅱ",
+        "mhw-db.com": "Glutton Gunlance 2"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【大喰】Ⅲ",
+        "mhw-db.com": "Glutton Gunlance 3"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【黄牙】Ⅰ",
+        "mhw-db.com": "Girros Gunlance 1"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【黄牙】Ⅱ",
+        "mhw-db.com": "Girros Gunlance 2"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【黒頭巾】Ⅰ",
+        "mhw-db.com": "Deathfang Gunlance 1"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【黒頭巾】Ⅱ",
+        "mhw-db.com": "Deathfang Gunlance 2"
+    },
+    {
+        "mhwg.org": "牙竜銃槍【黒頭巾】Ⅲ",
+        "mhw-db.com": "Deathfang Gunlance 3"
+    },
+    {
+        "mhwg.org": "ハザクスピサⅠ",
+        "mhw-db.com": "Hazak Spysa 1"
+    },
+    {
+        "mhwg.org": "ハザクスピサⅡ",
+        "mhw-db.com": "Hazak Spysa 2"
+    },
+    {
+        "mhwg.org": "ドラグロガンランスⅠ",
+        "mhw-db.com": "Carapace Cannon 1"
+    },
+    {
+        "mhwg.org": "ドラグロガンランスⅡ",
+        "mhw-db.com": "Carapace Cannon 2"
+    },
+    {
+        "mhwg.org": "ドラグロガンランスⅢ",
+        "mhw-db.com": "Carapace Cannon 3"
+    },
+    {
+        "mhwg.org": "ボルボバスターⅠ",
+        "mhw-db.com": "Barroth Blaster 1"
+    },
+    {
+        "mhwg.org": "ボルボバスターⅡ",
+        "mhw-db.com": "Barroth Blaster 2"
+    },
+    {
+        "mhwg.org": "ボルボバスターⅢ",
+        "mhw-db.com": "Barroth Blaster 3"
+    },
+    {
+        "mhwg.org": "ブレイズガンランスⅠ",
+        "mhw-db.com": "Blazing Gunlance 1"
+    },
+    {
+        "mhwg.org": "ブレイズガンランスⅡ",
+        "mhw-db.com": "Blazing Gunlance 2"
+    },
+    {
+        "mhwg.org": "ジャナフキャノンⅠ",
+        "mhw-db.com": "Anja Cannon 1"
+    },
+    {
+        "mhwg.org": "ジャナフキャノンⅡ",
+        "mhw-db.com": "Anja Cannon 2"
+    },
+    {
+        "mhwg.org": "ジャナフキャノンⅢ",
+        "mhw-db.com": "Anja Cannon 3"
+    },
+    {
+        "mhwg.org": "龍骨銃槍Ⅰ",
+        "mhw-db.com": "Dragonbone Gunlance 1"
+    },
+    {
+        "mhwg.org": "龍骨銃槍Ⅱ",
+        "mhw-db.com": "Dragonbone Gunlance 2"
+    },
+    {
+        "mhwg.org": "龍骨銃槍Ⅲ",
+        "mhw-db.com": "Dragonbone Gunlance 3"
+    },
+    {
+        "mhwg.org": "マグダ・ラハト",
+        "mhw-db.com": "Magda Lahat"
+    },
+    {
+        "mhwg.org": "驚天動地マグラハト",
+        "mhw-db.com": "Earthshaker Magda Lahat"
+    },
+    {
+        "mhwg.org": "黒鋼の銃槍Ⅰ",
+        "mhw-db.com": "Blacksteel Gunlance 1"
+    },
+    {
+        "mhwg.org": "黒鋼の銃槍Ⅱ",
+        "mhw-db.com": "Blacksteel Gunlance 2"
+    },
+    {
+        "mhwg.org": "鋼氷銃槍",
+        "mhw-db.com": "Icesteel Gunlance"
+    },
+    {
+        "mhwg.org": "ダオラ＝ブリジア",
+        "mhw-db.com": "Daora's Brigia"
+    },
+    {
+        "mhwg.org": "ゼノ＝ヘムタ",
+        "mhw-db.com": "Xeno Hemta"
+    },
+    {
+        "mhwg.org": "愚欲の銃槍",
+        "mhw-db.com": "Ravenous Gunlance"
+    },
+    {
+        "mhwg.org": "暴銃槍グラグリード",
+        "mhw-db.com": "Insatiable Gunlance"
+    },
+    {
+        "mhwg.org": "鉄製試作剣斧Ⅰ",
+        "mhw-db.com": "Proto Iron Axe 1"
+    },
+    {
+        "mhwg.org": "鉄製試作剣斧Ⅱ",
+        "mhw-db.com": "Proto Iron Axe 2"
+    },
+    {
+        "mhwg.org": "鉄製試作剣斧Ⅲ",
+        "mhw-db.com": "Proto Iron Axe 3"
+    },
+    {
+        "mhwg.org": "鋼鉄製改良剣斧Ⅰ",
+        "mhw-db.com": "Improved Steel Axe 1"
+    },
+    {
+        "mhwg.org": "鋼鉄製改良剣斧Ⅱ",
+        "mhw-db.com": "Improved Steel Axe 2"
+    },
+    {
+        "mhwg.org": "鋼鉄製改良剣斧Ⅲ",
+        "mhw-db.com": "Improved Steel Axe 3"
+    },
+    {
+        "mhwg.org": "合金製完成剣斧Ⅰ",
+        "mhw-db.com": "Perfected Alloy Axe 1"
+    },
+    {
+        "mhwg.org": "合金製完成剣斧Ⅱ",
+        "mhw-db.com": "Perfected Alloy Axe 2"
+    },
+    {
+        "mhwg.org": "ネルガルガッシュ",
+        "mhw-db.com": "Nergal Gash"
+    },
+    {
+        "mhwg.org": "断滅の一閃",
+        "mhw-db.com": "Dying Light"
+    },
+    {
+        "mhwg.org": "グレイスアックスⅠ",
+        "mhw-db.com": "Glacial Axe 1"
+    },
+    {
+        "mhwg.org": "グレイスアックスⅡ",
+        "mhw-db.com": "Glacial Axe 2"
+    },
+    {
+        "mhwg.org": "ホロウコラム",
+        "mhw-db.com": "Frostreaver"
+    },
+    {
+        "mhwg.org": "レイ＝ホロウコラム",
+        "mhw-db.com": "Legia Frostreaver"
+    },
+    {
+        "mhwg.org": "サンダーアックスⅠ",
+        "mhw-db.com": "Thunder Axe 1"
+    },
+    {
+        "mhwg.org": "サンダーアックスⅡ",
+        "mhw-db.com": "Thunder Axe 2"
+    },
+    {
+        "mhwg.org": "ライトニングアクセルⅠ",
+        "mhw-db.com": "Lightning Chopper 1"
+    },
+    {
+        "mhwg.org": "ライトニングアクセルⅡ",
+        "mhw-db.com": "Lightning Chopper 2"
+    },
+    {
+        "mhwg.org": "ライトニングアクセルⅢ",
+        "mhw-db.com": "Lightning Chopper 3"
+    },
+    {
+        "mhwg.org": "モーターアクセルⅠ",
+        "mhw-db.com": "Motor Chopper 1"
+    },
+    {
+        "mhwg.org": "モーターアクセルⅡ",
+        "mhw-db.com": "Motor Chopper 2"
+    },
+    {
+        "mhwg.org": "ジャグラスアックスⅠ",
+        "mhw-db.com": "Jagras Axe 1"
+    },
+    {
+        "mhwg.org": "ジャグラスアックスⅡ",
+        "mhw-db.com": "Jagras Axe 2"
+    },
+    {
+        "mhwg.org": "ジャグラスアックスⅢ",
+        "mhw-db.com": "Jagras Axe 3"
+    },
+    {
+        "mhwg.org": "ジャグラスレイダーⅠ",
+        "mhw-db.com": "Jagras Raider 1"
+    },
+    {
+        "mhwg.org": "ジャグラスレイダーⅡ",
+        "mhw-db.com": "Jagras Raider 2"
+    },
+    {
+        "mhwg.org": "ジャグラスレイダーⅢ",
+        "mhw-db.com": "Jagras Raider 3"
+    },
+    {
+        "mhwg.org": "バゼルレイダーⅠ",
+        "mhw-db.com": "Bazel Raider 1"
+    },
+    {
+        "mhwg.org": "バゼルレイダーⅡ",
+        "mhw-db.com": "Bazel Raider 2"
+    },
+    {
+        "mhwg.org": "火竜の剣斧Ⅰ",
+        "mhw-db.com": "Rathalos Axe 1"
+    },
+    {
+        "mhwg.org": "火竜の剣斧Ⅱ",
+        "mhw-db.com": "Rathalos Axe 2"
+    },
+    {
+        "mhwg.org": "火竜斧レウスギアⅠ",
+        "mhw-db.com": "Rathbringer Axe 1"
+    },
+    {
+        "mhwg.org": "火竜斧レウスギアⅡ",
+        "mhw-db.com": "Rathbringer Axe 2"
+    },
+    {
+        "mhwg.org": "ボーンアックスⅠ",
+        "mhw-db.com": "Bone Axe 1"
+    },
+    {
+        "mhwg.org": "ボーンアックスⅡ",
+        "mhw-db.com": "Bone Axe 2"
+    },
+    {
+        "mhwg.org": "ボーンアックスⅢ",
+        "mhw-db.com": "Bone Axe 3"
+    },
+    {
+        "mhwg.org": "ボーンスマッシャーⅠ",
+        "mhw-db.com": "Bone Smasher 1"
+    },
+    {
+        "mhwg.org": "ボーンスマッシャーⅡ",
+        "mhw-db.com": "Bone Smasher 2"
+    },
+    {
+        "mhwg.org": "ボーンスマッシャーⅢ",
+        "mhw-db.com": "Bone Smasher 3"
+    },
+    {
+        "mhwg.org": "パワースマッシャーⅠ",
+        "mhw-db.com": "Power Smasher 1"
+    },
+    {
+        "mhwg.org": "パワースマッシャーⅡ",
+        "mhw-db.com": "Power Smasher 2"
+    },
+    {
+        "mhwg.org": "ハザクデミオスⅠ",
+        "mhw-db.com": "Hazak Demios 1"
+    },
+    {
+        "mhwg.org": "ハザクデミオスⅡ",
+        "mhw-db.com": "Hazak Demios 2"
+    },
+    {
+        "mhwg.org": "マッドアックスⅠ",
+        "mhw-db.com": "Madness Axe 1"
+    },
+    {
+        "mhwg.org": "マッドアックスⅡ",
+        "mhw-db.com": "Madness Axe 2"
+    },
+    {
+        "mhwg.org": "マッドアックスⅢ",
+        "mhw-db.com": "Madness Axe 3"
+    },
+    {
+        "mhwg.org": "シュラムドラウトⅠ",
+        "mhw-db.com": "Jyura Drought 1"
+    },
+    {
+        "mhwg.org": "シュラムドラウトⅡ",
+        "mhw-db.com": "Jyura Drought 2"
+    },
+    {
+        "mhwg.org": "シュラムドラウトⅢ",
+        "mhw-db.com": "Jyura Drought 3"
+    },
+    {
+        "mhwg.org": "ウルムーアックスⅠ",
+        "mhw-db.com": "Lumu Axe 1"
+    },
+    {
+        "mhwg.org": "ウルムーアックスⅡ",
+        "mhw-db.com": "Lumu Axe 2"
+    },
+    {
+        "mhwg.org": "ウルムースマッシャーⅠ",
+        "mhw-db.com": "Lumu Smasher 1"
+    },
+    {
+        "mhwg.org": "ウルムースマッシャーⅡ",
+        "mhw-db.com": "Lumu Smasher 2"
+    },
+    {
+        "mhwg.org": "ウルムースマッシャーⅢ",
+        "mhw-db.com": "Lumu Smasher 3"
+    },
+    {
+        "mhwg.org": "ドラグロアックスⅠ",
+        "mhw-db.com": "Carapace Axe 1"
+    },
+    {
+        "mhwg.org": "ドラグロアックスⅡ",
+        "mhw-db.com": "Carapace Axe 2"
+    },
+    {
+        "mhwg.org": "ドラグロアックスⅢ",
+        "mhw-db.com": "Carapace Axe 3"
+    },
+    {
+        "mhwg.org": "ボルボグランダーⅠ",
+        "mhw-db.com": "Barroth Grinder 1"
+    },
+    {
+        "mhwg.org": "ボルボグランダーⅡ",
+        "mhw-db.com": "Barroth Grinder 2"
+    },
+    {
+        "mhwg.org": "ボルボグランダーⅢ",
+        "mhw-db.com": "Barroth Grinder 3"
+    },
+    {
+        "mhwg.org": "ブロスアックスⅠ",
+        "mhw-db.com": "Diablos Axe 1"
+    },
+    {
+        "mhwg.org": "ブロスアックスⅡ",
+        "mhw-db.com": "Diablos Axe 2"
+    },
+    {
+        "mhwg.org": "タイラントアックス",
+        "mhw-db.com": "Axe Semper Tyrannis"
+    },
+    {
+        "mhwg.org": "タナトスアックス",
+        "mhw-db.com": "Axe of Thanatos"
+    },
+    {
+        "mhwg.org": "デモン",
+        "mhw-db.com": "Axe of Demons"
+    },
+    {
+        "mhwg.org": "フラムエルシスカ",
+        "mhw-db.com": "Flammenbeil"
+    },
+    {
+        "mhwg.org": "フラムエルシスカ改",
+        "mhw-db.com": "Flammenbeil+"
+    },
+    {
+        "mhwg.org": "蛮顎剣斧フラムシスカ",
+        "mhw-db.com": "Gnashing Flammenbeil"
+    },
+    {
+        "mhwg.org": "龍骨剣斧Ⅰ",
+        "mhw-db.com": "Dragonbone Slicer 1"
+    },
+    {
+        "mhwg.org": "龍骨剣斧Ⅱ",
+        "mhw-db.com": "Dragonbone Slicer 2"
+    },
+    {
+        "mhwg.org": "龍骨剣斧Ⅲ",
+        "mhw-db.com": "Dragonbone Slicer 3"
+    },
+    {
+        "mhwg.org": "雷斧",
+        "mhw-db.com": "Peal"
+    },
+    {
+        "mhwg.org": "雷斧改",
+        "mhw-db.com": "Peal+"
+    },
+    {
+        "mhwg.org": "断雷斧キリン",
+        "mhw-db.com": "Kirin Thunderpeal"
+    },
+    {
+        "mhwg.org": "黒鋼の剣斧Ⅰ",
+        "mhw-db.com": "Blacksteel Switch Axe 1"
+    },
+    {
+        "mhwg.org": "黒鋼の剣斧Ⅱ",
+        "mhw-db.com": "Blacksteel Switch Axe 2"
+    },
+    {
+        "mhwg.org": "テオ＝アルクス",
+        "mhw-db.com": "Teostra's Arx"
+    },
+    {
+        "mhwg.org": "テオ＝キャッスル",
+        "mhw-db.com": "Teostra's Castle"
+    },
+    {
+        "mhwg.org": "ゼノ＝マルトーシュ",
+        "mhw-db.com": "Xeno Martshu"
+    },
+    {
+        "mhwg.org": "テュランノス",
+        "mhw-db.com": "Tyrannos"
+    },
+    {
+        "mhwg.org": "テラーテュランノス",
+        "mhw-db.com": "Terror Tyrannos"
+    },
+    {
+        "mhwg.org": "調査団試作盾斧Ⅰ",
+        "mhw-db.com": "Proto Commission Axe 1"
+    },
+    {
+        "mhwg.org": "調査団試作盾斧Ⅱ",
+        "mhw-db.com": "Proto Commission Axe 2"
+    },
+    {
+        "mhwg.org": "調査団試作盾斧Ⅲ",
+        "mhw-db.com": "Proto Commission Axe 3"
+    },
+    {
+        "mhwg.org": "精鋭調査団盾斧Ⅰ",
+        "mhw-db.com": "Elite Commission Axe 1"
+    },
+    {
+        "mhwg.org": "精鋭調査団盾斧Ⅱ",
+        "mhw-db.com": "Elite Commission Axe 2"
+    },
+    {
+        "mhwg.org": "精鋭調査団盾斧Ⅲ",
+        "mhw-db.com": "Elite Commission Axe 3"
+    },
+    {
+        "mhwg.org": "クロムガーディアンⅠ",
+        "mhw-db.com": "Chrome Guardian 1"
+    },
+    {
+        "mhwg.org": "クロムガーディアンⅡ",
+        "mhw-db.com": "Chrome Guardian 2"
+    },
+    {
+        "mhwg.org": "ネルガルスイング",
+        "mhw-db.com": "Nergal Lacerator"
+    },
+    {
+        "mhwg.org": "壊滅の一束",
+        "mhw-db.com": "Devastation's Thorns"
+    },
+    {
+        "mhwg.org": "火竜の盾斧Ⅰ",
+        "mhw-db.com": "Rathsblade 1"
+    },
+    {
+        "mhwg.org": "火竜の盾斧Ⅱ",
+        "mhw-db.com": "Rathsblade 2"
+    },
+    {
+        "mhwg.org": "炎斧アクセリオン",
+        "mhw-db.com": "Axelion Blade"
+    },
+    {
+        "mhwg.org": "焔斧ハルバリオン",
+        "mhw-db.com": "Halberion Blade"
+    },
+    {
+        "mhwg.org": "泥流の盾斧Ⅰ",
+        "mhw-db.com": "Mudslide Blade 1"
+    },
+    {
+        "mhwg.org": "泥流の盾斧Ⅱ",
+        "mhw-db.com": "Mudslide Blade 2"
+    },
+    {
+        "mhwg.org": "泥流の盾斧Ⅲ",
+        "mhw-db.com": "Mudslide Blade 3"
+    },
+    {
+        "mhwg.org": "ディープシュラムⅠ",
+        "mhw-db.com": "Jyura Depth 1"
+    },
+    {
+        "mhwg.org": "ディープシュラムⅡ",
+        "mhw-db.com": "Jyura Depth 2"
+    },
+    {
+        "mhwg.org": "ディープシュラムⅢ",
+        "mhw-db.com": "Jyura Depth 3"
+    },
+    {
+        "mhwg.org": "氷結の盾斧Ⅰ",
+        "mhw-db.com": "Everfrost Blade 1"
+    },
+    {
+        "mhwg.org": "氷結の盾斧Ⅱ",
+        "mhw-db.com": "Everfrost Blade 2"
+    },
+    {
+        "mhwg.org": "ギガフロストⅠ",
+        "mhw-db.com": "Gigafrost 1"
+    },
+    {
+        "mhwg.org": "ギガフロストⅡ",
+        "mhw-db.com": "Gigafrost 2"
+    },
+    {
+        "mhwg.org": "ディア＝ルテミス",
+        "mhw-db.com": "Dear Lutemis"
+    },
+    {
+        "mhwg.org": "ディア＝ルテミア",
+        "mhw-db.com": "Dear Lutemia"
+    },
+    {
+        "mhwg.org": "ディア＝ヘカテル",
+        "mhw-db.com": "Dear Hecatel"
+    },
+    {
+        "mhwg.org": "ディア＝ヘカテリア",
+        "mhw-db.com": "Dear Hecatelia"
+    },
+    {
+        "mhwg.org": "ボーンアームズⅠ",
+        "mhw-db.com": "Bone Strongarm 1"
+    },
+    {
+        "mhwg.org": "ボーンアームズⅡ",
+        "mhw-db.com": "Bone Strongarm 2"
+    },
+    {
+        "mhwg.org": "ボーンアームズⅢ",
+        "mhw-db.com": "Bone Strongarm 3"
+    },
+    {
+        "mhwg.org": "ハードボーンアームズⅠ",
+        "mhw-db.com": "Hard Bone Strongarm 1"
+    },
+    {
+        "mhwg.org": "ハードボーンアームズⅡ",
+        "mhw-db.com": "Hard Bone Strongarm 2"
+    },
+    {
+        "mhwg.org": "ハードボーンアームズⅢ",
+        "mhw-db.com": "Hard Bone Strongarm 3"
+    },
+    {
+        "mhwg.org": "ストロングアームズⅠ",
+        "mhw-db.com": "Mighty Strongarm 1"
+    },
+    {
+        "mhwg.org": "ストロングアームズⅡ",
+        "mhw-db.com": "Mighty Strongarm 2"
+    },
+    {
+        "mhwg.org": "ブロスウォールⅠ",
+        "mhw-db.com": "Diablos Wall 1"
+    },
+    {
+        "mhwg.org": "ブロスウォールⅡ",
+        "mhw-db.com": "Diablos Wall 2"
+    },
+    {
+        "mhwg.org": "タイラントブロスⅠ",
+        "mhw-db.com": "Diablos Tyrannis 1"
+    },
+    {
+        "mhwg.org": "タイラントブロスⅡ",
+        "mhw-db.com": "Diablos Tyrannis 2"
+    },
+    {
+        "mhwg.org": "ジャグラスアームズⅠ",
+        "mhw-db.com": "Jagras Strongarm 1"
+    },
+    {
+        "mhwg.org": "ジャグラスアームズⅡ",
+        "mhw-db.com": "Jagras Strongarm 2"
+    },
+    {
+        "mhwg.org": "ジャグラスアームズⅢ",
+        "mhw-db.com": "Jagras Strongarm 3"
+    },
+    {
+        "mhwg.org": "ジャグラスエスクードⅠ",
+        "mhw-db.com": "Jagras Escudo 1"
+    },
+    {
+        "mhwg.org": "ジャグラスエスクードⅡ",
+        "mhw-db.com": "Jagras Escudo 2"
+    },
+    {
+        "mhwg.org": "ジャグラスエスクードⅢ",
+        "mhw-db.com": "Jagras Escudo 3"
+    },
+    {
+        "mhwg.org": "ガマルシルトⅠ",
+        "mhw-db.com": "Gama Silt 1"
+    },
+    {
+        "mhwg.org": "ガマルシルトⅡ",
+        "mhw-db.com": "Gama Silt 2"
+    },
+    {
+        "mhwg.org": "ギルオスアームズⅠ",
+        "mhw-db.com": "Girros Strongarm 1"
+    },
+    {
+        "mhwg.org": "ギルオスアームズⅡ",
+        "mhw-db.com": "Girros Strongarm 2"
+    },
+    {
+        "mhwg.org": "ギルオスナージャⅠ",
+        "mhw-db.com": "Girros Nadja 1"
+    },
+    {
+        "mhwg.org": "ギルオスナージャⅡ",
+        "mhw-db.com": "Girros Nadja 2"
+    },
+    {
+        "mhwg.org": "ギルオスナージャⅢ",
+        "mhw-db.com": "Girros Nadja 3"
+    },
+    {
+        "mhwg.org": "ハザクアスピダⅠ",
+        "mhw-db.com": "Hazak Aspida 1"
+    },
+    {
+        "mhwg.org": "ハザクアスピダⅡ",
+        "mhw-db.com": "Hazak Aspida 2"
+    },
+    {
+        "mhwg.org": "パルサーアームズⅠ",
+        "mhw-db.com": "Pulsar Strongarm 1"
+    },
+    {
+        "mhwg.org": "パルサーアームズⅡ",
+        "mhw-db.com": "Pulsar Strongarm 2"
+    },
+    {
+        "mhwg.org": "パルサーアームズⅢ",
+        "mhw-db.com": "Pulsar Strongarm 3"
+    },
+    {
+        "mhwg.org": "カガチノカイナⅠ",
+        "mhw-db.com": "Kadachi Kaina 1"
+    },
+    {
+        "mhwg.org": "カガチノカイナⅡ",
+        "mhw-db.com": "Kadachi Kaina 2"
+    },
+    {
+        "mhwg.org": "カガチノカイナⅢ",
+        "mhw-db.com": "Kadachi Kaina 3"
+    },
+    {
+        "mhwg.org": "ガロンアームズⅠ",
+        "mhw-db.com": "Garon Strongarm 1"
+    },
+    {
+        "mhwg.org": "ガロンアームズⅡ",
+        "mhw-db.com": "Garon Strongarm 2"
+    },
+    {
+        "mhwg.org": "憎しみの炎",
+        "mhw-db.com": "Hate's Undying Flame"
+    },
+    {
+        "mhwg.org": "憎【オディウム】",
+        "mhw-db.com": "Odium"
+    },
+    {
+        "mhwg.org": "龍骨盾斧Ⅰ",
+        "mhw-db.com": "Dragonbone Cutter 1"
+    },
+    {
+        "mhwg.org": "龍骨盾斧Ⅱ",
+        "mhw-db.com": "Dragonbone Cutter 2"
+    },
+    {
+        "mhwg.org": "龍骨盾斧Ⅲ",
+        "mhw-db.com": "Dragonbone Cutter 3"
+    },
+    {
+        "mhwg.org": "マグダ・マヌス",
+        "mhw-db.com": "Magda Manus"
+    },
+    {
+        "mhwg.org": "捲土重来マグマヌス",
+        "mhw-db.com": "Avenging Magda Manus"
+    },
+    {
+        "mhwg.org": "黒鋼の盾斧Ⅰ",
+        "mhw-db.com": "Blacksteel Charger 1"
+    },
+    {
+        "mhwg.org": "黒鋼の盾斧Ⅱ",
+        "mhw-db.com": "Blacksteel Charger 2"
+    },
+    {
+        "mhwg.org": "ダオラ＝カスカ",
+        "mhw-db.com": "Daora's Casca"
+    },
+    {
+        "mhwg.org": "ダオラ＝ゲンム",
+        "mhw-db.com": "Daora's Thwartoise"
+    },
+    {
+        "mhwg.org": "ゼノ＝ラーツ",
+        "mhw-db.com": "Xeno Ra'atz"
+    },
+    {
+        "mhwg.org": "暴虐の盾斧",
+        "mhw-db.com": "Tyrant's Charge Blade"
+    },
+    {
+        "mhwg.org": "デストネーター",
+        "mhw-db.com": "Oppressor's Charge Blade"
+    },
+    {
+        "mhwg.org": "アイアンブレードⅠ",
+        "mhw-db.com": "Iron Blade 1"
+    },
+    {
+        "mhwg.org": "アイアンブレードⅡ",
+        "mhw-db.com": "Iron Blade 2"
+    },
+    {
+        "mhwg.org": "アイアンブレードⅢ",
+        "mhw-db.com": "Iron Blade 3"
+    },
+    {
+        "mhwg.org": "スティールブレードⅠ",
+        "mhw-db.com": "Steel Blade 1"
+    },
+    {
+        "mhwg.org": "スティールブレードⅡ",
+        "mhw-db.com": "Steel Blade 2"
+    },
+    {
+        "mhwg.org": "スティールブレードⅢ",
+        "mhw-db.com": "Steel Blade 3"
+    },
+    {
+        "mhwg.org": "クロムブレードⅠ",
+        "mhw-db.com": "Chrome Blade 1"
+    },
+    {
+        "mhwg.org": "クロムブレードⅡ",
+        "mhw-db.com": "Chrome Blade 2"
+    },
+    {
+        "mhwg.org": "ネルガルハッシュ",
+        "mhw-db.com": "Nergal Reaper"
+    },
+    {
+        "mhwg.org": "撲滅の導灯",
+        "mhw-db.com": "Catastrophe's Light"
+    },
+    {
+        "mhwg.org": "フレイムブレードⅠ",
+        "mhw-db.com": "Flame Glaive 1"
+    },
+    {
+        "mhwg.org": "フレイムブレードⅡ",
+        "mhw-db.com": "Flame Glaive 2"
+    },
+    {
+        "mhwg.org": "火竜棍",
+        "mhw-db.com": "Rathmaul"
+    },
+    {
+        "mhwg.org": "火竜棍【炎舞】",
+        "mhw-db.com": "Firedance Rathmaul"
+    },
+    {
+        "mhwg.org": "クルルブレードⅠ",
+        "mhw-db.com": "Kulu Blade 1"
+    },
+    {
+        "mhwg.org": "クルルブレードⅡ",
+        "mhw-db.com": "Kulu Blade 2"
+    },
+    {
+        "mhwg.org": "クルルブレードⅢ",
+        "mhw-db.com": "Kulu Blade 3"
+    },
+    {
+        "mhwg.org": "アルノーラスⅠ",
+        "mhw-db.com": "Ya-Ku Wrath 1"
+    },
+    {
+        "mhwg.org": "アルノーラスⅡ",
+        "mhw-db.com": "Ya-Ku Wrath 2"
+    },
+    {
+        "mhwg.org": "アルノーラスⅢ",
+        "mhw-db.com": "Ya-Ku Wrath 3"
+    },
+    {
+        "mhwg.org": "イルミナルブレードⅠ",
+        "mhw-db.com": "Luminous Blade 1"
+    },
+    {
+        "mhwg.org": "イルミナルブレードⅡ",
+        "mhw-db.com": "Luminous Blade 2"
+    },
+    {
+        "mhwg.org": "デステリオバーラⅠ",
+        "mhw-db.com": "Destroyer Bo 1"
+    },
+    {
+        "mhwg.org": "デステリオバーラⅡ",
+        "mhw-db.com": "Destroyer Bo 2"
+    },
+    {
+        "mhwg.org": "デステリオバーラⅢ",
+        "mhw-db.com": "Destroyer Bo 3"
+    },
+    {
+        "mhwg.org": "フロストブレードⅠ",
+        "mhw-db.com": "Frost Blade 1"
+    },
+    {
+        "mhwg.org": "フロストブレードⅡ",
+        "mhw-db.com": "Frost Blade 2"
+    },
+    {
+        "mhwg.org": "フリーズゲイルⅠ",
+        "mhw-db.com": "Freeze Gale 1"
+    },
+    {
+        "mhwg.org": "フリーズゲイルⅡ",
+        "mhw-db.com": "Freeze Gale 2"
+    },
+    {
+        "mhwg.org": "ブルームブレードⅠ",
+        "mhw-db.com": "Blooming Glaive 1"
+    },
+    {
+        "mhwg.org": "ブルームブレードⅡ",
+        "mhw-db.com": "Blooming Glaive 2"
+    },
+    {
+        "mhwg.org": "ブルームブレードⅢ",
+        "mhw-db.com": "Blooming Glaive 3"
+    },
+    {
+        "mhwg.org": "ダチュラブレードⅠ",
+        "mhw-db.com": "Datura Blade 1"
+    },
+    {
+        "mhwg.org": "ダチュラブレードⅡ",
+        "mhw-db.com": "Datura Blade 2"
+    },
+    {
+        "mhwg.org": "ダチュラブレードⅢ",
+        "mhw-db.com": "Datura Blade 3"
+    },
+    {
+        "mhwg.org": "ガマルケインⅠ",
+        "mhw-db.com": "Gama Cane 1"
+    },
+    {
+        "mhwg.org": "ガマルケインⅡ",
+        "mhw-db.com": "Gama Cane 2"
+    },
+    {
+        "mhwg.org": "ボーンロッドⅠ",
+        "mhw-db.com": "Bone Rod 1"
+    },
+    {
+        "mhwg.org": "ボーンロッドⅡ",
+        "mhw-db.com": "Bone Rod 2"
+    },
+    {
+        "mhwg.org": "ボーンロッドⅢ",
+        "mhw-db.com": "Bone Rod 3"
+    },
+    {
+        "mhwg.org": "ハードボーンロッドⅠ",
+        "mhw-db.com": "Hard Bone Rod 1"
+    },
+    {
+        "mhwg.org": "ハードボーンロッドⅡ",
+        "mhw-db.com": "Hard Bone Rod 2"
+    },
+    {
+        "mhwg.org": "ハードボーンロッドⅢ",
+        "mhw-db.com": "Hard Bone Rod 3"
+    },
+    {
+        "mhwg.org": "エアリアルロッドⅠ",
+        "mhw-db.com": "Aerial Rod 1"
+    },
+    {
+        "mhwg.org": "エアリアルロッドⅡ",
+        "mhw-db.com": "Aerial Rod 2"
+    },
+    {
+        "mhwg.org": "ハザクエントマⅠ",
+        "mhw-db.com": "Hazak Entoma 1"
+    },
+    {
+        "mhwg.org": "ハザクエントマⅡ",
+        "mhw-db.com": "Hazak Entoma 2"
+    },
+    {
+        "mhwg.org": "フラムエルカラモス",
+        "mhw-db.com": "Flammenkaefer"
+    },
+    {
+        "mhwg.org": "フラムエルカラモス改",
+        "mhw-db.com": "Flammenkaefer+"
+    },
+    {
+        "mhwg.org": "蛮顎棍フラムカラモス",
+        "mhw-db.com": "Gnashing Flammenkaefer"
+    },
+    {
+        "mhwg.org": "アクアロッドⅠ",
+        "mhw-db.com": "Aqua Rod 1"
+    },
+    {
+        "mhwg.org": "アクアロッドⅡ",
+        "mhw-db.com": "Aqua Rod 2"
+    },
+    {
+        "mhwg.org": "アクアロッドⅢ",
+        "mhw-db.com": "Aqua Rod 3"
+    },
+    {
+        "mhwg.org": "ウォーターグレイブⅠ",
+        "mhw-db.com": "Water Glaive 1"
+    },
+    {
+        "mhwg.org": "ウォーターグレイブⅡ",
+        "mhw-db.com": "Water Glaive 2"
+    },
+    {
+        "mhwg.org": "ウォーターグレイブⅢ",
+        "mhw-db.com": "Water Glaive 3"
+    },
+    {
+        "mhwg.org": "ブロスロッドⅠ",
+        "mhw-db.com": "Diablos Rod 1"
+    },
+    {
+        "mhwg.org": "ブロスロッドⅡ",
+        "mhw-db.com": "Diablos Rod 2"
+    },
+    {
+        "mhwg.org": "タイラントグレイブⅠ",
+        "mhw-db.com": "Tyrannis Glaive 1"
+    },
+    {
+        "mhwg.org": "タイラントグレイブⅡ",
+        "mhw-db.com": "Tyrannis Glaive 2"
+    },
+    {
+        "mhwg.org": "パルサーロッドⅠ",
+        "mhw-db.com": "Pulsar Rod 1"
+    },
+    {
+        "mhwg.org": "パルサーロッドⅡ",
+        "mhw-db.com": "Pulsar Rod 2"
+    },
+    {
+        "mhwg.org": "パルサーロッドⅢ",
+        "mhw-db.com": "Pulsar Rod 3"
+    },
+    {
+        "mhwg.org": "カガチノハシラⅠ",
+        "mhw-db.com": "Kadachi Pillar 1"
+    },
+    {
+        "mhwg.org": "カガチノハシラⅡ",
+        "mhw-db.com": "Kadachi Pillar 2"
+    },
+    {
+        "mhwg.org": "カガチノハシラⅢ",
+        "mhw-db.com": "Kadachi Pillar 3"
+    },
+    {
+        "mhwg.org": "ガロンロッドⅠ",
+        "mhw-db.com": "Garon Rod 1"
+    },
+    {
+        "mhwg.org": "ガロンロッドⅡ",
+        "mhw-db.com": "Garon Rod 2"
+    },
+    {
+        "mhwg.org": "惑いの三鈷杵",
+        "mhw-db.com": "Temptation's Trident"
+    },
+    {
+        "mhwg.org": "悪【ヴァイス】",
+        "mhw-db.com": "Vice"
+    },
+    {
+        "mhwg.org": "龍骨棍Ⅰ",
+        "mhw-db.com": "Dragonbone Glaive 1"
+    },
+    {
+        "mhwg.org": "龍骨棍Ⅱ",
+        "mhw-db.com": "Dragonbone Glaive 2"
+    },
+    {
+        "mhwg.org": "龍骨棍Ⅲ",
+        "mhw-db.com": "Dragonbone Glaive 3"
+    },
+    {
+        "mhwg.org": "藍の稲光",
+        "mhw-db.com": "Indigo Flash"
+    },
+    {
+        "mhwg.org": "蒼の稲魂",
+        "mhw-db.com": "Azure Bolt"
+    },
+    {
+        "mhwg.org": "碧の神鳴",
+        "mhw-db.com": "Verdant Levin"
+    },
+    {
+        "mhwg.org": "黒鋼の長刀Ⅰ",
+        "mhw-db.com": "Blacksteel Glaive 1"
+    },
+    {
+        "mhwg.org": "黒鋼の長刀Ⅱ",
+        "mhw-db.com": "Blacksteel Glaive 2"
+    },
+    {
+        "mhwg.org": "ウルス＝ダオラ",
+        "mhw-db.com": "Daora's Entom"
+    },
+    {
+        "mhwg.org": "クイド＝ダオラ",
+        "mhw-db.com": "Daora's Tethidine"
+    },
+    {
+        "mhwg.org": "ゼノ＝シュマイナ",
+        "mhw-db.com": "Xeno Shmaena"
+    },
+    {
+        "mhwg.org": "バッドウィング",
+        "mhw-db.com": "Bad Wing"
+    },
+    {
+        "mhwg.org": "グランジストーム",
+        "mhw-db.com": "Grunge Storm"
+    }
+]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MHWSharpnessExtractor.DataSources;
 using System.Text;
+using System.IO;
 
 namespace MHWSharpnessExtractor
 {
@@ -68,11 +69,13 @@ namespace MHWSharpnessExtractor
 
         private void Analyze(IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
         {
-            Weapon[] intersect = sourceWeapons.Intersect(targetWeapons, WeaponEqualityComparer.Default).ToArray();
+            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, "report.txt")))
+                Analyze(output, sourceWeapons, targetWeapons);
+        }
 
-            Console.WriteLine();
-            Console.WriteLine($"Total intersect is {intersect.Length}");
-            Console.WriteLine();
+        private void Analyze(TextWriter output, IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            Weapon[] intersect = sourceWeapons.Intersect(targetWeapons).ToArray();
 
             WeaponType[] weaponTypes = new WeaponType[]
             {
@@ -89,40 +92,126 @@ namespace MHWSharpnessExtractor
                     WeaponType.InsectGlaive
             };
 
-            var report = new StringBuilder();
-            var markdownTableRows = new StringBuilder();
-
             foreach (WeaponType type in weaponTypes)
             {
-                Weapon[] s = sourceWeapons
+                IList<Weapon> s = sourceWeapons
                     .Where(x => x.Type == type)
-                    .ToArray();
+                    .ToList();
 
-                Weapon[] t = targetWeapons
+                IList<Weapon> t = targetWeapons
                     .Where(x => x.Type == type)
-                    .ToArray();
+                    .ToList();
 
-                report.AppendLine($"{type}:");
+                ProcessWeaponCategory(output, type, s, t);
+            }
+        }
 
-                int len = Math.Min(s.Length, t.Length);
-                for (int i = 0; i < len; i++)
+        private void ProcessWeaponCategory(TextWriter output, WeaponType type, IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            //Dictionary<int, Weapon> targetWeaponsDictionary = targetWeapons.ToDictionary(x => x.GetHashCode(), x => x);
+
+            //Dictionary<int, Weapon> targetWeaponsDictionary = new Dictionary<int, Weapon>();
+            //foreach (Weapon t in targetWeapons)
+            //{
+            //    int hashCode;
+
+            //    try
+            //    {
+            //        hashCode = t.GetHashCode();
+            //        targetWeaponsDictionary.Add(hashCode, t);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        t.GetHashCode();
+            //    }
+            //}
+
+
+            //IEnumerable<Weapon> intersect = sourceWeapons.Intersect(targetWeapons, WeaponEqualityComparer.Default);
+
+            //foreach (Weapon source in intersect)
+            //{
+            //    Weapon matchingTargetWeapon = targetWeaponsDictionary[source.GetHashCode()];
+            //    matchingTargetWeapon.UpdateSharpness(source.SharpnessRanks);
+            //    output.WriteLine(matchingTargetWeapon.ToJson(true));
+            //}
+
+            //output.WriteLine();
+
+
+            //????????????????????????????????????????????????????
+
+
+            //output.WriteLine($"{type}:");
+            //output.WriteLine();
+
+            //IList<Weapon> sMinusT = sourceWeapons.Except(targetWeapons, WeaponEqualityComparer.Default).ToList();
+
+            //foreach (Weapon weapon in sMinusT)
+            //{
+            //    IList<(Weapon weapon, int score)> bestMatches = targetWeapons
+            //        .Select(x => (weapon: x, score: weapon.ComputeMatchingScore(x)))
+            //        .OrderByDescending(x => x.score)
+            //        .ToList();
+
+            //    output.WriteLine($"Weapon mismatch {weapon.Name}");
+
+            //    int maxScore = bestMatches[0].score;
+            //    for (int i = 0; i < bestMatches.Count; i++)
+            //    {
+            //        if (bestMatches[i].score != maxScore)
+            //            break;
+
+            //        output.WriteLine($"candidate: {bestMatches[i].weapon.Name} (id: {bestMatches[i].weapon.Id})");
+            //        bestMatches[i].weapon.PrintMismatches(weapon, output);
+            //    }
+
+            //    output.WriteLine();
+            //}
+
+            //???????????????????????????????????????????????????????????
+
+            output.WriteLine($"{type}:");
+            output.WriteLine();
+
+            foreach (Weapon source in sourceWeapons)
+            {
+                int sourceHashCode = source.GetHashCode();
+
+                IList<Weapon> allTargets = targetWeapons.Where(t => t.GetHashCode() == sourceHashCode).ToList();
+
+                if (allTargets.Count == 1)
+                    output.WriteLine($"{source.Name} : {allTargets[0].Name}");
+                else if (allTargets.Count > 1)
                 {
-                    if (s[i].Equals(t[i]) == false)
-                        report.AppendLine($"    [{i}] {t[i].Name}");
+                    output.WriteLine($"{source.Name} :");
+                    foreach (Weapon possibleWeapon in allTargets)
+                        output.WriteLine($"- {possibleWeapon.Name}");
                 }
+                else if (allTargets.Count == 0)
+                {
+                    // find best matches
+                    IList<(Weapon weapon, int score)> bestMatches = targetWeapons
+                        .Select(x => (weapon: x, score: source.ComputeMatchingScore(x)))
+                        .OrderByDescending(x => x.score)
+                        .ToList();
 
-                Weapon[] sMinusT = s.Except(t, WeaponEqualityComparer.Default).ToArray();
-                Weapon[] tMinusS = t.Except(s, WeaponEqualityComparer.Default).ToArray();
-
-                Weapon[] perTypeIntersect = s
-                    .Intersect(t, WeaponEqualityComparer.Default)
-                    .ToArray();
-
-                markdownTableRows.AppendLine($"| {type} | {s.Length} | {t.Length} | {t.Length - s.Length} | {sMinusT.Length} | {tMinusS.Length} | {perTypeIntersect.Length} |");
+                    int maxScore = bestMatches[0].score;
+                    bestMatches = bestMatches.Where(x => x.score == maxScore).ToList();
+                    if (bestMatches.Count == 1)
+                        output.WriteLine($"{source.Name} : {bestMatches[0].weapon.Name}");
+                    else if (bestMatches.Count > 1)
+                    {
+                        output.WriteLine($"{source.Name} :");
+                        foreach ((Weapon weapon, int) possibleWeapon in bestMatches)
+                            output.WriteLine($"- {possibleWeapon.weapon.Name}");
+                    }
+                }
             }
 
-            Console.WriteLine(report.ToString());
-            Console.WriteLine(markdownTableRows.ToString());
+            output.WriteLine();
+            output.WriteLine("----------------------------------------------------------------------------");
+            output.WriteLine();
         }
     }
 }
