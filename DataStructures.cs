@@ -263,18 +263,18 @@ namespace MHWSharpnessExtractor
 
         private static readonly string[] SharpnessColors = new string[] { "red", "orange", "yellow", "green", "blue", "white" };
 
-        public string ToJson(bool pretify)
+        public object ToJsonObject()
         {
             var ranks = new Dictionary<string, int>();
 
             for (int i = 0; i < SharpnessRanks.Length; i++)
                 ranks[SharpnessColors[i]] = SharpnessRanks[i];
 
-            return JsonConvert.SerializeObject(new
+            return new
             {
                 id = Id,
                 sharpness = ranks
-            }, pretify ? Formatting.Indented : Formatting.None);                
+            };
         }
     }
 
