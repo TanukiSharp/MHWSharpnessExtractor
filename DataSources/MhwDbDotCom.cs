@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -15,8 +16,10 @@ namespace MHWSharpnessExtractor.DataSources
 
         public async Task<IList<Weapon>> ProduceWeaponsAsync()
         {
-            var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(3.0);
+            var httpClient = new HttpClient()
+            {
+                Timeout = TimeSpan.FromSeconds(3.0)
+            };
 
             var result = new List<Weapon>();
 
@@ -35,12 +38,19 @@ namespace MHWSharpnessExtractor.DataSources
                 CreateWeapons(httpClient, "insect-glaive"),
             };
 
-            await Task.WhenAll(tasks);
+            Stopwatch sw = Instrumentation.BeginProcessingMeasure();
 
-            var sw = Instrumentation.BeginProcessingMeasure();
+            try
+            {
+                await Task.WhenAll(tasks);
 
-            foreach (Task<IList<Weapon>> task in tasks)
-                result.AddRange(task.Result);
+                foreach (Task<IList<Weapon>> task in tasks)
+                    result.AddRange(task.Result);
+            }
+            catch (TaskCanceledException)
+            {
+                throw new TaskCanceledException($"{Name} took too long to answer.");
+            }
 
             Instrumentation.EndProcessingMeasure(sw);
 
@@ -49,13 +59,13 @@ namespace MHWSharpnessExtractor.DataSources
 
         private async Task<IList<Weapon>> CreateWeapons(HttpClient httpClient, string weaponType)
         {
-            var sw = Instrumentation.BeginNetworkMeasure();
+            Stopwatch sw = Instrumentation.BeginNetworkMeasure();
             string content = await httpClient.GetStringAsync($"https://mhw-db.com/weapons?q={{%22type%22:%22{weaponType}%22}}&p={{%22crafting%22:false,%22assets%22:false}}");
             Instrumentation.EndNetworkMeasure(sw);
 
             sw = Instrumentation.BeginProcessingMeasure();
 
-            JArray inputWeapons = (JArray)JsonConvert.DeserializeObject(content);
+            var inputWeapons = (JArray)JsonConvert.DeserializeObject(content);
 
             WeaponType typedWeaponType = ConvertWeaponType(weaponType);
 
@@ -76,8 +86,8 @@ namespace MHWSharpnessExtractor.DataSources
             int defense;
             EldersealLevel eldersealLevel;
 
-            string name = (string)weapon["name"];
-            JObject attributes = (JObject)weapon["attributes"];
+            var name = (string)weapon["name"];
+            var attributes = (JObject)weapon["attributes"];
 
             ExtractAttributes(attributes, out attack, out affinity, out defense, out eldersealLevel);
 

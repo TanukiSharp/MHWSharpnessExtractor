@@ -16,13 +16,17 @@ namespace MHWSharpnessExtractor
         {
             Success = 0,
             FormatError = 1,
-            OtherError = 2
+            NetworkError = 2,
+            OtherError = 3
         }
 
         static int Main(string[] args)
         {
             return new Program().Run(args).Result;
         }
+
+        private const string WeaponNameMappingFilename = "mhwg_to_mhwdb.json";
+        private const string WeaponSharpnessFilename = "weapon_sharpness.json";
 
         private async Task<int> Run(string[] args)
         {
@@ -64,12 +68,17 @@ namespace MHWSharpnessExtractor
                 if (noSharpness == false)
                     GenerateShaprnessOutput(sourceWeapons, targetWeapons);
 
-				resultCode = ResultCode.Success;
+                resultCode = ResultCode.Success;
             }
             catch (FormatException ex)
             {
                 Console.WriteLine(ex);
                 resultCode = ResultCode.FormatError;
+            }
+            catch (TaskCanceledException ex)
+            {
+                Console.WriteLine(ex.Message);
+                resultCode = ResultCode.NetworkError;
             }
             catch (Exception ex)
             {
@@ -82,7 +91,7 @@ namespace MHWSharpnessExtractor
 
         private void GenerateWeaponsNameMapping(IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
         {
-            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, "mhwg_to_mhwdb.json")))
+            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, WeaponNameMappingFilename)))
                 GenerateWeaponsNameMapping(output, sourceWeapons, targetWeapons);
         }
 
@@ -175,13 +184,13 @@ namespace MHWSharpnessExtractor
 
         private void GenerateShaprnessOutput(IList<Weapon> allSourceWeapons, IList<Weapon> allTargetWeapons)
         {
-            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, "sharpness_output.json")))
+            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, WeaponSharpnessFilename)))
                 GenerateShaprnessOutput(output, allSourceWeapons, allTargetWeapons);
         }
 
         private void GenerateShaprnessOutput(TextWriter output, IList<Weapon> allSourceWeapons, IList<Weapon> allTargetWeapons)
         {
-            string mappingContent = File.ReadAllText("data/mhwg_to_mhwdb.json");
+            string mappingContent = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "data", WeaponNameMappingFilename));
             IDictionary<string, string> mapping = JsonConvert.DeserializeObject<IDictionary<string, string>>(mappingContent);
 
             Dictionary<string, Weapon> targetWeapons = allTargetWeapons.ToDictionary(x => x.Name);

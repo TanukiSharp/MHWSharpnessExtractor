@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -18,8 +19,10 @@ namespace MHWSharpnessExtractor.DataSources
 
         public async Task<IList<Weapon>> ProduceWeaponsAsync()
         {
-            var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(3.0);
+            var httpClient = new HttpClient()
+            {
+                Timeout = TimeSpan.FromSeconds(3.0)
+            };
 
             var result = new List<Weapon>();
 
@@ -38,17 +41,24 @@ namespace MHWSharpnessExtractor.DataSources
                 GetWeaponsAsync(httpClient.GetStringAsync("http://mhwg.org/data/4010.html"), WeaponType.InsectGlaive),
             };
 
-            await Task.WhenAll(tasks);
+            try
+            {
+                await Task.WhenAll(tasks);
 
-            foreach (Task<IList<Weapon>> task in tasks)
-                result.AddRange(task.Result);
+                foreach (Task<IList<Weapon>> task in tasks)
+                    result.AddRange(task.Result);
+            }
+            catch (TaskCanceledException)
+            {
+                throw new TaskCanceledException($"{Name} took too long to answer.");
+            }
 
             return result;
         }
 
         private async Task<IList<Weapon>> GetWeaponsAsync(Task<string> contentProvider, WeaponType weaponType)
         {
-            var sw = Instrumentation.BeginNetworkMeasure();
+            Stopwatch sw = Instrumentation.BeginNetworkMeasure();
             string content = await contentProvider;
             Instrumentation.EndNetworkMeasure(sw);
 
