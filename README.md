@@ -37,7 +37,7 @@ dotnet MHWSharpnessExtractor.dll --no-name-mapping
 
 The weapon name mapping file is named `mhwg_to_mhwdb.json`.
 
-The weapon sharpness file is named `weapon_sharpness.json`.
+The weapon sharpness file is named `weapon_sharpness.json`. The sharpness values are given out of 400.
 
 The tool (executable) creates the file at its root directory level, and returns the following codes:
 
