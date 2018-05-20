@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MHWSharpnessExtractor.DataSources;
+using System.Text;
+using System.IO;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace MHWSharpnessExtractor
 {
@@ -25,9 +30,13 @@ namespace MHWSharpnessExtractor
             IDataSource sourceDataSource = new MhwgDotOrg();
             IDataSource targetDataSource = new MhwDbDotCom();
 
+            bool noNameMapping = args.Contains("--no-name-mapping");
+            bool noSharpness = args.Contains("--no-sharpness");
+            bool isSilent = args.Contains("--silent");
+
             try
             {
-                var sw = Instrumentation.BeginTotalMeasure();
+                Stopwatch sw = Instrumentation.BeginTotalMeasure();
 
                 Task<IList<Weapon>> sourceWeaponsTask = sourceDataSource.ProduceWeaponsAsync();
                 Task<IList<Weapon>> targetWeaponsTask = targetDataSource.ProduceWeaponsAsync();
@@ -39,27 +48,162 @@ namespace MHWSharpnessExtractor
 
                 Instrumentation.EndTotalMeasure(sw);
 
-                Console.WriteLine($"Real total time: {Instrumentation.RealTotalTime} ms");
+                if (isSilent == false)
+                {
+                    Console.WriteLine($"Real total time: {Instrumentation.RealTotalTime} ms");
 
-                long total = Instrumentation.NetworkTime + Instrumentation.ProcessingTime;
-                double networkPercent = Math.Round(Instrumentation.NetworkTime * 100.0 / total, 2);
-                Console.WriteLine($"Network time: {networkPercent}%");
-                Console.WriteLine($"Processing time: {100.0 - networkPercent}%");
+                    long total = Instrumentation.NetworkTime + Instrumentation.ProcessingTime;
+                    double networkPercent = Math.Round(Instrumentation.NetworkTime * 100.0 / total, 2);
+                    Console.WriteLine($"Network time: {networkPercent}%");
+                    Console.WriteLine($"Processing time: {100.0 - networkPercent}%");
+                }
 
-                resultCode = ResultCode.Success;
+                if (noNameMapping == false)
+                    GenerateWeaponsNameMapping(sourceWeapons, targetWeapons);
+
+                if (noSharpness == false)
+                    GenerateShaprnessOutput(sourceWeapons, targetWeapons);
+
+				resultCode = ResultCode.Success;
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 resultCode = ResultCode.FormatError;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 resultCode = ResultCode.OtherError;
             }
 
             return (int)resultCode;
+        }
+
+        private void GenerateWeaponsNameMapping(IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, "mhwg_to_mhwdb.json")))
+                GenerateWeaponsNameMapping(output, sourceWeapons, targetWeapons);
+        }
+
+        private void GenerateWeaponsNameMapping(TextWriter output, IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            var weaponTypes = new WeaponType[]
+            {
+                WeaponType.GreatSword,
+                WeaponType.LongSword,
+                WeaponType.SwordAndShield,
+                WeaponType.DualBlades,
+                WeaponType.Hammer,
+                WeaponType.HuntingHorn,
+                WeaponType.Lance,
+                WeaponType.Gunlance,
+                WeaponType.SwitchAxe,
+                WeaponType.ChargeBlade,
+                WeaponType.InsectGlaive
+            };
+
+            var sb = new StringBuilder();
+            sb.Append("{\n");
+
+            foreach (WeaponType type in weaponTypes)
+            {
+                IList<Weapon> s = sourceWeapons
+                    .Where(x => x.Type == type)
+                    .ToList();
+
+                IList<Weapon> t = targetWeapons
+                    .Where(x => x.Type == type)
+                    .ToList();
+
+                ProcessWeaponCategory(sb, type, s, t);
+            }
+
+            sb.Remove(sb.Length - 2, 2);
+            sb.Append("\n}\n");
+
+            output.WriteLine(sb.ToString());
+        }
+
+        private static string Escape(string str)
+        {
+            return str.Replace("\"", "\\\"");
+        }
+
+        private void ProcessWeaponCategory(StringBuilder sb, WeaponType type, IList<Weapon> sourceWeapons, IList<Weapon> targetWeapons)
+        {
+            foreach (Weapon source in sourceWeapons)
+            {
+                int sourceHashCode = source.GetHashCode();
+
+                IList<Weapon> allTargets = targetWeapons.Where(t => t.GetHashCode() == sourceHashCode).ToList();
+
+                if (allTargets.Count == 1)
+                    sb.Append($"    \"{Escape(source.Name)}\": \"{Escape(allTargets[0].Name)}\",\n");
+                else if (allTargets.Count > 1)
+                {
+                    sb.Append($"    \"{Escape(source.Name)}\": [\n");
+                    foreach (Weapon possibleWeapon in allTargets)
+                        sb.Append($"        \"{Escape(possibleWeapon.Name)}\",\n");
+                    sb.Remove(sb.Length - 2, 2);
+                    sb.Append("\n    ],\n");
+                }
+                else if (allTargets.Count == 0)
+                {
+                    // find best matches
+
+                    IList<(Weapon weapon, int score)> bestMatches = targetWeapons
+                        .Select(x => (weapon: x, score: source.ComputeMatchingScore(x)))
+                        .OrderByDescending(x => x.score)
+                        .ToList();
+
+                    int maxScore = bestMatches[0].score;
+                    bestMatches = bestMatches.Where(x => x.score == maxScore).ToList();
+                    if (bestMatches.Count == 1)
+                        sb.Append($"    \"{Escape(source.Name)}\": \"{Escape(bestMatches[0].weapon.Name)}\",\n");
+                    else if (bestMatches.Count > 1)
+                    {
+                        sb.Append($"    \"{Escape(source.Name)}\": [\n");
+                        foreach ((Weapon weapon, int) possibleWeapon in bestMatches)
+                            sb.Append($"        \"{Escape(possibleWeapon.weapon.Name)}\",\n");
+                        sb.Remove(sb.Length - 2, 2);
+                        sb.Append("\n    ],\n");
+                    }
+                }
+            }
+        }
+
+        private void GenerateShaprnessOutput(IList<Weapon> allSourceWeapons, IList<Weapon> allTargetWeapons)
+        {
+            using (TextWriter output = new StreamWriter(Path.Combine(AppContext.BaseDirectory, "sharpness_output.json")))
+                GenerateShaprnessOutput(output, allSourceWeapons, allTargetWeapons);
+        }
+
+        private void GenerateShaprnessOutput(TextWriter output, IList<Weapon> allSourceWeapons, IList<Weapon> allTargetWeapons)
+        {
+            string mappingContent = File.ReadAllText("data/mhwg_to_mhwdb.json");
+            IDictionary<string, string> mapping = JsonConvert.DeserializeObject<IDictionary<string, string>>(mappingContent);
+
+            Dictionary<string, Weapon> targetWeapons = allTargetWeapons.ToDictionary(x => x.Name);
+
+            var result = new List<object>();
+
+            foreach (Weapon sourceWeapon in allSourceWeapons)
+            {
+                if (mapping.TryGetValue(sourceWeapon.Name, out string mhwdbWeaponName) == false)
+                    continue;
+
+                Weapon targetWeapon = targetWeapons[mhwdbWeaponName];
+
+                result.Add(targetWeapon
+                    .UpdateSharpness(sourceWeapon.SharpnessRanks)
+                    .ToJsonObject()
+                );
+            }
+
+            string resultJson = JsonConvert.SerializeObject(result);
+
+            output.WriteLine(resultJson);
         }
     }
 }
