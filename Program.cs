@@ -143,41 +143,22 @@ namespace MHWSharpnessExtractor
         {
             foreach (Weapon source in sourceWeapons)
             {
-                int sourceHashCode = source.GetHashCode();
+                IList<(Weapon weapon, int score)> bestMatches = targetWeapons
+                    .Select(x => (weapon: x, score: source.ComputeMatchingScore(x)))
+                    .OrderByDescending(x => x.score)
+                    .ToList();
 
-                IList<Weapon> allTargets = targetWeapons.Where(t => t.GetHashCode() == sourceHashCode).ToList();
-
-                if (allTargets.Count == 1)
-                    sb.Append($"    \"{Escape(source.Name)}\": \"{Escape(allTargets[0].Name)}\",\n");
-                else if (allTargets.Count > 1)
+                int maxScore = bestMatches[0].score;
+                bestMatches = bestMatches.Where(x => x.score == maxScore).ToList();
+                if (bestMatches.Count == 1)
+                    sb.Append($"    \"{Escape(source.Name)}\": \"{Escape(bestMatches[0].weapon.Name)}\",\n");
+                else if (bestMatches.Count > 1)
                 {
                     sb.Append($"    \"{Escape(source.Name)}\": [\n");
-                    foreach (Weapon possibleWeapon in allTargets)
-                        sb.Append($"        \"{Escape(possibleWeapon.Name)}\",\n");
+                    foreach ((Weapon weapon, int) possibleWeapon in bestMatches)
+                        sb.Append($"        \"{Escape(possibleWeapon.weapon.Name)}\",\n");
                     sb.Remove(sb.Length - 2, 2);
                     sb.Append("\n    ],\n");
-                }
-                else if (allTargets.Count == 0)
-                {
-                    // find best matches
-
-                    IList<(Weapon weapon, int score)> bestMatches = targetWeapons
-                        .Select(x => (weapon: x, score: source.ComputeMatchingScore(x)))
-                        .OrderByDescending(x => x.score)
-                        .ToList();
-
-                    int maxScore = bestMatches[0].score;
-                    bestMatches = bestMatches.Where(x => x.score == maxScore).ToList();
-                    if (bestMatches.Count == 1)
-                        sb.Append($"    \"{Escape(source.Name)}\": \"{Escape(bestMatches[0].weapon.Name)}\",\n");
-                    else if (bestMatches.Count > 1)
-                    {
-                        sb.Append($"    \"{Escape(source.Name)}\": [\n");
-                        foreach ((Weapon weapon, int) possibleWeapon in bestMatches)
-                            sb.Append($"        \"{Escape(possibleWeapon.weapon.Name)}\",\n");
-                        sb.Remove(sb.Length - 2, 2);
-                        sb.Append("\n    ],\n");
-                    }
                 }
             }
         }
