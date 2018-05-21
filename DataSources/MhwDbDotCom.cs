@@ -87,44 +87,61 @@ namespace MHWSharpnessExtractor.DataSources
             EldersealLevel eldersealLevel;
 
             var name = (string)weapon["name"];
+            var rarity = (int)weapon["rarity"];
             var attributes = (JObject)weapon["attributes"];
 
             ExtractAttributes(attributes, out attack, out affinity, out defense, out eldersealLevel);
 
             ElementInfo[] elementInfo = ExtractElementInfo((JArray)weapon["elements"]);
             int[] slots = ExtractSlots((JArray)weapon["slots"]);
+            int[] sharpness = ExtractSharpness((JObject)weapon["sharpness"]);
 
             Weapon outputWeapon;
 
             if (type == WeaponType.ChargeBlade)
             {
                 ChargeBladePhialType phialType = ExtractChargeBladePhialType(attributes);
-                outputWeapon = new ChargeBlade(this, name, phialType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new ChargeBlade(this, name, phialType, rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.HuntingHorn)
             {
                 // mhw-db.com is missing melodies info
-                outputWeapon = new HuntingHorn(this, name, new Melody[0], attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new HuntingHorn(this, name, new Melody[0], rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.SwitchAxe)
             {
                 ExtractSwitchAxePhialInfo(attributes, out SwitchAxePhialType phialType, out int phialValue);
-                outputWeapon = new SwitchAxe(this, name, phialType, phialValue, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new SwitchAxe(this, name, phialType, phialValue, rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.Gunlance)
             {
                 ExtractGunlanceShellingInfo(attributes, out GunlanceShellingType shellingType, out int shellingLevel);
-                outputWeapon = new Gunlance(this, name, shellingType, shellingLevel, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new Gunlance(this, name, shellingType, shellingLevel, rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
             }
             else if (type == WeaponType.InsectGlaive)
             {
                 KinsectBonusType kinsectBonusType = ExtractInsectGlaiveKinsectBonusType(attributes);
-                outputWeapon = new InsectGlaive(this, name, kinsectBonusType, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new InsectGlaive(this, name, kinsectBonusType, rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
             }
             else
-                outputWeapon = new Weapon(this, name, type, attack, affinity, defense, null, eldersealLevel, elementInfo, slots);
+                outputWeapon = new Weapon(this, name, type, rarity, attack, affinity, defense, sharpness, null, eldersealLevel, elementInfo, slots);
 
             return outputWeapon.UpdateId((int)weapon["id"]);
+        }
+
+        private int[] ExtractSharpness(JObject sharpnessObject)
+        {
+            var result = new int[sharpnessObject.Count];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (sharpnessObject.TryGetValue(Weapon.SharpnessColors[i], out JToken value) == false)
+                    break;
+
+                result[i] = (int)value * 4;
+            }
+
+            return result;
         }
 
         private KinsectBonusType ExtractInsectGlaiveKinsectBonusType(JObject attributes)

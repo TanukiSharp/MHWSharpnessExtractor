@@ -205,7 +205,7 @@ namespace MHWSharpnessExtractor
                 Weapon targetWeapon = targetWeapons[mhwdbWeaponName];
 
                 result.Add(targetWeapon
-                    .UpdateSharpness(sourceWeapon.SharpnessRanks)
+                    .UpdateSharpnessLevel5(sourceWeapon.SharpnessRanksLevel5)
                     .ToJsonObject()
                 );
             }

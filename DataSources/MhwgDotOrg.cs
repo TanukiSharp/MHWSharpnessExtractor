@@ -77,11 +77,16 @@ namespace MHWSharpnessExtractor.DataSources
 
             while (currentPosition < content.Length)
             {
-                // === name =========================================================
-
-                Markup weaponImageMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "img" && m.Classes.Contains("wp_img"));
+                Markup weaponImageMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "img" && m.Classes.Contains("wp_img") && m.Properties.ContainsKey("src") && m.Properties["src"].StartsWith("http://s.mhwg.org/images/weapon2/w"));
                 if (weaponImageMarkup == null)
                     break;
+
+                // === rarity =========================================================
+
+                string weaponRarityImageUrl = weaponImageMarkup.Properties["src"];
+                int rarity = TryGetRarity(weaponRarityImageUrl);
+
+                // === name =========================================================
 
                 int closingTdIndex = content.IndexOf("</td>", currentPosition);
                 if (closingTdIndex < 0)
@@ -160,37 +165,39 @@ namespace MHWSharpnessExtractor.DataSources
                 if (weaponSharpnessMarkup == null)
                     throw BadFormat($"Could not find outter sharpness markup reference for weapon '{weaponName}'");
 
-                weaponSharpnessMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "span" && m.Classes.Contains("kr7"));
-                if (weaponSharpnessMarkup == null)
-                    throw BadFormat($"Could not find inner sharpness markup reference for weapon '{weaponName}'");
+                var ranks = new List<(int rank, int value)>[2];
 
-                var ranks = new List<(int rank, int value)>();
-
-                for (int i = 0; i < 7; i++)
+                for (int rankLevel = 0; rankLevel < 2; rankLevel++)
                 {
-                    Markup sharpnessRankMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "span" && m.Classes.Any(x => x.StartsWith("kr")));
-                    if (sharpnessRankMarkup == null)
-                        break;
+                    ranks[rankLevel] = new List<(int rank, int value)>();
 
-                    string matchingClassName = sharpnessRankMarkup.Classes.First(x => x.StartsWith("kr"));
+                    for (int i = 0; i < 7; i++)
+                    {
+                        Markup sharpnessRankMarkup = HtmlUtils.Until(content, ref currentPosition, m => m.Name == "span" && m.Classes.Any(x => x.StartsWith("kr")));
+                        if (sharpnessRankMarkup == null)
+                            break;
 
-                    if (int.TryParse(matchingClassName.Substring(2), out int rank) == false)
-                        throw BadFormat($"Invalid shrpness class name '{matchingClassName}' for weapon '{weaponName}' (expected 'krX' where X is a numeric value)");
+                        string matchingClassName = sharpnessRankMarkup.Classes.First(x => x.StartsWith("kr"));
 
-                    if (rank >= 7)
-                        break;
+                        if (int.TryParse(matchingClassName.Substring(2), out int rank) == false)
+                            throw BadFormat($"Invalid shrpness class name '{matchingClassName}' for weapon '{weaponName}' (expected 'krX' where X is a numeric value)");
 
-                    string rankValue = HtmlUtils.GetMarkupContent(content, sharpnessRankMarkup);
-                    if (rankValue == null)
-                        throw BadFormat($"Could not find inner sharpness markup content for weapon '{weaponName}'");
+                        if (rank >= 7)
+                            break;
 
-                    if (rankValue.Length > 0)
-                        ranks.Add((rank, rankValue.Length * Constants.SharpnessMultiplier));
+                        string rankValue = HtmlUtils.GetMarkupContent(content, sharpnessRankMarkup);
+                        if (rankValue == null)
+                            throw BadFormat($"Could not find inner sharpness markup content for weapon '{weaponName}'");
+
+                        if (rankValue.Length > 0)
+                            ranks[rankLevel].Add((rank, rankValue.Length * Constants.SharpnessMultiplier));
+                    }
+
+                    ranks[rankLevel].Sort((a, b) => a.rank.CompareTo(b.rank));
                 }
 
-                ranks.Sort((a, b) => a.rank.CompareTo(b.rank));
-
-                int[] sharpnessRanks = ranks.Select(x => x.value).ToArray();
+                int[] sharpnessRanksLevel1 = ranks[0].Select(x => x.value).ToArray();
+                int[] sharpnessRanksLevel5 = ranks[1].Select(x => x.value).ToArray();
 
                 // === slots =========================================================
 
@@ -235,10 +242,12 @@ namespace MHWSharpnessExtractor.DataSources
                         this,
                         weaponName,
                         chargeBladePhialType,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -250,10 +259,12 @@ namespace MHWSharpnessExtractor.DataSources
                         this,
                         weaponName,
                         huntingHornMelodies,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -266,10 +277,12 @@ namespace MHWSharpnessExtractor.DataSources
                         weaponName,
                         switchAxePhialType,
                         switchAxePhialValue,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -282,10 +295,12 @@ namespace MHWSharpnessExtractor.DataSources
                         weaponName,
                         gunlanceShellingType,
                         gunlanceShellingValue,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -297,10 +312,12 @@ namespace MHWSharpnessExtractor.DataSources
                         this,
                         weaponName,
                         insectGlaiveKinsectBonusType,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -312,10 +329,12 @@ namespace MHWSharpnessExtractor.DataSources
                         this,
                         weaponName,
                         weaponType,
+                        rarity,
                         attack,
                         affinity,
                         defense,
-                        sharpnessRanks,
+                        sharpnessRanksLevel1,
+                        sharpnessRanksLevel5,
                         eldersealLevel,
                         elementInfo,
                         slots
@@ -331,6 +350,23 @@ namespace MHWSharpnessExtractor.DataSources
         private FormatException BadFormat(string message)
         {
             return new FormatException(message);
+        }
+
+        private int TryGetRarity(string url)
+        {
+            int startIndex = url.LastIndexOf('-');
+            if (startIndex < 0)
+                throw BadFormat($"Could not determine start reference of rarity for a weapon");
+
+            int endIndex = url.IndexOf(".png", startIndex);
+            if (endIndex < 0)
+                throw BadFormat($"Could not determine end reference of rarity for a weapon");
+
+            string rarityStringValue = url.Substring(startIndex + 1, endIndex - startIndex - 1);
+            if (int.TryParse(rarityStringValue, out int rarity) == false)
+                throw BadFormat($"Invalid rarity value '{rarityStringValue}' for a weapon");
+
+            return rarity;
         }
 
         private void TryGetChargeBladePhialType(string weaponName, string content, ref int currentPosition, out ChargeBladePhialType phialType)

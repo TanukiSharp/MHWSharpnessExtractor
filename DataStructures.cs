@@ -56,7 +56,8 @@ namespace MHWSharpnessExtractor
             if (slots == null || slots.Length < 3)
             {
                 int[] temp = new int[3];
-                for (int i = 0; i < slots.Length; i++)
+                int len = slots == null ? 0 : slots.Length;
+                for (int i = 0; i < len; i++)
                     temp[i] = slots[i];
                 slots = temp;
             }
@@ -148,10 +149,12 @@ namespace MHWSharpnessExtractor
         public int Id { get; private set; }
         public string Name { get; private set; }
         public WeaponType Type { get; }
+        public int Rarity { get; }
         public int Attack { get; }
         public int Affinity { get; }
         public int Defense { get; }
-        public int[] SharpnessRanks { get; private set; }
+        public int[] SharpnessRanksLevel1 { get; private set; }
+        public int[] SharpnessRanksLevel5 { get; private set; }
         public EldersealLevel Elderseal { get; }
         public ElementInfo[] Elements { get; }
         public SlotInfo Slots { get; }
@@ -160,10 +163,12 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             WeaponType type,
+            int rarity,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots
@@ -173,13 +178,23 @@ namespace MHWSharpnessExtractor
             Id = -1;
             Name = name;
             Type = type;
+            Rarity = rarity;
             Attack = attack;
             Affinity = affinity;
             Defense = defense;
-            SharpnessRanks = sharpnessRanks;
+            SharpnessRanksLevel1 = NormalizeSharpness(sharpnessRanksLevel1);
+            SharpnessRanksLevel5 = NormalizeSharpness(sharpnessRanksLevel5);
             Elderseal = elderseal;
             Elements = elements.OrderBy(x => x.Type).ToArray();
             Slots = new SlotInfo(slots);
+        }
+
+        private int[] NormalizeSharpness(int[] sharpness)
+        {
+            if (sharpness == null)
+                return new int[0];
+
+            return sharpness.Where(x => x > 0).ToArray();
         }
 
         public Weapon UpdateId(int newId)
@@ -188,9 +203,9 @@ namespace MHWSharpnessExtractor
             return this;
         }
 
-        public Weapon UpdateSharpness(int[] sharpnessRanks)
+        public Weapon UpdateSharpnessLevel5(int[] sharpnessRanks)
         {
-            SharpnessRanks = sharpnessRanks;
+            SharpnessRanksLevel5 = sharpnessRanks;
             return this;
         }
 
@@ -198,15 +213,27 @@ namespace MHWSharpnessExtractor
         {
             int score = 0;
 
-            int len = Math.Max(other.Slots.Length, Slots.Length);
+            if ((object)other == null)
+                return 0;
+
+            int len = Math.Min(other.Slots.Length, Slots.Length);
             for (int i = 0; i < len; i++)
             {
                 if (other.Slots[i] == Slots[i])
                     score++;
             }
 
+            len = Math.Min(other.SharpnessRanksLevel1.Length, SharpnessRanksLevel1.Length);
+            for (int i = 0; i < len; i++)
+            {
+                if (Math.Abs(SharpnessRanksLevel1[i] - other.SharpnessRanksLevel1[i]) <= 2)
+                    score++;
+            }
+
             if (other.Elements.Length == Elements.Length)
             {
+                score++;
+
                 for (int i = 0; i < Elements.Length; i++)
                 {
                     if (other.Elements[i].Type == Elements[i].Type)
@@ -219,6 +246,9 @@ namespace MHWSharpnessExtractor
             }
 
             if (other.Type == Type)
+                score++;
+
+            if (other.Rarity == Rarity)
                 score++;
 
             if (other.Attack == Attack)
@@ -243,7 +273,7 @@ namespace MHWSharpnessExtractor
 
         public override int GetHashCode()
         {
-            return $"{(int)Type}-{Attack}-{Affinity}-{Defense}-{(int)Elderseal}-{Slots.GetHashCode()}-{string.Join('|', Elements.Select(x => x.GetHashCode()))}".GetHashCode();
+            return $"{(int)Type}-{Rarity}-{Attack}-{Affinity}-{Defense}-{(int)Elderseal}-{Slots.GetHashCode()}-{string.Join('|', Elements.Select(x => x.GetHashCode()))}".GetHashCode();
         }
 
         public static bool operator ==(Weapon left, Weapon right)
@@ -261,14 +291,14 @@ namespace MHWSharpnessExtractor
             return Name;
         }
 
-        private static readonly string[] SharpnessColors = new string[] { "red", "orange", "yellow", "green", "blue", "white" };
+        public static readonly string[] SharpnessColors = new string[] { "red", "orange", "yellow", "green", "blue", "white" };
 
         public object ToJsonObject()
         {
             var ranks = new Dictionary<string, int>();
 
-            for (int i = 0; i < SharpnessRanks.Length; i++)
-                ranks[SharpnessColors[i]] = SharpnessRanks[i];
+            for (int i = 0; i < SharpnessRanksLevel5.Length; i++)
+                ranks[SharpnessColors[i]] = SharpnessRanksLevel5[i];
 
             return new
             {
@@ -293,10 +323,12 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             ChargeBladePhialType phialType,
+            int rarity,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots)
@@ -304,10 +336,12 @@ namespace MHWSharpnessExtractor
                   dataSource,
                   name,
                   WeaponType.ChargeBlade,
+                  rarity,
                   attack,
                   affinity,
                   defense,
-                  sharpnessRanks,
+                  sharpnessRanksLevel1,
+                  sharpnessRanksLevel5,
                   elderseal,
                   elements,
                   slots
@@ -371,10 +405,12 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             Melody[] melodies,
+            int rarity,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots)
@@ -382,10 +418,12 @@ namespace MHWSharpnessExtractor
                   dataSource,
                   name,
                   WeaponType.HuntingHorn,
+                  rarity,
                   attack,
                   affinity,
                   defense,
-                  sharpnessRanks,
+                  sharpnessRanksLevel1,
+                  sharpnessRanksLevel5,
                   elderseal,
                   elements,
                   slots
@@ -455,11 +493,13 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             SwitchAxePhialType phialType,
+            int rarity,
             int phialValue,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots)
@@ -467,10 +507,12 @@ namespace MHWSharpnessExtractor
                   dataSource,
                   name,
                   WeaponType.SwitchAxe,
+                  rarity,
                   attack,
                   affinity,
                   defense,
-                  sharpnessRanks,
+                  sharpnessRanksLevel1,
+                  sharpnessRanksLevel5,
                   elderseal,
                   elements,
                   slots
@@ -534,11 +576,13 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             GunlanceShellingType shellingType,
+            int rarity,
             int shellingLevel,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots)
@@ -546,10 +590,12 @@ namespace MHWSharpnessExtractor
                   dataSource,
                   name,
                   WeaponType.Gunlance,
+                  rarity,
                   attack,
                   affinity,
                   defense,
-                  sharpnessRanks,
+                  sharpnessRanksLevel1,
+                  sharpnessRanksLevel5,
                   elderseal,
                   elements,
                   slots
@@ -615,10 +661,12 @@ namespace MHWSharpnessExtractor
             IDataSource dataSource,
             string name,
             KinsectBonusType kinsectBonus,
+            int rarity,
             int attack,
             int affinity,
             int defense,
-            int[] sharpnessRanks,
+            int[] sharpnessRanksLevel1,
+            int[] sharpnessRanksLevel5,
             EldersealLevel elderseal,
             ElementInfo[] elements,
             int[] slots)
@@ -626,10 +674,12 @@ namespace MHWSharpnessExtractor
                   dataSource,
                   name,
                   WeaponType.InsectGlaive,
+                  rarity,
                   attack,
                   affinity,
                   defense,
-                  sharpnessRanks,
+                  sharpnessRanksLevel1,
+                  sharpnessRanksLevel5,
                   elderseal,
                   elements,
                   slots
