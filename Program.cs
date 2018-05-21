@@ -7,6 +7,7 @@ using System.Text;
 using System.IO;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace MHWSharpnessExtractor
 {
@@ -37,6 +38,12 @@ namespace MHWSharpnessExtractor
             bool noNameMapping = args.Contains("--no-name-mapping");
             bool noSharpness = args.Contains("--no-sharpness");
             bool isSilent = args.Contains("--silent");
+
+            if (isSilent == false)
+            {
+                Version version = Assembly.GetEntryAssembly().GetName().Version;
+                Console.WriteLine($"v{version.Major}.{version.Minor}.{version.Build}");
+            }
 
             try
             {
